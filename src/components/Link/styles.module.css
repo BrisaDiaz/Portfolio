@@ -1,0 +1,38 @@
+.link{
+font-size: 1em;
+}
+.link--primary{
+  color: var(--link-color);
+}
+.link--external svg{
+  opacity: 0;
+}
+.link--external{
+display: flex;
+align-items: center;
+gap: 0.25rem;
+}
+.link:hover ,.link:focus-visible {
+  outline: none;
+  opacity: 0.9;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.link--external:hover svg,.link--external:focus-visible svg{
+  opacity: 1;
+}
+.link--btn{
+   padding:  0.5em 1em;
+  color:var(--foreground);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap:0.3rem;
+}
+.link--secondary.link--btn{
+  background-color:var(--caption-color);
+}
+.link--primary.link--btn{
+  background-color:var(--link-color);
+}

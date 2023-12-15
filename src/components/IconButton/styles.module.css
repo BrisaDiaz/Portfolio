@@ -1,0 +1,23 @@
+.icon-btn{
+  padding: 0.35em 0.35em ;
+  border: none;
+  outline: none;
+  border-radius: var(--border-radius);
+  font-size: 1.2em;
+  background: transparent;
+  color: var(--heading-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1em;
+}
+
+.icon-btn:hover,.icon-btn:focus-visible{
+  background: var(--border-color);
+}
+
+.icon-btn svg{
+width: 1em;
+height: auto;
+}

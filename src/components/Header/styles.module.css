@@ -1,0 +1,14 @@
+.header{
+  z-index: 999;
+ position: fixed;
+ width: 100%;
+padding: 1em;
+}
+.header-inner{
+  position: relative;
+  display: flex;
+  width: inherit;
+  align-items: center;
+justify-content: space-between;
+
+}

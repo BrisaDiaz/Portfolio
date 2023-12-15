@@ -1,0 +1,46 @@
+
+.page{
+max-width: 900px;
+}
+.page section {
+  display: flex;
+  flex-direction: column;gap: 1em;
+}
+.title , .tech-category{
+  text-transform: capitalize;
+}
+
+.techs  ul , .links  ul{
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.techs  ul li  {
+ background-color: var(--border-color);
+ border-radius: var(--border-radius);
+ padding: 0 0.5rem;  font-size: 0.8em;
+}
+
+.features ul {
+  list-style: unset;
+ 
+}
+
+.features li {
+display: flex;
+gap: 0.5em;
+align-items: t;
+}
+
+.screenshots{
+
+  width: 100%;
+  height: auto;
+  margin : 0.5em 0;
+  border:1px solid var(--border-color);
+   background-color: var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+}
+

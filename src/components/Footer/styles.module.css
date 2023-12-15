@@ -1,0 +1,28 @@
+.footer{
+width: 100%;
+border-top: 1px solid var(--border-color);
+ position: relative;
+font-family: inherit;
+}
+.footer-inner{
+  display: flex;
+ flex-wrap: wrap;
+
+}
+.footer-inner ul{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5rem;
+  list-style: none;
+  margin-top: 1em ;
+  text-transform: capitalize;
+
+}
+.profile-section{ 
+  max-width: 400px;
+}
+.profile-section p{ 
+   margin-top: 1em ;
+    margin: 1em 0;
+      line-height: 1.5rem;
+}
