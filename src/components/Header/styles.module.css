@@ -2,7 +2,9 @@
   z-index: 999;
  position: fixed;
  width: 100%;
-padding: 1em;
+padding: 0.5em 1em;
+  top:0;
+  left:0;
 }
 .header-inner{
   position: relative;
@@ -10,5 +12,34 @@ padding: 1em;
   width: inherit;
   align-items: center;
 justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
 
+
+}
+
+@media (min-width: 768px){
+  .header-inner{
+    padding: 0em 3em;
+  }
+  .menu-button{
+    display: none;
+  }
+  .menu {
+  display: flex;
+  flex-direction: row;
+  opacity: 1;
+  position:relative;
+  top:0;
+  right:0;
+  border: none;
+  background-color: transparent;
+}
+.menu::after{
+  display: none;
+}
+.scrolled-header{
+  border-bottom: 1px solid var(--border-color);
+  background: var(--foreground);
+}
 }

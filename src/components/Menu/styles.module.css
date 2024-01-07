@@ -6,7 +6,6 @@
   display: none;
   flex-wrap: wrap;
   gap:2rem;
-  font-size: 1.1em;
   padding:1em;
   background: var(--foreground);
   border: 1px solid var(--border-color);
@@ -17,6 +16,7 @@
 }
 .menu[data-open="true"] {
   display:flex ;
+  flex-direction: column;
   opacity:1;
 }
 .menu::after{
@@ -32,24 +32,13 @@
   border-left: 1px solid  var(--border-color);
 }
 .menu-link {
-  display: flex;
-  align-items: center;
-  gap:0.5rem;
-  width: max-content;
   text-transform: capitalize;
-  font-weight: 400;
+  font-weight: 600;
  outline: none;
 
 }
-.menu-link:hover ,.menu-link:focus-visible {
-  outline: none;
-  opacity: 0.9;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  color: var(--link-color);
-}
+
 .menu-link svg {
 width: 1rem;
 height: auto;
-opacity: 0.5;
 }

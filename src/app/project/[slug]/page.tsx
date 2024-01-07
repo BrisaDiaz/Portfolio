@@ -27,13 +27,11 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
   const technologies = generateTechnologies();
   return (
     <main className={styles["page"]}>
-      <h1 className={styles["title"]}>{project?.title} </h1>
-
       <section>
+        <h1 className={styles["title"]}>{project?.title}</h1>
         <div>
           <h2>Summary </h2>
-
-          {project?.summary}
+          <p>{project?.summary}</p>
         </div>
         <div className={styles["links"]}>
           <h2>Links </h2>
@@ -44,6 +42,7 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
                 href={project?.demo || ""}
                 primary={true}
                 btn={true}
+                className="link"
               >
                 Live Demo
               </Link>
@@ -51,6 +50,7 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
             <li>
               <Link
                 external={true}
+                className="link"
                 href={project?.source_code}
                 primary={true}
                 btn={true}
@@ -94,20 +94,35 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
           </div>
         </div>
         <div>
+          <h2>Logo </h2>
+          <Image
+            className={styles["project-logo"]}
+            src={project?.icon?.src}
+            width={150}
+            height={100}
+            loading="eager"
+            quality={100}
+            alt={project?.icon?.alt}
+          />
+        </div>
+        <div>
           <h2>Screenshots </h2>
-          {project?.captions.map((img) => (
-            <Image
-              className={styles["screenshots"]}
-              src={img?.original || img.src}
-              alt={img.src}
-              width={900}
-              height={1200}
-              placeholder="blur"
-              loading="lazy"
-              blurDataURL={img?.original || img.src}
-              key={img.src}
-            />
-          ))}
+
+          {project?.captions.map(
+            (img: { src: string; original?: string; alt: string }) => (
+              <Image
+                className={styles["screenshots"]}
+                src={(img?.original as string) || img.src}
+                alt={img.src}
+                width={900}
+                height={1200}
+                placeholder="blur"
+                loading="lazy"
+                blurDataURL={img?.original || img.src}
+                key={img.src}
+              />
+            ),
+          )}
         </div>
       </section>
     </main>

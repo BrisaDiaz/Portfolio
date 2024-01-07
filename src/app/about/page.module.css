@@ -1,0 +1,88 @@
+.page{
+  display:flex;
+  flex-direction:column;
+  gap:2em;
+}
+
+.section-title svg{
+  width: 1.5em;
+}
+.section-title{
+  display: flex;
+  align-items: center;
+    gap: 0.5em;
+}
+.summary-section h1{
+  text-align: start;
+}
+.summary-section{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-content: center;
+  justify-content: space-between;
+}
+.summary-text{
+  margin: 1em 0 2em;
+  
+}
+.agile-svg{
+    margin: 0 auto;
+      display: flex;
+}
+.agile-svg svg {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+.list{
+  margin: 0.5em 1.5em;
+  list-style: disc;
+}
+.timeline-item{
+position: relative;
+padding: 0.25em 2em;
+}
+
+.timeline-item::before {
+    width: 0.5em;
+    height: 0.5em;
+    content: " ";
+    background-color: var(--link-color);
+    border-radius: 100%;
+    position: absolute;
+    left: 0.5em;
+    top: 1.25em;
+}
+.timeline-list .timeline-item:not(:last-child)::after  {
+    width: 1px;
+    height: 100%;
+    content: " ";
+    background-color: var(--link-color);
+    position: absolute;
+       left: 0.75em;
+     top: 1.25em;
+}
+
+
+.language-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.item-meta{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1em;
+  color: var(--caption-color);
+}
+@media (min-width:1024px){
+
+  .summary-section div{
+    
+    max-width: 55%;
+  }
+
+
+}
+

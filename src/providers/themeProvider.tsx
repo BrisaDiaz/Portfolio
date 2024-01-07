@@ -1,42 +1,43 @@
 "use client";
 
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useLayoutEffect, createContext, useContext } from "react";
 export type Mode = "light" | "dark";
 
 export const ContextProvider = createContext({
-  mode: "light" as Mode,
+  mode: "dark" as Mode,
   toggleMode: () => {
     return;
   },
 });
-export default function ThemeProvider({
+const ThemeProvider = function Provider({
   children,
 }: React.HTMLAttributes<HTMLElement>) {
-  const [mode, setMode] = useState<Mode>("light");
+  const [mode, setMode] = useState<Mode>("dark");
 
   const setDark = () => {
-    localStorage.setItem("theme", "dark");
     document.documentElement.setAttribute("data-theme", "dark");
     document.documentElement.style.colorScheme = "dark";
     setMode("dark");
+    window && localStorage.setItem("theme", "dark");
   };
 
   const setLight = () => {
-    localStorage.setItem("theme", "light");
     document.documentElement.setAttribute("data-theme", "light");
     document.documentElement.style.colorScheme = "light";
     setMode("light");
+    window && localStorage.setItem("theme", "light");
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    let defaultDark = true;
     const storedTheme = window?.localStorage?.getItem("theme");
-
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    const defaultDark =
-      storedTheme === "dark" || (storedTheme === null && prefersDark);
+    if (storedTheme === null) {
+      defaultDark =
+        window?.matchMedia &&
+        window?.matchMedia("(prefers-color-scheme: dark)").matches;
+    } else {
+      defaultDark = storedTheme === "dark";
+    }
 
     defaultDark ? setDark() : setLight();
   }, []);
@@ -50,7 +51,9 @@ export default function ThemeProvider({
       {children}
     </ContextProvider.Provider>
   );
-}
+};
+export default ThemeProvider;
+
 export const useTheme = () => {
   const value = useContext(ContextProvider);
   return value;

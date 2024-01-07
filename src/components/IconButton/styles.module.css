@@ -3,8 +3,9 @@
   border: none;
   outline: none;
   border-radius: var(--border-radius);
+  border: 1px solid var(--contrast-color);
   font-size: 1.2em;
-  background: transparent;
+  background-color: var(--foreground);
   color: var(--heading-color);
   cursor: pointer;
   display: flex;
@@ -14,7 +15,7 @@
 }
 
 .icon-btn:hover,.icon-btn:focus-visible{
-  background: var(--border-color);
+  background: var(--contrast-color);
 }
 
 .icon-btn svg{

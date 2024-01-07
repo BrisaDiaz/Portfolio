@@ -1,36 +1,61 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useEffect, useState, useId } from "react";
+import { useWindowScroll } from "@hooks";
 import styles from "./styles.module.css";
 import ModeButton from "@/components/ModeButton";
 import MenuButton from "@/components/MenuButton";
 import Menu from "@/components/Menu";
-import ThemeProvider from "@/providers/themeProvider";
+import { useParams } from "next/navigation";
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {}
 function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
   const { ...other } = props;
-  const [isOnClient, setIsOnClient] = useState<boolean>(false);
+  const params = useParams();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => setIsMenuOpen((state) => !state);
   const closeMenu = () => setIsMenuOpen(false);
+
   useEffect(() => {
-    if (window) {
-      setIsOnClient(true);
-    }
-  }, []);
-  if (!isOnClient) return <></>;
+    closeMenu();
+  }, [params]);
+
+  const menuID = useId();
+  const menuButtonD = useId();
+
+  const scrollPosition = useWindowScroll();
   return (
-    <ThemeProvider>
-      <header {...other} ref={ref} className={styles["header"]}>
-        <div className={styles["header-inner"]}>
-          <ModeButton />
-          <MenuButton onClick={toggleMenu} />
-          <Menu onClose={closeMenu} isOpen={isMenuOpen} />
-        </div>
-      </header>
-    </ThemeProvider>
+    <header
+      {...other}
+      ref={ref}
+      className={`${styles["header"]} ${
+        scrollPosition.y >= 64 ? styles["scrolled-header"] : ""
+      }`}
+    >
+      <div className={styles["header-inner"]}>
+        <ModeButton />
+        <MenuButton
+          onClick={toggleMenu}
+          isOpen={isMenuOpen}
+          aria-haspopup="menu"
+          aria-label="navigation menu"
+          role="button"
+          aria-expanded={isMenuOpen}
+          className={styles["menu-button"]}
+          aria-controls={menuID}
+          id={menuButtonD}
+        />
+        <Menu
+          onClose={closeMenu}
+          isOpen={isMenuOpen}
+          aria-orientation="vertical"
+          className={styles["menu"]}
+          id={menuID}
+          aria-labelledby={menuButtonD}
+        />
+      </div>
+    </header>
   );
 }
 

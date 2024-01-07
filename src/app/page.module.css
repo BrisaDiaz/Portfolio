@@ -2,10 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 64px - 1.5em);
   justify-content: center;
   gap:1.5em;
-
+padding-top: 3em;
+padding-bottom: 3em;
+}
+.subtitle {
+  color: var(--link-color);
 }
 .introduction{
   display: flex;
@@ -18,7 +21,6 @@
 }
 .introduction p {
  font-weight: 600;
- line-height: 1.5rem;
 color:var(--caption-color);
 }
 .contact-links{
@@ -26,33 +28,20 @@ color:var(--caption-color);
   gap: 1rem;
   justify-content: center;
 margin: 1em 0;
+flex-wrap: wrap;
 
 }
-.contact-link{
-    padding:  0.5em 1em;
-  background-color:var(--link-color);
-  color:var(--foreground);
-  border-radius: var(--border-radius);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap:0.3rem;
-}
-.contact-link svg{
-  width: 1.2rem;
-  height: auto;
-}
-.contact-link:hover, .contact-link:focus-visible{
-opacity: 0.9;
-}
+
 .illustration{
 flex: 1;
+display: flex;
+justify-content: center;
 }
 .illustration svg{
   width: 100%;
   height: auto;
-  border-radius: 100%;
   max-width: 300px;
+  opacity: 0.7;
 }
 .about-section{
    display: flex;
@@ -79,6 +68,13 @@ gap:1em;
 margin-top: 2em;
 grid-template-columns:  1fr;
 }
+.projects a:hover, .projects a:active{
+background-color: var(--contrast-color);
+border-radius: var(--border-radius);
+}
+.projects article, .projects a{
+  height: 100%;
+}
 .techs{
 display:grid;
 gap:1em;
@@ -93,7 +89,7 @@ grid-template-columns:  1fr;
 
 
 @media (min-width:768px){
-  .projects{
+.projects{
 grid-template-columns:  1fr 1fr;
 }
   .techs{
@@ -104,17 +100,26 @@ grid-template-columns:  1fr 1fr 1fr;
   .main-section{
     flex-direction: row;
     gap:3em;
-
+padding-top: 5em;
+padding-bottom: 5em;
   }
   .introduction{
-    max-width: 55%;
+    max-width: 50%;
     text-align: start;
        align-items: start;
   }
-  
+   .illustration {
+    justify-content: flex-end;
+    align-items: center;
+   }
+  .illustration svg{
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+}
   .about-section{
     flex-direction: row-reverse;
-    gap:3em;
+    gap:5em;
   }
   .title{
  text-align: start; 

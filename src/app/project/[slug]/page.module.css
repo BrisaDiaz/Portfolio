@@ -6,6 +6,8 @@ max-width: 900px;
   display: flex;
   flex-direction: column;gap: 1em;
 }
+
+
 .title , .tech-category{
   text-transform: capitalize;
 }
@@ -23,18 +25,32 @@ max-width: 900px;
 
 .features ul {
   list-style: unset;
- 
+  display: flex;
+  flex-direction: column;
+ gap: 0.5em;
 }
 
 .features li {
 display: flex;
 gap: 0.5em;
-align-items: t;
+align-items: start;
 }
-
+.features input {
+margin-top: 0.3em;
+}
+.project-logo{
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+     margin : 0.5em 0;
+  border:1px solid var(--border-color);
+}
 .screenshots{
-
-  width: 100%;
+max-width: 100%;
+  width: auto;
   height: auto;
   margin : 0.5em 0;
   border:1px solid var(--border-color);
