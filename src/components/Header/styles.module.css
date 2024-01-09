@@ -14,15 +14,23 @@ padding: 0.5em 1em;
 justify-content: space-between;
   max-width: var(--max-width);
   margin: 0 auto;
-
-
 }
-
+ .menu-button{
+    z-index: 99;
+  }
+.backdrop{
+  position: absolute;
+     top: -0.5em;
+    left: -1em;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+}
 @media (min-width: 768px){
   .header-inner{
     padding: 0em 3em;
   }
-  .menu-button{
+  .menu-button, .backdrop{
     display: none;
   }
   .menu {

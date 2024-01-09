@@ -35,6 +35,12 @@ function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
     >
       <div className={styles["header-inner"]}>
         <ModeButton />
+
+        {isMenuOpen ? (
+          <div className={styles["backdrop"]} onClick={closeMenu} />
+        ) : (
+          <></>
+        )}
         <MenuButton
           onClick={toggleMenu}
           isOpen={isMenuOpen}
