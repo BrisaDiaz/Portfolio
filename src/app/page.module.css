@@ -95,6 +95,9 @@ grid-template-columns:  1fr 1fr;
   .techs{
 grid-template-columns:  1fr 1fr 1fr;
 }
+.title{
+  font-size:  3em;
+}
 }
 @media (min-width:1024px){
   .main-section{
@@ -104,9 +107,12 @@ padding-top: 5em;
 padding-bottom: 5em;
   }
   .introduction{
-    max-width: 50%;
+    max-width: 60%;
     text-align: start;
        align-items: start;
+  }
+   .introduction p{
+    max-width: 80%;
   }
    .illustration {
     justify-content: flex-end;
