@@ -68,7 +68,6 @@ export const TECHS = [
     name: "Styled Components",
     logoName: "styled-components",
     category: "frontend",
-
     resource_url: "https://styled-components.com/",
   },
   {
@@ -100,7 +99,6 @@ export const TECHS = [
     name: "Apollo",
     logoName: "apollo",
     category: "backend",
-
     resource_url: "https://www.apollographql.com/docs/react",
   },
   {
@@ -234,7 +232,6 @@ export const TECHS = [
     name: "Contentful",
     logoName: "contentful",
     category: "others",
-
     resource_url: "https://www.contentful.com",
   },
 
@@ -245,12 +242,10 @@ export const TECHS = [
 
     resource_url: "https://cloudinary.com/documentation",
   },
-
   {
     name: "Nodemailer",
     logoName: "nodemailer",
     category: "others",
-
     resource_url: "https://nodemailer.com/about",
   },
 
@@ -258,14 +253,12 @@ export const TECHS = [
     name: "Git",
     logoName: "git",
     category: "others",
-
     resource_url: "https://git-scm.com/doc",
   },
   {
     name: "Github Actions",
     logoName: "github-actions",
     category: "others",
-
     resource_url: "https://github.com/features/actions",
   },
 ];
@@ -330,11 +323,11 @@ export const PROJECTS = [
     summary: "Pinterest UI interactive clone.",
     language: "Typescript",
     features: [
-      "Implemented state management and mock server using Redux for seamless data handling.",
-      "Designed and developed custom components to replicate the unique Pinterest aesthetic.",
+      "State management and mock server implementation using Redux for seamless data handling.",
+      "Design and development of custom components to replicate the Pinterest aesthetic.",
       "Enhanced user experience with Loading Skeletons for smoother content loading.",
-      "Enabled the 'Share Photo' feature to promote content sharing and user interaction.",
-      "Incorporated the 'Download Photo' functionality for convenient access to saved content.",
+      "Enablement of 'Share Photo' feature to promote content sharing and user interaction.",
+      "Incorporation of 'Download Photo' functionality for convenient access to saved content.",
     ],
     technologies: {
       frontend: [
@@ -379,8 +372,8 @@ export const PROJECTS = [
       "A demand-driven supermarket product search engine and price tracker. It allows users to find products in multiple supermarkets and track price variations of their favorite products.",
     language: "Typescript",
     features: [
-      "Empowered users to search for products across multiple supermarkets with ease.",
-      "Implemented a dynamic price tracker, allowing users to monitor and analyze product price variations.",
+      "User empowerment through easy cross-supermarket product search.",
+      "Dynamic price tracker implementation for monitoring and analyzing product price variations.",
     ],
     technologies: {
       frontend: [
@@ -439,14 +432,14 @@ export const PROJECTS = [
     summary:
       "Crafted a fully customizable serverless blog, primed for engagement and effortless content management. Secured a seamless user experience through ironclad authentication and thoughtfully integrated accessibility features.",
     features: [
-      "Implemented secure User Authentication for a personalized and protected user experience.",
-      "Established Unit and Integration test setups to ensure codebase reliability and robust functionality.",
-      "Ensured accessibility with thoughtfully designed and documented components.",
-      "Incorporated lazy loading and loading indicators for an enhanced and responsive user interface.",
-      "Designed functionality to set random posts, popular posts, feature posts, and integrate social channels.",
-      "Developed capabilities to publish, unpublish, and delete posts and new pages, offering content management flexibility.",
-      "Facilitated post sharing and commenting, promoting user engagement and interaction.",
-      "Implemented a contact form with real-time validation for seamless user input and communication.",
+      "Secure User Authentication for a personalized and protected user experience.",
+      "Unit and Integration test setups ensuring codebase reliability and robust functionality.",
+      "Accessibility focus with thoughtfully designed and documented components.",
+      "Lazy loading and loading indicators for an enhanced and responsive user interface.",
+      "Functionality to set random posts, popular posts, feature posts, and integrate social channels.",
+      "Capabilities to publish, unpublish, and delete posts and new pages for content management flexibility.",
+      "Post sharing and commenting features to promote user engagement and interaction.",
+      "Contact form with real-time validation for seamless user input and communication.",
     ],
     language: "Typescript",
     technologies: {
@@ -480,14 +473,14 @@ export const PROJECTS = [
     summary:
       "I crafted a secure and performant login page for ORTEX, with automated unit tests, integration tests, and performance audits to ensure robust functionality.",
     features: [
-      "Implemented a Lighthouse pipeline for continuous performance monitoring and enhancement.",
-      "Established a dedicated integration tests pipeline to validate seamless interactions across components.",
-      "Developed a comprehensive unit tests pipeline for reliable codebase integrity and functionality.",
-      "Designed a customizable form with built-in validation, providing a user-friendly and error-free experience.",
-      "Documented and made components accessible, promoting code transparency and collaboration.",
-      "Integrated push notifications for real-time updates and enhanced user engagement.",
-      "Incorporated loading indicators to provide users with a smooth and responsive interface.",
-      "Implemented a Websocket connection for efficient and real-time communication.",
+      "Lighthouse pipeline for continuous performance monitoring and enhancement.",
+      "Dedicated integration tests pipeline validating seamless interactions across components.",
+      "Comprehensive unit tests pipeline ensuring reliable codebase integrity and functionality.",
+      "Customizable form with built-in validation for a user-friendly and error-free experience.",
+      "Documentation and accessibility improvements promoting code transparency and collaboration.",
+      "Integration of push notifications for real-time updates and enhanced user engagement.",
+      "Incorporation of loading indicators for a smooth and responsive interface.",
+      "Implementation of a Websocket connection for efficient and real-time communication with tradingeconomics API.",
     ],
     language: "Typescript",
     technologies: {
