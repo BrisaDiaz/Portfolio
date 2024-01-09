@@ -11,7 +11,6 @@ export function IconButton(
   ref?: React.LegacyRef<HTMLButtonElement>,
 ) {
   const { children, className, ...other } = props;
-  print;
   return (
     <button
       ref={ref}
