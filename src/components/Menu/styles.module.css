@@ -1,5 +1,6 @@
 .menu {
   position: absolute;
+  z-index: 99;
   opacity:0;
   right: 0;
   top:calc(64px - 1.1em );
@@ -14,6 +15,7 @@
   transition-property: opacity;
   transition-duration: var(--transition-easing-ease-in-out);
 }
+
 .menu[data-open="true"] {
   display:flex ;
   flex-direction: column;
