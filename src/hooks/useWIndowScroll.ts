@@ -7,8 +7,8 @@ interface ScrollPosition {
 
 const useWindowScroll = (): ScrollPosition => {
   const [scrollPosition, setScrollPosition] = useState<ScrollPosition>({
-    x: window.scrollX,
-    y: window.scrollY,
+    x: 0,
+    y: 0,
   });
 
   const handleScroll = () => {
