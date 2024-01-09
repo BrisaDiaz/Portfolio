@@ -90,13 +90,13 @@ export const TECHS = [
   },
 
   // {
-  //   name: "D3.js",
-  //   logoName: "d3",
-  //   category: "frontend",
-  //   resource_url: "https://d3js.org",
+  //  name: "D3.js",
+  //  logoName: "d3",
+  //  category: "frontend",
+  //  resource_url: "https://d3js.org",
   // },
   {
-    name: "Apollo",
+    name: "Apollo Graphql",
     logoName: "apollo",
     category: "backend",
     resource_url: "https://www.apollographql.com/docs/react",
@@ -553,9 +553,14 @@ export const PROJECTS = [
     ],
     language: "Typescript",
     technologies: {
-      frontend: ["next.js", "apollo client", "material-IU", "react-hook-form"],
+      frontend: [
+        "next.js",
+        "apollo graphql client",
+        "material-IU",
+        "react-hook-form",
+      ],
       backend: [
-        "apollo server",
+        "apollo graphql server",
         "postgreSQL",
         "nexus",
         "prisma",
@@ -794,43 +799,14 @@ export const PROJECTS = [
   },
 ];
 export const ABOUT = {
-  experience: [
-    // {
-    //   role: "Full Stack Developer",
-    //   company: "Self-employed",
-    //   location: "Remote",
-    //   timeFrame: "2021 - Present",
-    //   responsibilities: [
-    //     // Front-End Expertise
-    //     "Developed dynamic and interactive UIs with advanced JavaScript and DOM manipulation.",
-    //     "Ensured seamless responsiveness across devices, prioritizing user-centric design.",
-    //     "Enhanced code maintainability and type safety with Typescript in medium-scale projects.",
-    //     // API Integration Champion
-    //     "Architected RESTful and GraphQL APIs for efficient front-end/back-end communication.",
-    //     "Implemented unit and integration testing for code quality and functionality.",
-    //     // Technical Documentation Advocate
-    //     "Crafted comprehensive docs for UIs and APIs, promoting effortless comprehension and navigation.",
-    //     "Optimized website performance and SEO through strategic SSG, SSR, and ISR implementation.",
-    //     // Additional Skillset
-    //     "Automated development and deployment workflows using Github pipelines for efficiency.",
-    //     "Employed strategic SEO and performance optimization to elevate website visibility and user experience.",
-    //     "Championed accessibility for all users by adhering to WCAG standards for inclusivity and usability.",
-    //     "Transformed complex business logic into elegant, efficient, and maintainable code for long-term sustainability.",
-    //   ],
-    // },
-  ],
+  experience: [],
   education: [
     {
       institution:
-        "Cordoba Regional Faculty, National Technological University (FRC, UTN), Argentina",
+        "Universidad Tecnológica Nacional, Facultad Regional Córdoba (UTN, FRC), Argentina",
       timeFrame: "2023 - 2027",
-      studies: "Degree in Engineering, Information Systems",
-    },
-    {
-      institution: "IPET N67 Tte. Coronel LUIS Piedrabuena, Argentina",
-      timeFrame: "2012 - 2019",
-      studies: "Technical High School Degree, Mechanics",
-    },
+      studies: "BS in Information Systems Engineering",
+    }
   ],
   idioms: [
     {
