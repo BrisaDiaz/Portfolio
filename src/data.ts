@@ -430,7 +430,7 @@ export const PROJECTS = [
       },
     ],
     summary:
-      "Crafted a fully customizable serverless blog, primed for engagement and effortless content management. Secured a seamless user experience through ironclad authentication and thoughtfully integrated accessibility features.",
+      "An SEO-optimized, serverless blog with full customization capabilities. Focused on enhancing user engagement, simplifying content management, and integrating thoughtful accessibility features for an inclusive online experience.",
     features: [
       "Secure User Authentication for a personalized and protected user experience.",
       "Unit and Integration test setups ensuring codebase reliability and robust functionality.",
@@ -776,7 +776,7 @@ export const PROJECTS = [
       },
     ],
     summary:
-      "A Presenting a modern and interactive web portfolio meticulously crafted with vanilla JavaScript (no external libraries used) to elevate the experience of showcasing photographic services. ",
+      "A modern and interactive web portfolio meticulously crafted with vanilla JavaScript (no external libraries used) to elevate the experience of showcasing photographic services. ",
     language: "javascript",
     technologies: {
       frontend: ["vanilla javascript", "css", "html"],
