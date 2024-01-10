@@ -1,17 +1,17 @@
 .menu {
   position: absolute;
+  width: 100%;
   z-index: 99;
   opacity:0;
   right: 0;
   top:calc(64px - 1.1em );
   display: none;
   flex-wrap: wrap;
-  gap:2rem;
-  padding:1em;
+  gap:1.5em;
+  padding:1.5em;
   background: var(--foreground);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  border-top-right-radius: 0;
   transition-property: opacity;
   transition-duration: var(--transition-easing-ease-in-out);
 }
@@ -24,8 +24,8 @@
 .menu::after{
   content: " ";
   position: absolute;
-  top:-0.35em;
-  right:0.5em;
+  top:-0.4em;
+  right:0.75em;
   width:0.6em;
   height: 0.6em;
   background: inherit;
@@ -35,12 +35,15 @@
 }
 .menu-link {
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: 500;
  outline: none;
-
 }
 
-.menu-link svg {
-width: 1rem;
-height: auto;
+.menu-link:hover, .menu-link:focus-visible {
+  color: var(--main-color);
+  font-weight: 700;
+}
+ .menu-link:focus-visible {
+ text-decoration: underline;
+ text-decoration-color:var(--main-color);
 }

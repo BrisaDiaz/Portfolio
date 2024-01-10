@@ -16,7 +16,6 @@ gap: 0.25rem;
   outline: none;
   opacity: 0.9;
   text-decoration: underline;
-  text-underline-offset: 2px;
 }
 .link--external:hover svg,.link--external:focus-visible svg{
   opacity: 1;

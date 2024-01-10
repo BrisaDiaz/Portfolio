@@ -2,51 +2,30 @@
 .page{
 max-width: var(--max-width-blog);
 }
-.heading{
-  border-bottom:  1px solid var(--border-color);
-}
+
 .page section {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.title{
-  color: var(--main-color)
-}
-
-.title , .tech-category{
+.title, .section__title{
   text-transform: capitalize;
 }
-.tech-category{
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+.section__title {
+  margin-bottom:  0.75em;
 }
-.techs  ul , .links  ul{
+.links__container {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: row;
+  gap: 1em;
+  list-style: none;
+}
+
+.tech__list{
+  display: flex;
   flex-wrap: wrap;
-}
-.techs  ul li  {
- background-color: var(--border-color);
- border-radius: var(--border-radius);
- padding: 0 0.5rem;  font-size: 0.8em;
-}
-
-.features ul {
-  list-style: unset;
-  display: flex;
-  flex-direction: column;
- gap: 0.5em;
-}
-
-.features li {
-display: flex;
-gap: 0.5em;
-align-items: flex-start;
-}
-.features svg {
-margin-top: 0.2em;
+  gap: 0.5em;
 }
 .project-logo{
   border-radius: var(--border-radius);

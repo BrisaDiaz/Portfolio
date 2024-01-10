@@ -1,37 +1,31 @@
 .page{
   display:flex;
   flex-direction:column;
-  gap:1em;
+  gap:1.5rem;
   max-width: var(--max-width-blog);
   margin: 0 auto;
 }
-.section-title svg{
-  width: 1.5em;
+.section__svg{
+  font-size: 1.5em;
+  color: var(--heading-color);
 }
-.section-title{
+.section__title{
   display: flex;
   align-items: center;
-    gap: 0.5em;
-}
-.summary-section h1{
+  gap: 0.5em;
   text-align: start;
 }
-
-.summary-text{
+.summary__text{
   margin: 1em 0 ;
-  
 }
-
-.list{
-  margin: 0.5em 1.5em;
-  list-style: disc;
+.achievements__list{
+  margin-top: 0.5em;
 }
-.timeline-item{
+.timeline__item{
 position: relative;
 padding: 0.25em 2em;
 }
-
-.timeline-item::before {
+.timeline__item::before {
     width: 0.5em;
     height: 0.5em;
     content: " ";
@@ -41,21 +35,22 @@ padding: 0.25em 2em;
     left: 0.5em;
     top: 1.25em;
 }
-.timeline-list .timeline-item:not(:last-child)::after  {
+.timeline .timeline__item:not(:last-child)::after  {
     width: 1px;
     height: 100%;
     content: " ";
     background-color: var(--main-color);
     position: absolute;
-       left: 0.75em;
-     top: 1.25em;
+      left: 0.75em;
+     top: 1.75em;
 }
 
 .language-list{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
 }
-.item-meta{
+.item__meta{
   display:flex;
   flex-wrap: wrap;
   justify-content: space-between;

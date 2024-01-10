@@ -1,0 +1,15 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-title{
+  font-size: 5em;
+  color: var(--main-color);
+}
+.page-subtitle{
+  font-size: 2em;
+}
+.return-link{
+  margin: 1em;
+}

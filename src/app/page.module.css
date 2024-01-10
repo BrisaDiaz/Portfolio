@@ -1,4 +1,4 @@
-.main-section {
+.hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,19 +7,55 @@
 padding-top: 3em;
 padding-bottom: 3em;
 }
-.subtitle {
-  color: var(--main-color);
-}
+
 .introduction{
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
  gap:1em;
-
-
 }
-.introduction p {
+.introduction__title {
+  font-weight: 800;
+  font-size: 1.75rem;
+}
+.introduction__subtitle {
+    font-size: 0.6em;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.5em;
+    border-radius: 5em;
+    border: 1px solid;
+    padding: 0 1em;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    position: relative;
+}
+.introduction__subtitle::before{
+    position: absolute;
+    content: " ";
+    left: -0.5em;
+    bottom: 0;
+    width: 1em;
+    height: 1em;
+    border: inherit;
+    border-radius: 100%;
+    background: var(--foreground);
+  background-image: var(--bg-gradient);
+}
+.introduction__subtitle::after{
+    position: absolute;
+    content: " ";
+    left: -0.75em;
+    bottom: 0;
+    width: 0.5em;
+    height: 0.5em;
+    border: inherit;
+    border-radius: 100%;
+    background: var(--foreground);
+  background-image: var(--bg-gradient);
+}
+.introduction__text {
  font-weight: 500;
 }
 .contact-links{
@@ -30,117 +66,78 @@ margin: 1em 0;
 flex-wrap: wrap;
 
 }
-
-.illustration{
-flex: 1;
-display: flex;
-justify-content: center;
-}
-.illustration svg{
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-  opacity: 0.7;
-}
-.about-section{
-   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap:1.5em;
-}
-.about-info{
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  max-width: 600px;
-}
-.agile svg{
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-}
-.projects{
+.projects__container{
 display:grid;
-gap:1em;
-margin-top: 1em;
-grid-template-columns:  1fr;
-}
-.projects a:hover, .projects a:active{
-background-color: var(--contrast-color);
-border-radius: var(--border-radius);
-}
-.projects article, .projects a{
-  height: 100%;
-}
-.techs{
-display:grid;
-gap:1em;
+gap:1rem;
 margin-top: 2em;
 grid-template-columns:  1fr;
 }
-.tech-category-name{
+
+.project__link:hover, .project__link:active{
+background-color: var(--contrast-color);
+border-radius: var(--border-radius);
+}
+.project, .project__link{
+  height: 100%;
+}
+.techs__container{
+display:grid;
+gap:1rem;
+margin-top: 1rem;
+grid-template-columns:  1fr;
+}
+.tech-category__name{
   text-transform: capitalize;
   margin-bottom: 1em;
-  color:var(--main-color)
 }
 
-
-@media (min-width:768px){
-.projects{
+@media (min-width:425px){
+.techs__container{
 grid-template-columns:  1fr 1fr;
 }
-  .techs{
+.introduction__title{
+  font-size:  2.5rem;
+}
+}
+@media (min-width:768px){
+.projects__container{
+grid-template-columns:  1fr 1fr;
+}
+.techs__container{
 grid-template-columns:  1fr 1fr 1fr;
 }
-.title{
-  font-size:  3em;
+.introduction__title{
+  font-size:  3.2rem;
+}
+.introduction__subtitle {
+    font-size: 0.4em;
 }
 }
 @media (min-width:1024px){
-  .main-section{
-    flex-direction: row;
-    gap:3em;
-padding-top: 5em;
-padding-bottom: 5em;
-  }
-  .introduction{
-    max-width: 60%;
-    text-align: start;
-       align-items: start;
-  }
-   .introduction p{
+
+  .introduction__title{
+  font-size:  5.5rem;
+}
+   .introduction__text{
     max-width: 80%;
+    font-size: 1.2rem;
   }
-   .illustration {
-    justify-content: flex-end;
-    align-items: center;
-   }
    @keyframes slide-left {
   0% {
+    -webkit-transform: translateX(100px);
+            transform: translateX(100px);
+  }
+  100% {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
-  100% {
-    -webkit-transform: translateX(-100px);
-            transform: translateX(-100px);
-  }
 }
-  .illustration svg{
+  .avatar__svg{
   height: auto;
   max-width: 300px;
    animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-  .about-section{
-    flex-direction: row-reverse;
-    gap:5em;
-  }
-  .title{
- text-align: start; 
-
-}
-  .techs{
+ .techs__container{
 grid-template-columns:  1fr 1fr 1fr 1fr;
 }
 }

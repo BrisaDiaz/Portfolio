@@ -30,7 +30,7 @@ function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
       {...other}
       ref={ref}
       className={`${styles["header"]} ${
-        scrollPosition.y >= 64 ? styles["scrolled-header"] : ""
+        scrollPosition.y >= 50 ? styles["scrolled-header"] : ""
       }`}
     >
       <div className={styles["header-inner"]}>

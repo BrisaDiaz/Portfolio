@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import Image from "next/image";
 
 export interface Project {
   id: number;
@@ -7,39 +6,24 @@ export interface Project {
   title: string;
   subtitle: string;
   summary: string;
-  logo: {
-    src: string;
-    alt: string;
-  };
+  logo: React.ReactNode;
 }
 interface Props extends React.HTMLAttributes<HTMLElement> {
   data: Project;
 }
 export default function Project(props: Props) {
-  const { data, ...other } = props;
-  
+  const { data, className, ...other } = props;
   return (
-    <article className={styles["project-card"]} {...other}>
-      <div className={styles["project-header"]}>
-        <div className={styles["project-logo"]}>
-          <Image
-            src={`/Logo/${data.slug}.svg`}
-            width={60}
-            height={50}
-            loading="lazy"
-            placeholder="blur"
-            quality={100}
-            blurDataURL={data.logo.src}
-            alt={data.logo.alt}
-          />
-        </div>
+    <article {...other} className={`${styles["project"]} ${className ?? ""}`}>
+      <div className={styles["project__header"]}>
+        <div className={styles["project__logo"]}>{data.logo}</div>
         <div>
-          <span className={styles["project-subtitle"]}>{data.subtitle}</span>
+          <span className={styles["project__subtitle"]}>{data.subtitle}</span>
 
-          <h3 className={styles["project-title"]}>{data.title}</h3>
+          <h3 className={styles["project__title"]}>{data.title}</h3>
         </div>
       </div>
-      <p className={styles["project-summary"]}>{data.summary}</p>
+      <p className={styles["project__summary"]}>{data.summary}</p>
     </article>
   );
 }

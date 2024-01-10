@@ -27,11 +27,13 @@ const Layout = memo(function RootLayout({
       */}
       <head />
       <ThemeProvider>
-        <body className={inter.className} suppressHydrationWarning={true}>
-          <Header />
-          {children}
-          <Footer />
-        </body>
+        <>
+          <body className={inter.className} suppressHydrationWarning={true}>
+            <Header />
+            {children}
+            <Footer />
+          </body>
+        </>
       </ThemeProvider>
     </html>
   );

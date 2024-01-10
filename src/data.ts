@@ -1,13 +1,13 @@
 export const TECHS = [
   {
-    name: "Javascript",
+    name: "javaScript",
     logoName: "javascript",
     category: "language",
 
     resource_url: "https://developer.mozilla.org/es/docs/Web/JavaScript",
   },
   {
-    name: "Typescript",
+    name: "TypeScript",
     logoName: "typescript",
     category: "language",
     resource_url: "https://www.typescriptlang.org",
@@ -321,7 +321,7 @@ export const PROJECTS = [
       },
     ],
     summary: "Pinterest UI interactive clone.",
-    language: "Typescript",
+
     features: [
       "State management and mock server implementation using Redux for seamless data handling.",
       "Design and development of custom components to replicate the Pinterest aesthetic.",
@@ -330,6 +330,7 @@ export const PROJECTS = [
       "Incorporation of 'Download Photo' functionality for convenient access to saved content.",
     ],
     technologies: {
+      language: ["TypeScript"],
       frontend: [
         "react native",
         "expo",
@@ -370,12 +371,12 @@ export const PROJECTS = [
     ],
     summary:
       "A demand-driven supermarket product search engine and price tracker. It allows users to find products in multiple supermarkets and track price variations of their favorite products.",
-    language: "Typescript",
     features: [
       "User empowerment through easy cross-supermarket product search.",
       "Dynamic price tracker implementation for monitoring and analyzing product price variations.",
     ],
     technologies: {
+      language: ["TypeScript"],
       frontend: [
         "react",
         "redux toolkit",
@@ -392,7 +393,7 @@ export const PROJECTS = [
         "supertest",
         "swagger",
       ],
-      hosting: "Vercel/Heroku",
+      hosting: ["Vercel", "Heroku"],
     },
 
     source_code: "https://github.com/BrisaDiaz/smart-buy-backend",
@@ -441,12 +442,12 @@ export const PROJECTS = [
       "Post sharing and commenting features to promote user engagement and interaction.",
       "Contact form with real-time validation for seamless user input and communication.",
     ],
-    language: "Typescript",
     technologies: {
+      language: ["TypeScript"],
       frontend: ["next.js", "react-hook-form", "react-query", "css"],
       backend: ["contentful  CMS", "Auth0", "cusdis", "email.js"],
       testing: ["react-testing-library", "jest", "cypress"],
-      hosting: "Vercel",
+      hosting: ["Vercel"],
     },
 
     source_code: "https://github.com/BrisaDiaz/JAMstack-blog",
@@ -482,12 +483,13 @@ export const PROJECTS = [
       "Incorporation of loading indicators for a smooth and responsive interface.",
       "Implementation of a Websocket connection for efficient and real-time communication with tradingeconomics API.",
     ],
-    language: "Typescript",
+
     technologies: {
+      language: ["TypeScript"],
       frontend: ["next.js", "css", "storybook"],
       backend: ["tradingeconomics API"],
       testing: ["react-testing-library", "jest", "cypress", "lighthouse CL"],
-      hosting: "Vercel",
+      hosting: ["Vercel"],
     },
 
     source_code: "https://github.com/BrisaDiaz/ORTEX_technical_task.git",
@@ -551,8 +553,9 @@ export const PROJECTS = [
       "Calendar feature displaying active, canceled, or completed reservations, reservation details, and the ability to cancel reservations.",
       "Folder system and multimedia storage for organized and accessible data management.",
     ],
-    language: "Typescript",
+
     technologies: {
+      language: ["TypeScript"],
       frontend: [
         "next.js",
         "apollo graphql client",
@@ -567,8 +570,7 @@ export const PROJECTS = [
         "cloudinary",
         "json JWT",
       ],
-
-      hosting: "vercel",
+      hosting: ["vercel"],
     },
     credentials: {
       email: "admin@hotelBooker.com",
@@ -633,8 +635,9 @@ export const PROJECTS = [
       "Dynamic content adaptation with conditional rendering for a personalized user journey.",
       "Streamlined user onboarding with social sign-in capabilities.",
     ],
-    language: "javascript",
+
     technologies: {
+      language: ["javaScript"],
       frontend: [
         "next.js",
         "next auth",
@@ -644,7 +647,7 @@ export const PROJECTS = [
       ],
       backend: ["postgreSQL", "prisma"],
       testing: ["react testing library", "jest", "cypress"],
-      hosting: "vercel",
+      hosting: ["vercel"],
     },
     credentials: {
       email: "admin@email.com",
@@ -692,7 +695,7 @@ export const PROJECTS = [
     ],
     summary:
       "An inclusive solution designed to assist restaurants in advertising and managing their menu effectively. The application provides real-time monitoring and updates on order status, ensuring seamless operations for both restaurant owners and customers.",
-    language: "javascript",
+
     features: [
       "Robust authentication system with seamless forgot password support for enhanced security.",
       "Email account validation through email, ensuring valid user registrations.",
@@ -720,6 +723,7 @@ export const PROJECTS = [
       "Update order status functionality for streamlined and efficient order management.",
     ],
     technologies: {
+      language: ["javaScript"],
       frontend: [
         "react",
         "context api",
@@ -740,7 +744,7 @@ export const PROJECTS = [
         "socket.io",
         "jsonJWT",
       ],
-      hosting: "heroku",
+      hosting: ["heroku"],
     },
 
     credentials: {
@@ -777,10 +781,11 @@ export const PROJECTS = [
     ],
     summary:
       "A modern and interactive web portfolio meticulously crafted with vanilla JavaScript (no external libraries used) to elevate the experience of showcasing photographic services. ",
-    language: "javascript",
+
     technologies: {
-      frontend: ["vanilla javascript", "css", "html"],
-      hosting: "vercel",
+      language: ["javaScript"],
+      frontend: ["css", "html"],
+      hosting: ["vercel"],
     },
     features: [
       "Elegantly structured with modularized JavaScript code for maintainability and scalability.",
@@ -799,10 +804,18 @@ export const PROJECTS = [
   },
 ];
 export const ABOUT = {
+  summary:
+    "Driven Information Systems Engineering student, proficient in JavaScript with proven ability to deliver user-friendly solutions through personal projects. Adept at navigating the ever-evolving tech landscape and eager to contribute to diverse software initiatives, exceeding expectations for both users and stakeholders.",
   resume:
     "https://docs.google.com/document/export?format=pdf&id=1KPVRzaz7E0MqQNtPN9q5twgas_qIf-Le3v0VfFhU1A0",
   experience: [],
   education: [
+    {
+      institution:
+        "Universidad Tecnológica Nacional, Facultad Regional Córdoba (UTN, FRC), Argentina",
+      timeFrame: "2023 - 2027",
+      studies: "BS in Information Systems Engineering",
+    },
     {
       institution:
         "Universidad Tecnológica Nacional, Facultad Regional Córdoba (UTN, FRC), Argentina",
@@ -820,34 +833,33 @@ export const ABOUT = {
       level: "Native",
     },
   ],
-  skills: [
-    "Strong proficiency in JavaScript and advance DOM manipulation.",
-    "Experience in crafting responsive and user-centric UIs.",
-    "Experience in Typescript integration for medium-scale projects.",
-    "Hands-on experience in integrating and creating APIs, both RESTful and GraphQL.",
-    "Skilled in unit testing and integration testing.",
-    "Experience crafting documentation for UI components and APIs.",
-    "Experience implementing rendering techniques as SSG, SSR and ISR.",
-    "Experience with github pipelines implementation.",
-    "Experience applying SEO and performance optimizations strategies.",
-    "Adherence to accessibility standards WCAG",
-    "Experience turning business logic into elegant, efficient code.",
+  achievements: [
+    "Delivered responsive, user-centric UIs using advanced JavaScript and DOM manipulation.",
+    "Enhanced code structure and type safety through seamless TypeScript integration.",
+    "Boosted website visibility and performance with SEO and optimization strategies (SSG, SSR, ISR).",
+    "Prioritized accessibility by adhering to WCAG standards.",
+    "Ensured code robustness with test-driven development (unit and integration tests).",
+    "Facilitated collaboration and maintainability through clear API and UI documentation.",
+    "Streamlined workflows by implementing GitHub pipelines.",
+    "Built and integrated RESTful and GraphQL APIs for data-driven applications.",
+    "Efficiently translated business requirements into maintainable code.",
+    "Interacted with both relational (PostgreSQL) and non-relational databases (MongoDB, Redis, Firebase) for efficient data management.",
   ],
 };
 const SOCIALS = [
   { name: "linkedin", href: "https://www.linkedin.com/in/brisa-d%C3%ADaz/" },
   { name: "github", href: "https://github.com/BrisaDiaz" },
-  {
-    name: "email",
-    href: "mailto:brisaabigaildiaz2000@gmal.com?Subject=Job%20offer%20from%20[your name/company name]",
-  },
-];
+  // {
+  //   name: "email",
+  //   href: "mailto:brisaabigaildiaz2000@gmal.com?Subject=Job%20offer%20from%20[your name/company name]",
+  // },
+] as const;
 export const INTRO = {
-  title: "Hi!, I'm Brisa Díaz",
-  subtitle: "Full Stack Developer & Frontend Specialist",
+  subtitle: "Hi!, I'm Brisa Díaz 👋",
+  title: "Full Stack Developer & Frontend Specialist",
   text: "I'm a passionate Information Systems Engineering student, driven by a curiosity to explore cutting-edge technologies and create impactful software solutions.",
   socials: SOCIALS,
-};
+} as const;
 
 export const FOOTER = {
   title: "Brisa Díaz",
@@ -859,4 +871,4 @@ export const FOOTER = {
     { name: "Tecno Rev", slug: "tecno-rev" },
     { name: "Delivery App", slug: "delivery-app" },
   ],
-};
+} as const;
