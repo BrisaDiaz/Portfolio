@@ -799,6 +799,8 @@ export const PROJECTS = [
   },
 ];
 export const ABOUT = {
+  resume:
+    "https://docs.google.com/document/export?format=pdf&id=1KPVRzaz7E0MqQNtPN9q5twgas_qIf-Le3v0VfFhU1A0",
   experience: [],
   education: [
     {
@@ -806,7 +808,7 @@ export const ABOUT = {
         "Universidad Tecnológica Nacional, Facultad Regional Córdoba (UTN, FRC), Argentina",
       timeFrame: "2023 - 2027",
       studies: "BS in Information Systems Engineering",
-    }
+    },
   ],
   idioms: [
     {
@@ -824,7 +826,7 @@ export const ABOUT = {
     "Experience in Typescript integration for medium-scale projects.",
     "Hands-on experience in integrating and creating APIs, both RESTful and GraphQL.",
     "Skilled in unit testing and integration testing.",
-    "Experience crafting documentation for UI components and APIs,",
+    "Experience crafting documentation for UI components and APIs.",
     "Experience implementing rendering techniques as SSG, SSR and ISR.",
     "Experience with github pipelines implementation.",
     "Experience applying SEO and performance optimizations strategies.",

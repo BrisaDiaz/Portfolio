@@ -2,7 +2,7 @@
 font-size: 1em;
 }
 .link--primary{
-  color: var(--link-color);
+  color: var(--main-color);
 }
 .link--external svg{
   opacity: 0;
@@ -34,5 +34,5 @@ gap: 0.25rem;
   background-color:var(--caption-color);
 }
 .link--primary.link--btn{
-  background-color:var(--link-color);
+  background-color:var(--main-color);
 }

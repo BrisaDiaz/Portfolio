@@ -1,17 +1,27 @@
 
 .page{
-max-width: 900px;
+max-width: var(--max-width-blog);
+}
+.heading{
+  border-bottom:  1px solid var(--border-color);
 }
 .page section {
   display: flex;
-  flex-direction: column;gap: 1em;
+  flex-direction: column;
+  gap: 1em;
 }
 
+.title{
+  color: var(--main-color)
+}
 
 .title , .tech-category{
   text-transform: capitalize;
 }
-
+.tech-category{
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 .techs  ul , .links  ul{
   display: flex;
   gap: 0.5rem;
@@ -35,8 +45,8 @@ display: flex;
 gap: 0.5em;
 align-items: flex-start;
 }
-.features input {
-margin-top: 0.3em;
+.features svg {
+margin-top: 0.2em;
 }
 .project-logo{
   border-radius: var(--border-radius);

@@ -8,7 +8,7 @@ padding-top: 3em;
 padding-bottom: 3em;
 }
 .subtitle {
-  color: var(--link-color);
+  color: var(--main-color);
 }
 .introduction{
   display: flex;
@@ -20,8 +20,7 @@ padding-bottom: 3em;
 
 }
 .introduction p {
- font-weight: 600;
-color:var(--caption-color);
+ font-weight: 500;
 }
 .contact-links{
   display: flex;
@@ -65,7 +64,7 @@ justify-content: center;
 .projects{
 display:grid;
 gap:1em;
-margin-top: 2em;
+margin-top: 1em;
 grid-template-columns:  1fr;
 }
 .projects a:hover, .projects a:active{
@@ -84,7 +83,7 @@ grid-template-columns:  1fr;
 .tech-category-name{
   text-transform: capitalize;
   margin-bottom: 1em;
-  color:var(--link-color)
+  color:var(--main-color)
 }
 
 
@@ -118,10 +117,20 @@ padding-bottom: 5em;
     justify-content: flex-end;
     align-items: center;
    }
+   @keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+            transform: translateX(-100px);
+  }
+}
   .illustration svg{
-  width: 100%;
   height: auto;
-  max-width: 350px;
+  max-width: 300px;
+   animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
   .about-section{
     flex-direction: row-reverse;
