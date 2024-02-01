@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { memo } from "react";
 import "./normalize.css";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/ui/Header";
+import Footer from "@/ui/Footer";
 import { Inter } from "next/font/google";
 import ThemeProvider from "@/providers/themeProvider";
 const inter = Inter({ subsets: ["latin"] });
@@ -26,15 +26,17 @@ const Layout = memo(function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <ThemeProvider>
-        <>
-          <body className={inter.className} suppressHydrationWarning={true}>
+
+      <>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <ThemeProvider>
             <Header />
-            {children}
-            <Footer />
-          </body>
-        </>
-      </ThemeProvider>
+          </ThemeProvider>
+
+          {children}
+          <Footer />
+        </body>
+      </>
     </html>
   );
 });

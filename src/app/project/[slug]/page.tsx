@@ -4,7 +4,13 @@ import Image from "next/image";
 import { NextPage } from "next";
 import Link from "@/components/Link";
 import Badge from "@/components/Badge";
-import Table from "@/components/Table";
+import Table, {
+  TableHead,
+  TableBody,
+  TableCell,
+  TableHeadCell,
+  TableRow,
+} from "@/components/Table";
 
 const Project: NextPage<{ params: { slug: string } }> = (p) => {
   const project = PROJECTS.find(
@@ -12,29 +18,27 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
   ) as (typeof PROJECTS)[0];
 
   const techs = Object.freeze(project.technologies);
-  const category = Object.keys(techs);
-  const dataTech = category.map((title) => [
-    title,
-    <div key={title} className={styles["tech__list"]}>
-      {title in techs ? (
-        techs[title as keyof typeof techs].map((tech: string) => (
-          <Badge key={tech} variant="subtle" size="sm">
-            {tech}
-          </Badge>
-        ))
-      ) : (
-        <></>
-      )}
-    </div>,
-  ]);
+  type Category = keyof typeof techs;
+  const categories = Object.keys(techs) as Category[];
   return (
     <main className={styles["page"]}>
       <section>
         <div className={styles["heading"]}>
-          <h1 className={styles["title"]}>{project?.title}</h1>
-          <h2 className={`poster-font poster-font--up  ${styles["subtitle"]}`}>
-            {project?.subtitle}
-          </h2>
+          <Image
+            className={styles["project-logo"]}
+            src={project?.icon?.src}
+            width={150}
+            height={100}
+            loading="eager"
+            placeholder="blur"
+            blurDataURL={project?.icon?.placeholder || project?.icon?.src}
+            quality={100}
+            alt={project?.icon?.alt}
+          />
+          <div>
+            <h1 className={`${styles["title"]}`}>{project?.title}</h1>
+            <h2 className={`${styles["subtitle"]}`}>{project?.subtitle}</h2>
+          </div>
         </div>
         <div>
           <h3 className={`${styles["section__title"]}`}>Summary</h3>
@@ -69,13 +73,33 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
         </div>
         <div>
           <h3 className={`${styles["section__title"]}`}>Tech Stack</h3>
-          <Table
-            titles={["", "technologies"]}
-            data={dataTech}
-            doubleEntry={true}
-            size="sm"
-            fullWidth={true}
-          />
+          <Table doubleEntry={true} size="sm" fullWidth={true}>
+            <TableHead>
+              {["", "technologies"].map((title) => (
+                <TableHeadCell key={title}>{title}</TableHeadCell>
+              ))}
+            </TableHead>
+            <TableBody>
+              {categories.map((category) => (
+                <TableRow key={category}>
+                  <TableCell>{category}</TableCell>
+                  <TableCell>
+                    <div className={styles["tech__list"]}>
+                      {category in techs ? (
+                        techs[category]?.map((tech: string) => (
+                          <Badge key={tech} variant="subtle" size="sm">
+                            {tech}
+                          </Badge>
+                        ))
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
         </div>
         <div className={styles["features"]}>
           <h3 className={`${styles["section__title"]}`}>Features</h3>
@@ -90,35 +114,21 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
           </div>
         </div>
         <div>
-          <h3 className={`${styles["section__title"]}`}>Logo</h3>
-          <Image
-            className={styles["project-logo"]}
-            src={project?.icon?.src}
-            width={150}
-            height={100}
-            loading="eager"
-            quality={100}
-            alt={project?.icon?.alt}
-          />
-        </div>
-        <div>
           <h3 className={`${styles["section__title"]}`}>Screenshots </h3>
 
-          {project?.captions.map(
-            (img: { src: string; original?: string; alt: string }) => (
-              <Image
-                className={styles["screenshots"]}
-                src={(img?.original as string) || img.src}
-                alt={img.src}
-                width={900}
-                height={1200}
-                placeholder="blur"
-                loading="lazy"
-                blurDataURL={img?.original || img.src}
-                key={img.src}
-              />
-            ),
-          )}
+          {project?.captions.map((img) => (
+            <Image
+              className={styles["screenshots"]}
+              src={img.src}
+              alt={img.src}
+              width={900}
+              height={1200}
+              placeholder="blur"
+              loading="lazy"
+              blurDataURL={img?.placeholder || img.src}
+              key={img.src}
+            />
+          ))}
         </div>
       </section>
     </main>

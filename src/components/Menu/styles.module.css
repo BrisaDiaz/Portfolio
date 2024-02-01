@@ -35,15 +35,14 @@
 }
 .menu-link {
   text-transform: capitalize;
-  font-weight: 500;
- outline: none;
+  font-weight: 400;
+  outline: none;
 }
 
 .menu-link:hover, .menu-link:focus-visible {
-  color: var(--main-color);
-  font-weight: 700;
+  font-weight: 500;
+  color: var(--text-color-secondary);
 }
  .menu-link:focus-visible {
  text-decoration: underline;
- text-decoration-color:var(--main-color);
 }

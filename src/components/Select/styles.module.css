@@ -1,0 +1,72 @@
+.select__container {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.select--sm {
+  font-size: 0.85rem;
+}
+.select--md {
+  font-size: 1rem;
+}
+.select--lg {
+  font-size: 1.15rem;
+}
+.select {
+  position: relative;
+  min-width: 12em;
+  padding: 0.75em 1em;
+  border: none;
+  border-radius: inherit;
+  outline: none;
+  background-color: var(--foreground);
+  cursor: pointer;
+  z-index: 0;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5em;
+  cursor: pointer;
+  outline: none;
+}
+.select__container:hover, .select__container:focus-within{
+  background-color: var(--contrast-color);
+  border-color: var(--primary-color);
+}
+.select:focus-visible{
+   outline: none;
+}
+.select__hidden-input{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.select--labeled .select{
+  padding: 1em;
+}
+.select__label {
+  --font-size: 0.8em;
+  font-size: var(--font-size);
+  position: absolute;
+  z-index: 1;
+  top: -0.5em;
+  color: var(--caption-color);
+  background: var(--foreground);
+  left:  1em;
+  padding: 0 0.3em;
+}
+.select__container:focus-within .select__label {
+  color: var(--primary-color);
+}

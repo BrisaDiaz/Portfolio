@@ -17,7 +17,7 @@ export function IconButton(
       className={`${styles["icon-btn"]} ${className ?? ""}`}
       {...other}
     >
-      {children}
+      <>{children}</>
     </button>
   );
 }

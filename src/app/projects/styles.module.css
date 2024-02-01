@@ -1,0 +1,21 @@
+.page{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.tags__container {
+   display: flex;
+   align-items: center;
+   gap: .75rem;
+   flex-wrap: wrap;
+   margin: 1.5rem 0 .5rem;
+ }
+ .tags__controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+ }
+ .results__count{
+  font-size: 0.85rem;
+  color: var(--caption-color);
+ }

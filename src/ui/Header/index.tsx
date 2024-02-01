@@ -1,13 +1,13 @@
 "use client";
 
 import { forwardRef, useEffect, useState, useId } from "react";
-import { useWindowScroll } from "@hooks";
 import styles from "./styles.module.css";
 import ModeButton from "@/components/ModeButton";
 import MenuButton from "@/components/MenuButton";
 import Menu from "@/components/Menu";
 import { useParams } from "next/navigation";
-
+import { useWindowSize } from "@hooks";
+import { MENU_LINKS } from "@data";
 export interface Props extends React.HTMLAttributes<HTMLElement> {}
 function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
   const { ...other } = props;
@@ -22,43 +22,53 @@ function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
   }, [params]);
 
   const menuID = useId();
-  const menuButtonD = useId();
+  const menuButtonID = useId();
+  const windowSize = useWindowSize();
 
-  const scrollPosition = useWindowScroll();
+  const isMdScreen =
+    windowSize?.width == undefined ? true : windowSize?.width >= 768;
+
   return (
-    <header
-      {...other}
-      ref={ref}
-      className={`${styles["header"]} ${
-        scrollPosition.y >= 50 ? styles["scrolled-header"] : ""
-      }`}
-    >
+    <header {...other} ref={ref} className={`${styles["header"]}`}>
       <div className={styles["header-inner"]}>
-        <ModeButton />
+        <ModeButton
+          className="tooltip tooltip--right"
+          data-tooltip="Switch theme"
+        />
 
         {isMenuOpen ? (
           <div className={styles["backdrop"]} onClick={closeMenu} />
         ) : (
           <></>
         )}
-        <MenuButton
-          onClick={toggleMenu}
-          isOpen={isMenuOpen}
-          aria-haspopup="menu"
-          aria-label="navigation menu"
-          role="button"
-          aria-expanded={isMenuOpen}
-          className={styles["menu-button"]}
-          aria-controls={menuID}
-          id={menuButtonD}
-        />
+        {isMdScreen ? (
+          <></>
+        ) : (
+          <MenuButton
+            onClick={toggleMenu}
+            isOpen={isMenuOpen}
+            aria-haspopup="menu"
+            aria-label="navigation menu"
+            role="button"
+            aria-expanded={isMenuOpen}
+            className={styles["menu-button"]}
+            aria-controls={menuID}
+            id={menuButtonID}
+          />
+        )}
         <Menu
           onClose={closeMenu}
-          isOpen={isMenuOpen}
-          aria-orientation="vertical"
+          isOpen={isMdScreen ? false : isMenuOpen}
           className={styles["menu"]}
           id={menuID}
-          aria-labelledby={menuButtonD}
+          links={MENU_LINKS}
+          {...(isMdScreen
+            ? {}
+            : {
+                "aria-labelledby": menuButtonID,
+                "data-open": isMenuOpen,
+                "aria-orientation": "vertical",
+              })}
         />
       </div>
     </header>

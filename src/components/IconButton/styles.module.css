@@ -1,9 +1,8 @@
 .icon-btn{
-  padding: 0.35em 0.35em ;
-  border: none;
+  padding: 0.35em 0.35em;
   outline: none;
   border-radius: var(--border-radius);
-  border: 1px solid var(--contrast-color);
+  border: 1px solid var(--border-color);
   font-size: 1.2em;
   background-color: var(--foreground);
   color: var(--text-color);
@@ -21,4 +20,5 @@
 .icon-btn svg{
 width: 1em;
 height: auto;
+font-size: inherit;
 }

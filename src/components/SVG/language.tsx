@@ -21,22 +21,24 @@ function Language(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
       height={height}
       fill={fill}
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 512 512"
       {...other}
     >
       <path
+        fill="none"
         stroke={stroke}
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M16.99 8.96H7.01M12 7.28v1.68M14.5 8.94c0 4.3-3.36 7.78-7.5 7.78M17 16.72c-1.8 0-3.4-.96-4.55-2.47"
+        strokeWidth="32"
+        d="M48 112h288M192 64v48m80 336l96-224 96 224m-162.5-64h133M281.3 112S257 206 199 277 80 384 80 384"
       ></path>
       <path
-        stroke={stroke}
+        fill="none"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M9 22h6c5 0 7-2 7-7V9c0-5-2-7-7-7H9C4 2 2 4 2 9v6c0 5 2 7 7 7z"
+        strokeWidth="32"
+        d="M256 336s-35-27-72-75-56-85-56-85"
       ></path>
     </svg>
   );

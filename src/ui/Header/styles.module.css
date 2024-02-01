@@ -5,8 +5,9 @@
 padding: 0.5em 1em;
   top:0;
   left:0;
-  border-bottom: 1px solid transparent;
-    
+  background: var(--foreground);
+  background-image: var(--bg-gradient);
+  border-bottom: 1px solid var(--border-color);
     transition: all linear var(--transition-duration-slow);
 }
 .header-inner{
@@ -51,10 +52,5 @@ justify-content: space-between;
 }
 .menu::after{
   display: none;
-}
-.scrolled-header{
-  border-bottom: 1px solid var(--border-color);
-  background: var(--foreground);
-  background-image: var(--bg-gradient);
 }
 }

@@ -26,7 +26,7 @@ function BookingApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         width={width}
         height={height}
         fill={fill}
-        fillOpacity="0.25"
+        fillOpacity="0.15"
         rx="6"
       ></rect>
       <path

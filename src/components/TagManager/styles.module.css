@@ -1,0 +1,28 @@
+.text-input__buttons-container {
+   display: flex;
+   align-items: center;
+   height: 100%;
+   position: relative;
+   border-radius: inherit;
+   border-left: 1px solid var(--border-color);
+   z-index: 20;
+ }
+ .text-input__buttons-container button:not(:last-child) {
+   border-radius: 0;
+   border-right: 1px solid var(--border-color);
+ }
+  .text-input__buttons-container button:not(:last-child):focus-visible {
+   border-color: var(--primary-color);
+ }
+ .tag__form {
+   position: relative;
+   width: fit-content;
+ }
+ 
+ .tags__container {
+   display: flex;
+   align-items: center;
+   gap: 0.5em;
+   flex-wrap: wrap;
+   margin: 1em 0;
+ }

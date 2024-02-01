@@ -4,40 +4,31 @@ import NextLink from "next/link";
 
 export interface Props extends React.MenuHTMLAttributes<HTMLElement> {
   isOpen?: boolean;
+  links?: {
+    name: string;
+    url:
+      | string
+      | {
+          pathname: string;
+          query: { [key: string]: string };
+        };
+  }[];
   onClose?: () => void;
 }
-const MENU_LINKS = [
-  {
-    url: "/#contact",
-    name: "contact"
-  },
-  {
-    url: "/#projects",
-    name: "projects"
-  },
-  {
-    url: "/#technologies",
-    name: "technologies"
-  },
-  {
-    url: "/about",
-    name: "about"
-  },
-];
+
 function Menu(props: Props, ref?: React.LegacyRef<HTMLElement>) {
-  const { isOpen = false, className, ...other } = props;
+  const { links = [], isOpen = false, className, ...other } = props;
 
   return (
     <menu
       {...other}
-      data-open={isOpen}
       ref={ref}
       className={`${styles["menu"]} ${className ?? ""}`}
     >
-      {MENU_LINKS.map((link) => (
+      {links.map((link) => (
         <NextLink
           href={link.url}
-          key={link.url}
+          key={link.name}
           passHref
           className={`${styles["menu-link"]}`}
         >

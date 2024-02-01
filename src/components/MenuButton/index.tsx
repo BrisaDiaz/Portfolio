@@ -6,7 +6,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function MenuButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
   const { isOpen, ...other } = props;
   return (
-    <IconButton {...other} ref={ref}>
+    <IconButton {...other} ref={ref} aria-label="menu button">
       {isOpen ? <CloseIcon /> : <OpenIcon />}
     </IconButton>
   );

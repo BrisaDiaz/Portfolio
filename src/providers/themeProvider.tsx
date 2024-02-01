@@ -3,8 +3,11 @@
 import { useState, useLayoutEffect, createContext, useContext } from "react";
 export type Mode = "light" | "dark";
 
-export const ContextProvider = createContext({
-  mode: "dark" as Mode,
+export const ContextProvider = createContext<{
+  mode: Mode;
+  toggleMode: () => void;
+}>({
+  mode: "dark",
   toggleMode: () => {
     return;
   },

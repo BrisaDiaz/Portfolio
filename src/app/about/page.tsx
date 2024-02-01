@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import { ABOUT } from "@data";
 import { School, Work, Language, Star } from "@/components/SVG";
-
+import { ButtonLink } from "@/components/Button";
 const About = () => {
   return (
     <main>
@@ -9,15 +9,15 @@ const About = () => {
         <article className={styles["summary-section"]}>
           <h1>About Me</h1>
           <p className={styles["summary__text"]}>{ABOUT.summary}</p>
-          <a
-            className="button-link"
+          <ButtonLink
+            color="primary"
             target="_blank"
             rel="noreferrer"
             href={ABOUT.resume}
             download
           >
             Download CV
-          </a>
+          </ButtonLink>
         </article>
 
         <article>

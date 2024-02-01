@@ -3,7 +3,7 @@ interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
   fill: "currentColor",
   width: "1em",
-  height: "1em"
+  height: "1em",
 };
 function Linkedin(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {

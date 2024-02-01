@@ -1,0 +1,19 @@
+.projects__container{
+display:grid;
+gap:1.5rem;
+grid-template-columns:  1fr;
+}
+
+.project__link:hover, .project__link:active{
+background-color: var(--contrast-color);
+border-radius: var(--border-radius);
+}
+.project, .project__link{
+  height: 100%;
+}
+
+@media (min-width:768px){
+.projects__container{
+grid-template-columns:  1fr 1fr;
+}
+}

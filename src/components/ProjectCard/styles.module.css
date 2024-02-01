@@ -2,12 +2,11 @@
 position: relative;
 padding: 1rem;
 border-radius: 6px;
-border: 1px solid transparent;
+border: 1px solid var(--border-color);
 display: flex;
 flex: 1;
 display: flex;
 flex-direction: column;
-background-color: var(--contrast-color-dark);
 z-index: 1;
 }
 .project__header {
@@ -27,10 +26,10 @@ text-transform: capitalize;
 }
 .project__summary {
 color: var(--text-color);
-font-size: 0.9em;
+font-size: 0.85rem;
 margin: 1em;
 }
-.project__summary:first-letter {
+.project__summary::first-letter {
 text-transform: uppercase;
 }
 .project__logo {
