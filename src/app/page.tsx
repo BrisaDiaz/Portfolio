@@ -8,6 +8,7 @@ import { ButtonLink } from "@/components/Button";
 import NextLink from "next/link";
 
 export default function Home() {
+
   return (
     <main>
       <section className={styles["hero-section"]} id="contact">

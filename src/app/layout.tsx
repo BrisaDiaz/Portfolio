@@ -5,7 +5,7 @@ import "./globals.css";
 import Header from "@/ui/Header";
 import Footer from "@/ui/Footer";
 import { Inter } from "next/font/google";
-import ThemeProvider from "@/providers/themeProvider";
+import { cookies } from "next/headers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,8 +19,13 @@ const Layout = memo(function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const nextCookies = cookies();
+
+  const colorMode =
+    (nextCookies.get("theme")?.value as undefined | "light" | "dark") || "dark";
+
   return (
-    <html lang="en">
+    <html lang="en" data-theme={colorMode}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -29,10 +34,7 @@ const Layout = memo(function RootLayout({
 
       <>
         <body className={inter.className} suppressHydrationWarning={true}>
-          <ThemeProvider>
-            <Header />
-          </ThemeProvider>
-
+          <Header colorMode={colorMode} />
           {children}
           <Footer />
         </body>

@@ -1,13 +1,9 @@
-"use client";
-
-
-import { forwardRef, Ref } from "react";
-import { useTheme } from "@/providers/themeProvider";
+import { forwardRef } from "react";
 import IconButton from "@/components/IconButton";
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: "dark" | "light";
 }
-export function ModeButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
+function ModeButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
   const { mode = "light", ...other } = props;
   const isLight = mode === "light";
   return (
@@ -20,7 +16,7 @@ export function ModeButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
     </IconButton>
   );
 }
-const PlainModeButton = forwardRef(ModeButton);
+export default forwardRef(ModeButton);
 
 function Sun() {
   return (
@@ -51,12 +47,3 @@ function Moon() {
     </svg>
   );
 }
-
-function ThemedModeButton(props: Props, ref?: Ref<HTMLButtonElement>) {
-  const { mode, toggleMode } = useTheme();
-
-  return (
-    <PlainModeButton mode={mode} onClick={toggleMode} {...props} ref={ref} />
-  );
-}
-export default forwardRef(ThemedModeButton);

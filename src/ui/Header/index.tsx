@@ -5,15 +5,18 @@ import styles from "./styles.module.css";
 import ModeButton from "@/components/ModeButton";
 import MenuButton from "@/components/MenuButton";
 import Menu from "@/components/Menu";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import { useWindowSize } from "@hooks";
 import { MENU_LINKS } from "@data";
-export interface Props extends React.HTMLAttributes<HTMLElement> {}
+export interface Props extends React.HTMLAttributes<HTMLElement> {
+  colorMode: "dark" | "light";
+}
 function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
-  const { ...other } = props;
+  const { colorMode = "dark", ...other } = props;
   const params = useParams();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-
   const toggleMenu = () => setIsMenuOpen((state) => !state);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -28,12 +31,19 @@ function Header(props: Props, ref?: React.LegacyRef<HTMLElement>) {
   const isMdScreen =
     windowSize?.width == undefined ? true : windowSize?.width >= 768;
 
+  function handleToggle() {
+    Cookies.set("theme", colorMode === "dark" ? "light" : "dark");
+    router.refresh();
+  }
+
   return (
     <header {...other} ref={ref} className={`${styles["header"]}`}>
       <div className={styles["header-inner"]}>
         <ModeButton
           className="tooltip tooltip--right"
           data-tooltip="Switch theme"
+          onClick={handleToggle}
+          mode={colorMode}
         />
 
         {isMenuOpen ? (
