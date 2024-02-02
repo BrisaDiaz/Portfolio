@@ -5,7 +5,7 @@ const defaultProps = {
   width: "154",
   height: "142",
 };
-function SmartBuyApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
+function SmartBuy(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
@@ -64,4 +64,4 @@ function SmartBuyApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     </svg>
   );
 }
-export default forwardRef(SmartBuyApp);
+export default forwardRef(SmartBuy);

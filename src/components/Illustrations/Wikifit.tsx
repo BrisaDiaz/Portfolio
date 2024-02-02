@@ -5,7 +5,7 @@ const defaultProps = {
   width: "154",
   height: "142",
 };
-function WikifitApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
+function Wikifit(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
@@ -40,4 +40,4 @@ function WikifitApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     </svg>
   );
 }
-export default forwardRef(WikifitApp);
+export default forwardRef(Wikifit);

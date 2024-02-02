@@ -5,7 +5,7 @@ const defaultProps = {
   width: "154",
   height: "142",
 };
-function OrtexLogin(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
+function Ortex(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
@@ -38,4 +38,4 @@ function OrtexLogin(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     </svg>
   );
 }
-export default forwardRef(OrtexLogin);
+export default forwardRef(Ortex);
