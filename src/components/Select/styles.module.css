@@ -6,7 +6,8 @@
   align-items: flex-start;
   width: fit-content;
   border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+  border-radius: var(--border-radius);
+  color: var(--text-color);
 }
 
 .select--sm {
@@ -35,6 +36,7 @@
   gap: 0.5em;
   cursor: pointer;
   outline: none;
+  color: inherit;
 }
 .select__container:hover, .select__container:focus-within{
   background-color: var(--contrast-color);
