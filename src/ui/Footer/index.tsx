@@ -45,7 +45,7 @@ function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
         </section>
       </div>
       <section>
-        <p>© 2023 All Rights Reserved.</p>
+        <p>{FOOTER.rights}</p>
       </section>
     </footer>
   );

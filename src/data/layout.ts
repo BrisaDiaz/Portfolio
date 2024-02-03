@@ -900,6 +900,7 @@ export const FOOTER = {
     { name: "Hotel Booker", slug: "hotel-booker" },
     { name: "Delivery App", slug: "delivery-app" },
   ],
+  rights: `© ${new Date(Date.now()).getFullYear()} All Rights Reserved.`,
 } as const;
 export const PROJECTS_TAGS = [
   {
