@@ -1187,3 +1187,10 @@ export const MENU_LINKS = [
     name: "about"
   },
 ];
+
+export const PROJECTS_FILTERS = {
+  tech: { tags: TECH_TAGS, label: "Technologies" },
+  topic: { tags: TOPIC_TAGS, label: "Topics" },
+};
+export const DEFAULT_PROJECTS_FILTER = "tech";
+

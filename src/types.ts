@@ -25,3 +25,14 @@ export interface Project {
   source_code?: string;
   demo?: string;
 }
+
+export interface ProjectsFilters {
+  tech: {
+    tags: string[];
+    label: string;
+  };
+  topic: {
+    tags: string[];
+    label: string;
+  };
+}

@@ -6,7 +6,7 @@ import { DropDown } from "../SVG";
 import { SelectProvider, useSelect } from "./provider";
 
 type Value = string | number;
-
+type OnChange = <Type>(selectedValue: Value | Type) => void;
 export interface Props
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   defaultValue?: Value;
@@ -14,7 +14,7 @@ export interface Props
   placeholder?: string;
   label?: string;
   size?: "sm" | "md" | "lg";
-  onChange?: (selectedValue: Value) => void;
+  onChange?: OnChange;
 }
 const SelectContainer = forwardRef(
   (props: Props, ref?: React.Ref<HTMLDivElement>) => {

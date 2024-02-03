@@ -19,3 +19,17 @@
   font-size: 0.85rem;
   color: var(--caption-color);
  }
+ .results__placeholder{
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--contrast-color);
+  border-radius: var(--border-radius);
+  color: var(--border-color);
+ }
+  .results__placeholder svg {
+    width: 50%;
+    height: auto;
+    max-width: 250px;
+  }

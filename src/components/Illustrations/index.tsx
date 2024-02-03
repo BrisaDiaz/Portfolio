@@ -7,3 +7,4 @@ export { default as PinterestClone } from "./PinterestClone";
 export { default as SmartBuy } from "./SmartBuy";
 export { default as TecnoRev } from "./TecnoRev";
 export { default as Portfolio } from "./Portfolio";
+export { default as Logo } from "./Logo";

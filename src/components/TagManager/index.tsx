@@ -31,6 +31,7 @@ export interface TagManagerProps extends React.HTMLAttributes<HTMLFormElement> {
 export interface TagManagerRefType {
   clearAllTags: () => void;
   addTag: (tagToAdd: string) => void;
+  addTags: (tagsToAdd: string[]) => void;
   removeTag: (tagToRemove: string) => void;
   tags: string[];
   element: HTMLFormElement | null;
@@ -131,8 +132,15 @@ const TagManager = forwardRef(
       if (tags.length == 0) return;
       setTags([]);
     };
+    const handleAddTags = (tagsToAdd: string[]) => {
+      const uniques = tagsToAdd.filter(
+        (tag) => !keyInsensitiveSearch(tags, tag),
+      );
+      setTags(uniques);
+    };
     const suggestionListId = useId();
     const isSuggestionListVisible = isFocused && suggestions.length > 0;
+
     useImperativeHandle(
       ref,
       () => {
@@ -140,6 +148,7 @@ const TagManager = forwardRef(
           clearAllTags: handleClearAllTags,
           removeTag: handleRemoveTag,
           addTag: handleAddTag,
+          addTags: handleAddTags,
           tags,
           element: formRef.current,
         };
