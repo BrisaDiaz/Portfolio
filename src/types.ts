@@ -3,7 +3,11 @@ export interface Caption {
   alt?: string;
   placeholder?: string;
 }
-type TechnologiesCategory = "language" | "frontend" | "testing" | "hosting";
+export type TechnologiesCategory =
+  | "language"
+  | "frontend"
+  | "testing"
+  | "hosting";
 
 export interface Project {
   id: number;
@@ -26,13 +30,11 @@ export interface Project {
   demo?: string;
 }
 
-export interface ProjectsFilters {
-  tech: {
+export type ProjectsFilter = "tech" | "topic";
+
+export type ProjectsFilters = {
+  [key in ProjectsFilter]: {
     tags: string[];
     label: string;
   };
-  topic: {
-    tags: string[];
-    label: string;
-  };
-}
+};

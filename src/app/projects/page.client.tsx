@@ -8,16 +8,14 @@ import ProjectsContainer from "@/ui/ProjectsContainer";
 import { Logo } from "@/components/Illustrations";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { getProjectsByTags } from "@/services/projects";
-import { Project, ProjectsFilters } from "@types";
-
-type ProjectFilter = keyof ProjectsFilters;
+import { Project, type ProjectsFilters, type ProjectsFilter } from "@types";
 
 interface PageProps {
   defaultProjects: Project[];
   defaultTags: string[];
   resultsByTag: { [tag: string]: number };
   filters: ProjectsFilters;
-  defaultFilter: ProjectFilter;
+  defaultFilter: ProjectsFilter;
 }
 export default function Projects(props: PageProps) {
   const { defaultProjects, defaultTags, resultsByTag, filters, defaultFilter } =
@@ -46,7 +44,7 @@ export default function Projects(props: PageProps) {
     }
   }, []);
 
-  function handleFilterChange<ProjectFilter>(filter: ProjectFilter) {
+  function handleFilterChange<ProjectsFilter>(filter: ProjectsFilter) {
     setSuggestions(filters[filter as keyof ProjectsFilters].tags);
     const params = new URLSearchParams(searchParams);
     const key = "filter";
