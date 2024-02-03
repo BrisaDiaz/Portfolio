@@ -26,7 +26,7 @@ function Ortex(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         width="154"
         height="142"
         fill={fill}
-        fillOpacity="0.15"
+        fillOpacity="0.25"
         rx="6"
       ></rect>
       <path
