@@ -9,9 +9,10 @@ max-width: var(--max-width-blog);
   gap: 1.5rem;
 }
 .heading { 
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
 }
 .project-logo{
   border-radius: var(--border-radius);
@@ -21,9 +22,16 @@ max-width: var(--max-width-blog);
   align-items: center;
   justify-content: center;
   object-position: center;
+  height: 5rem;
+  width: auto;
 }
 .title{ 
   color: var(--text-color-secondary);
+  margin: 0 0 0.5rem;
+}
+.subtitle{
+  margin: 0;
+  line-height: 1em;
 }
 .title, .section__title{
   text-transform: capitalize;

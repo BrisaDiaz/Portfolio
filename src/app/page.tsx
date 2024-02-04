@@ -38,7 +38,10 @@ export default function Home() {
         </article>
       </section>
       <section>
-        <h2 id="projects" className="poster-font poster-font--up">
+        <h2
+          id="projects"
+          className={`poster-font poster-font--down ${styles["page__section-title"]}`}
+        >
           Projects
         </h2>
         <NextLink href="/projects" passHref={true} legacyBehavior>
@@ -56,7 +59,10 @@ export default function Home() {
         />
       </section>
       <section>
-        <h2 id="technologies" className="poster-font poster-font--down">
+        <h2
+          id="technologies"
+          className={`poster-font poster-font--up ${styles["page__section-title"]}`}
+        >
           Technologies
         </h2>
         <div className={styles["techs__container"]}>

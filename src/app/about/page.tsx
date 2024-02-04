@@ -6,7 +6,7 @@ const About = () => {
   return (
     <main>
       <section className={styles["page"]}>
-        <article className={styles["summary-section"]}>
+        <article className={styles["summary__section"]}>
           <h1>About Me</h1>
           <p className={styles["summary__text"]}>{ABOUT.summary}</p>
           <ButtonLink
@@ -52,7 +52,9 @@ const About = () => {
                     className={styles["timeline__item"]}
                     key={work.timeFrame + work.company}
                   >
-                    <h3>{work.role}</h3>
+                    <p className={`h4-font ${styles["timeline__item-title"]}`}>
+                      {work.role}
+                    </p>
                     <div className={styles["item__meta"]}>
                       <p>{`${work.company} - ${work.location}`}</p>
                       <p>{work.timeFrame}</p>
@@ -85,7 +87,9 @@ const About = () => {
                 timeFrame: string;
               }) => (
                 <li key={edu.studies} className={styles["timeline__item"]}>
-                  <h3>{edu.institution}</h3>
+                  <p className={`h4-font ${styles["timeline__item-title"]}`}>
+                    {edu.institution}
+                  </p>
                   <div className={styles["item__meta"]}>
                     <p>{edu.studies}</p>
                     <p>{edu.timeFrame}</p>
@@ -103,8 +107,10 @@ const About = () => {
           <ul className={styles["language-list"]}>
             {ABOUT.idioms.map((idiom: { name: string; level: string }) => (
               <li key={idiom.name} className={styles["timeline__item"]}>
-                <h3>{idiom.name}</h3>
-                <span>{idiom.level}</span>
+                <p className={`h4-font ${styles["timeline__item-title"]}`}>
+                  {idiom.name}
+                </p>
+                <span className={styles["idiom__level"]}>{idiom.level}</span>
               </li>
             ))}
           </ul>

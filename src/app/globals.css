@@ -17,10 +17,12 @@
   --primary-color-light: #59787B;
   --primary-color-dark: #254043;
   --text-color-primary: #254043;
+  --contrast-color-primary: #345a5e1a;
   --secondary-color: #7D5F13;
    --secondary-color-light: #947C3D;
   --secondary-color-dark: #6A5110;
   --text-color-secondary: #59430D;
+  --contrast-color-secondary: #7d5f131a;
   --alert-color: #BC3E31;
     --transition-property-common: background-color, border-color, color, fill,
     stroke, --opacity, box-shadow, transform;
@@ -56,10 +58,12 @@
   --primary-color-light: #60A2A5;
   --primary-color-dark: #34797B;
   --text-color-primary: #85B8BA;
+  --contrast-color-primary: #3d8e911a;
   --secondary-color: #F7A21B;
    --secondary-color-light: #F8B344;
   --secondary-color-dark: #D28A17;
   --text-color-secondary: #F8B344;
+  --contrast-color-secondary: #f7a31d1a;
   --alert-color: #F64747;
 }
 
@@ -120,22 +124,22 @@ h1,h2,h3,h4{
   width: fit-content;
   line-height:  1.3em;
 }
-h1{
+h1,  .h1-font{
    font-weight: 800;
-   font-size: 1.55rem;
+   font-size: 1.65rem;
    letter-spacing: -1px;
    line-height: 1.1em;
 }
-h2{
-  font-size: 1.35rem;
+h2, .h2-font{
+  font-size: 1.3rem;
   margin:  0.7rem 0;
   font-weight: 700;
 }
-h3{
+h3, .h3-font {
     font-weight: 600;
      font-size: 1.15rem;
 }
-h4{
+h4, .h4-font{
       font-weight: 500;
      font-size: 1rem;
 }
@@ -151,18 +155,17 @@ image{
 }
 .list{
   line-height: 1.5rem;
-  list-style: circle;
-  list-style-type: "—";
+  list-style-type: "-";
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin-left: 1.25em;
+  margin-left: .5rem;
 }
 .list__item{
   padding-left: 1.5ch;
 }
 .list__item::marker{
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: 700;
 }
 li::first-letter {
@@ -323,13 +326,13 @@ section{
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
  }
-  h1{
+h1, .h1-font{
    font-size: 2em;
 }
-h2{
+h2, .h2-font{
      font-size: 1.5em;
 }
-h3{
+h3, .h3-font{
      font-size: 1.15rem;
      font-weight: 500;
 }
@@ -340,8 +343,7 @@ section{
 }
 @media (min-width:1024px){
 
-  h1{
-
+ h1, .h1-fon{
  font-size: 2.7em;
 }
 }

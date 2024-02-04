@@ -1,5 +1,5 @@
 .badge {
-  padding: 0.15rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   border-radius: var(--border-radius);
   position: relative;
   z-index: 1;
@@ -9,6 +9,9 @@
   display: flex;
   gap: 0.5em;
   align-items: center;
+}
+.badge--deletable{
+  padding: 0.18rem 0.5rem;
 }
 .badge__remove-button {
  position: relative;
@@ -30,17 +33,37 @@
 }
 .badge--solid {
   color: var(--foreground);
+}
+.badge--default.badge--solid {
   background-color: var(--text-color);
 }
-.badge--outline {
-  color: var(--text-color);
-  border: 1px solid var(--text-color);
+.badge--primary.badge--solid {
+  background-color: var(--text-color-primary);
 }
-.badge--subtle {
+.badge--secondary.badge--solid {
+  background-color: var(--text-color-secondary);
+}
+.badge--outline {
+  border: 1px solid currentColor;
+}
+.badge--default.badge--outline, .badge--default.badge--subtle  {
   color: var(--text-color);
+}
+.badge--primary.badge--outline, .badge--primary.badge--subtle{
+  color: var(--text-color-primary);
+}
+.badge--secondary.badge--outline, .badge--secondary.badge--subtle{
+  color: var(--text-color-secondary);
+}
+.badge--default.badge--subtle {
   background-color: var(--contrast-color-dark);
 }
-
+.badge--primary.badge--subtle{
+  background-color: var(--contrast-color-primary);
+}
+.badge--secondary.badge--subtle{
+  background-color: var(--contrast-color-secondary);
+}
 .badge--sm{
   font-size: 0.85em;
 }

@@ -1,7 +1,7 @@
 .page{
   display:flex;
   flex-direction:column;
-  gap:1.5rem;
+  gap:1rem;
   max-width: var(--max-width-blog);
   margin: 0 auto;
 }
@@ -16,11 +16,11 @@
   text-align: start;
   color:var(--text-color-secondary);
 }
+.summary__section{
+  margin-bottom: 2rem;
+}
 .summary__text{
   margin: 1em 0 ;
-}
-.achievements__list{
-  margin-top: 0.5em;
 }
 .timeline__item{
 position: relative;
@@ -30,22 +30,24 @@ padding: 0.25em 2em;
     width: 0.5em;
     height: 0.5em;
     content: " ";
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     border-radius: 100%;
     position: absolute;
     left: 0.5em;
-    top: 1.25em;
+    top: 0.85em;
 }
 .timeline .timeline__item:not(:last-child)::after  {
-    width: 1px;
-    height: 100%;
+        width: 1px;
+    height: calc(100% + 0.5em);
     content: " ";
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     position: absolute;
-      left: 0.75em;
-     top: 1.75em;
+    left: 0.7em;
+    top: 1.25em;
 }
-
+.timeline__item-title{ 
+  margin-top: 0;
+}
 .language-list{
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +58,8 @@ padding: 0.25em 2em;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 1em;
+}
+.idiom__level, .item__meta{
   color: var(--caption-color);
 }
-
 

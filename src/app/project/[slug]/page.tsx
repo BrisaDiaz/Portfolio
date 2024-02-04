@@ -87,7 +87,12 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
                     <div className={styles["tech__list"]}>
                       {category in techs ? (
                         techs[category]?.map((tech: string) => (
-                          <Badge key={tech} variant="subtle" size="sm">
+                          <Badge
+                            key={tech}
+                            variant="subtle"
+                            size="sm"
+                            color="secondary"
+                          >
                             {tech}
                           </Badge>
                         ))

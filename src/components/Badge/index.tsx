@@ -5,6 +5,7 @@ import { Delete } from "@/components/SVG";
 interface Props extends React.BaseHTMLAttributes<HTMLParagraphElement> {
   variant?: "solid" | "outline" | "subtle";
   size?: "sm" | "md" | "lg";
+  color?: "default" | "primary" | "secondary";
   deletable?: boolean;
   onDelete?: React.MouseEventHandler<HTMLButtonElement>;
   transformText?: "none" | "uppercase" | "capitalize" | "uppercase" | "title";
@@ -13,6 +14,7 @@ interface Props extends React.BaseHTMLAttributes<HTMLParagraphElement> {
 const defaultProps = {
   variant: "solid",
   size: "md",
+  color: "default",
   transformText: "none",
   deletable: false,
   onDelete: () => {},
@@ -20,11 +22,12 @@ const defaultProps = {
 
 const Badge = (props: Props, ref?: React.LegacyRef<HTMLParagraphElement>) => {
   const {
-    className,
+    className = "",
     children,
     count = 0,
     variant = defaultProps.variant,
     size = defaultProps.size,
+    color = defaultProps.color,
     deletable = defaultProps.deletable,
     transformText = defaultProps.transformText,
     onDelete = defaultProps.onDelete,
@@ -34,11 +37,11 @@ const Badge = (props: Props, ref?: React.LegacyRef<HTMLParagraphElement>) => {
     <p
       {...others}
       ref={ref}
-      className={`${className ?? ""} ${styles["badge"]} ${
-        styles[`badge--${variant}`]
-      } ${styles[`badge--${size}`]} ${
+      className={`${className} ${styles["badge"]} ${
+        styles[`badge--${color}`]
+      } ${styles[`badge--${variant}`]} ${styles[`badge--${size}`]} ${
         styles[`badge--transform-${transformText}`]
-      }`}
+      } ${deletable ? styles["badge--deletable"] : ""} `}
     >
       <>
         {count ? (
