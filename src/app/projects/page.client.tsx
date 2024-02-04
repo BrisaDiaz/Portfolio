@@ -35,13 +35,14 @@ export default function Projects(props: PageProps) {
     if (tags.length) {
       const urlTags = tags.join(",");
       params.set(key, urlTags);
-      router.replace(`${pathname}?${params.toString()}`);
       const results = getProjectsByTags(tags);
       setProjects(results);
     } else {
       params.delete(key);
       setProjects([]);
+      params.delete(key);
     }
+    router.replace(`${pathname}?${params.toString()}`);
   }, []);
 
   function handleFilterChange<ProjectsFilter>(filter: ProjectsFilter) {

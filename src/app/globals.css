@@ -18,11 +18,11 @@
   --primary-color-dark: #254043;
   --text-color-primary: #254043;
   --contrast-color-primary: #345a5e1a;
-  --secondary-color: #7D5F13;
-   --secondary-color-light: #947C3D;
-  --secondary-color-dark: #6A5110;
-  --text-color-secondary: #59430D;
-  --contrast-color-secondary: #7d5f131a;
+  --secondary-color: #5A6D88;
+   --secondary-color-light: #5A6D88;
+  --secondary-color-dark: #2E415E;
+  --text-color-secondary: #2E415E;
+  --contrast-color-secondary: #5a6c871a;
   --alert-color: #BC3E31;
     --transition-property-common: background-color, border-color, color, fill,
     stroke, --opacity, box-shadow, transform;
