@@ -1,25 +1,13 @@
-import { PROJECTS, PROJECTS_TAGS, TOPIC_TAGS, TECH_TAGS } from "@data";
+import { PROJECTS, TOPIC_TAGS, TECH_TAGS } from "@data";
 import { keyInsensitiveCoincidence } from "@/utils/strings";
 const FILTER_TAGS = [...TOPIC_TAGS, ...TECH_TAGS];
 function getProjectsByTag(tag: string) {
-  const ids = PROJECTS_TAGS.reduce(
-    (
-      idList: number[],
-      current: {
-        id: number;
-        tags: string[];
-      },
-    ) => {
-      if (keyInsensitiveCoincidence(current.tags, tag)) {
-        idList.push(current.id);
-      }
-      return idList;
-    },
-    [],
+  const projects = PROJECTS.filter((project) =>
+    keyInsensitiveCoincidence(project.tags, tag),
   );
-  return ids;
+  return projects;
 }
-function getResultsCountByTag(tags: string[] = FILTER_TAGS) {
+function getTagProjectCounts(tags: string[] = FILTER_TAGS) {
   const resultsByTag: { [tag: string]: number } = {};
   tags.forEach((tag) => {
     const cant = getProjectsByTag(tag).length;
@@ -28,17 +16,10 @@ function getResultsCountByTag(tags: string[] = FILTER_TAGS) {
   return resultsByTag;
 }
 function getProjectsByTags(tags: string[] = FILTER_TAGS) {
-  const projectsIds: number[] = [];
-  PROJECTS_TAGS.forEach((project) => {
-    let isValid = tags.some((tag) =>
-      keyInsensitiveCoincidence(project.tags, tag),
-    );
-    if (isValid) {
-      projectsIds.push(project.id);
-    }
-  });
-  const projects = PROJECTS.filter((project) => project.id in projectsIds);
+  const projects = PROJECTS.filter((project) =>
+    tags.some((tag) => keyInsensitiveCoincidence(project.tags, tag)),
+  );
   return projects;
 }
 
-export { getProjectsByTags, getResultsCountByTag };
+export { getProjectsByTags, getTagProjectCounts };

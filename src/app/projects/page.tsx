@@ -1,5 +1,5 @@
 import PageClient from "./page.client";
-import { getProjectsByTags, getResultsCountByTag } from "@/services/projects";
+import { getProjectsByTags, getTagProjectCounts } from "@/services/projects";
 import { PROJECTS_FILTERS, DEFAULT_PROJECTS_FILTER } from "@data";
 import { type ProjectsFilters, type ProjectsFilter } from "@types";
 interface PageProps {
@@ -10,7 +10,7 @@ export default function ProjectsSearch(props: PageProps) {
   const urlTags = props.searchParams?.tags?.split(",") || [];
   const urlFilter = props.searchParams?.filter;
   const projects = getProjectsByTags(urlTags);
-  const resultsByTag = getResultsCountByTag();
+  const resultsByTag = getTagProjectCounts();
 
   let defaultFilter = DEFAULT_PROJECTS_FILTER;
   if (urlFilter in PROJECTS_FILTERS) {
