@@ -5,10 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyze": "cross-env ANALYZE=true npm run build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^14.1.0",
+    "cross-env": "^7.0.3",
     "js-cookie": "^3.0.5",
     "next": "^14.1.0",
     "react": "^18",
