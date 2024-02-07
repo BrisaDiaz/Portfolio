@@ -1,7 +1,8 @@
-import { PROJECTS } from "@data";
+
 import styles from "./page.module.css";
 import Image from "next/image";
 import { NextPage } from "next";
+import { notFound } from "next/navigation";
 import Link from "@/components/Link";
 import Badge from "@/components/Badge";
 import Table, {
@@ -11,11 +12,18 @@ import Table, {
   TableHeadCell,
   TableRow,
 } from "@/components/Table";
+import { fetchProjectById } from "@/services/projects";
 
-const Project: NextPage<{ params: { slug: string } }> = (p) => {
-  const project = PROJECTS.find(
-    (project) => project.slug === p.params.slug,
-  ) as (typeof PROJECTS)[0];
+const Project: NextPage<{
+  params: { slug: string };
+  searchParams: { id: string };
+}> = async (pageProps) => {
+  const {
+    searchParams: { id },
+  } = pageProps;
+  if (!id) return notFound();
+  const project = await fetchProjectById(parseInt(id));
+  if (!project) return notFound();
 
   const techs = Object.freeze(project.technologies);
   type Category = keyof typeof techs;
@@ -47,28 +55,32 @@ const Project: NextPage<{ params: { slug: string } }> = (p) => {
         <div className={styles["links"]}>
           <h3 className={`${styles["section__title"]}`}>Links</h3>
           <ul className={styles["links__container"]}>
-            <li>
-              <Link
-                external={true}
-                href={project?.demo || ""}
-                primary={true}
-                btn={true}
-                className="link"
-              >
-                Live Demo
-              </Link>
-            </li>
-            <li>
-              <Link
-                external={true}
-                className="link"
-                href={project?.source_code}
-                primary={true}
-                btn={true}
-              >
-                Repository
-              </Link>
-            </li>
+            {project?.demo && (
+              <li>
+                <Link
+                  external={true}
+                  href={project?.demo}
+                  primary={true}
+                  btn={true}
+                  className="link"
+                >
+                  Live Demo
+                </Link>
+              </li>
+            )}
+            {project?.source_code && (
+              <li>
+                <Link
+                  external={true}
+                  className="link"
+                  href={project?.source_code}
+                  primary={true}
+                  btn={true}
+                >
+                  Repository
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         <div>

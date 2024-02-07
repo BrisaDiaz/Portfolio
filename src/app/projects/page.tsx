@@ -1,28 +1,45 @@
 import PageClient from "./page.client";
-import { getProjectsByTags, getTagProjectCounts } from "@/services/projects";
-import { PROJECTS_FILTERS, DEFAULT_PROJECTS_FILTER } from "@data";
-import { type ProjectsFilters, type ProjectsFilter } from "@types";
+import { getProjects } from "@/services/projects";
+import { type ProjectsFilterTags, type ProjectsTagType } from "@types";
+import { getProjectsByTags, getTagProjectCounts } from "@/utils/projects";
+import { notFound } from "next/navigation";
+import { getTags } from "@/services/tags";
 interface PageProps {
   params: {};
   searchParams: { tags: string; filter: string };
 }
-export default function ProjectsSearch(props: PageProps) {
+async function ProjectsSearch(props: PageProps) {
+  const projectsTags = await getTags();
+  if (!projectsTags) return notFound();
+  const projects = await getProjects();
+  if (!projects) return notFound();
+
   const urlTags = props.searchParams?.tags?.split(",") || [];
   const urlFilter = props.searchParams?.filter;
-  const projects = getProjectsByTags(urlTags);
-  const resultsByTag = getTagProjectCounts();
+  const resultProjects = getProjectsByTags(projects, urlTags);
+  const resultsByTag = getTagProjectCounts(projects, [
+    ...projectsTags.technologies,
+    ...projectsTags.topics,
+  ]);
 
-  let defaultFilter = DEFAULT_PROJECTS_FILTER;
-  if (urlFilter in PROJECTS_FILTERS) {
+  const projectsFilters: ProjectsFilterTags = {
+    technologies: { tags: projectsTags.technologies, label: "Technologies" },
+    topics: { tags: projectsTags.topics, label: "Topics" },
+  };
+
+  let defaultFilter = "technologies";
+  if (urlFilter in projectsFilters) {
     defaultFilter = urlFilter;
   }
   return (
     <PageClient
-      defaultProjects={projects}
+      defaultProjects={resultProjects}
+      projects={projects}
       defaultTags={urlTags}
       resultsByTag={resultsByTag}
-      filters={PROJECTS_FILTERS}
-      defaultFilter={defaultFilter as ProjectsFilter}
+      filters={projectsFilters}
+      defaultFilter={defaultFilter as ProjectsTagType}
     />
   );
 }
+export default ProjectsSearch;

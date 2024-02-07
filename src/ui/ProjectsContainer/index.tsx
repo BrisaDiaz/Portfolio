@@ -30,7 +30,7 @@ const ProjectsContainer = forwardRef(
       >
         {projects.map((project) => (
           <NextLink
-            href={"/project/" + project.slug}
+            href={`/project/${project.slug}?id=${project.id}`}
             key={project.id}
             className={`link-box ${styles["project__link"]}`}
           >

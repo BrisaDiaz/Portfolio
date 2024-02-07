@@ -1,25 +1,26 @@
-import { PROJECTS, TOPIC_TAGS, TECH_TAGS } from "@data";
-import { keyInsensitiveCoincidence } from "@/utils/strings";
-const FILTER_TAGS = [...TOPIC_TAGS, ...TECH_TAGS];
-function getProjectsByTag(tag: string) {
-  const projects = PROJECTS.filter((project) =>
-    keyInsensitiveCoincidence(project.tags, tag),
-  );
-  return projects;
-}
-function getTagProjectCounts(tags: string[] = FILTER_TAGS) {
-  const resultsByTag: { [tag: string]: number } = {};
-  tags.forEach((tag) => {
-    const cant = getProjectsByTag(tag).length;
-    resultsByTag[tag] = cant;
-  });
-  return resultsByTag;
-}
-function getProjectsByTags(tags: string[] = FILTER_TAGS) {
-  const projects = PROJECTS.filter((project) =>
-    tags.some((tag) => keyInsensitiveCoincidence(project.tags, tag)),
-  );
-  return projects;
+import { Project } from "@types";
+const BASE_URL = "https://api.npoint.io/cd0d57abcbf2d83157be";
+
+async function getProjects(): Promise<Project[]> {
+  try {
+    const res = await fetch(BASE_URL);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 }
 
-export { getProjectsByTags, getTagProjectCounts };
+async function fetchProjectById(id: number): Promise<Project | null> {
+  try {
+    const res = await fetch(`${BASE_URL}/${id - 1}`);
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export { getProjects, fetchProjectById };

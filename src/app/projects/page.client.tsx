@@ -7,46 +7,54 @@ import Badge from "@/components/Badge";
 import ProjectsContainer from "@/ui/ProjectsContainer";
 import { Logo } from "@/components/Illustrations";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { getProjectsByTags } from "@/services/projects";
-import { Project, type ProjectsFilters, type ProjectsFilter } from "@types";
+import { Project, type ProjectsFilterTags, type ProjectsTagType } from "@types";
+import { getProjectsByTags } from "@/utils/projects";
 
 interface PageProps {
   defaultProjects: Project[];
+  projects: Project[];
   defaultTags: string[];
   resultsByTag: { [tag: string]: number };
-  filters: ProjectsFilters;
-  defaultFilter: ProjectsFilter;
+  filters: ProjectsFilterTags;
+  defaultFilter: ProjectsTagType;
 }
 export default function Projects(props: PageProps) {
-  const { defaultProjects, defaultTags, resultsByTag, filters, defaultFilter } =
-    props;
+  const {
+    defaultProjects,
+    defaultTags,
+    resultsByTag,
+    filters,
+    defaultFilter,
+    projects,
+  } = props;
 
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
 
-  const [projects, setProjects] = useState<Project[]>(defaultProjects);
+  const [displayedProjects, setDisplayProjects] =
+    useState<Project[]>(defaultProjects);
   const [suggestions, setSuggestions] = useState(filters[defaultFilter].tags);
   const tagManagerRef = useRef<TagManagerRefType>(null);
 
-  const handleSearch = useCallback((tags: string[]) => {
+  const handleSearch = useCallback(async (tags: string[]) => {
     const params = new URLSearchParams(searchParams);
     const key = "tags";
     if (tags.length) {
       const urlTags = tags.join(",");
       params.set(key, urlTags);
-      const results = getProjectsByTags(tags);
-      setProjects(results);
+      const results = getProjectsByTags(projects, tags);
+      setDisplayProjects(results);
     } else {
       params.delete(key);
-      setProjects([]);
+      setDisplayProjects([]);
       params.delete(key);
     }
     router.replace(`${pathname}?${params.toString()}`);
   }, []);
 
-  function handleFilterChange<ProjectsFilter>(filter: ProjectsFilter) {
-    setSuggestions(filters[filter as keyof ProjectsFilters].tags);
+  function handleFilterChange<ProjectsTagType>(filter: ProjectsTagType) {
+    setSuggestions(filters[filter as keyof ProjectsFilterTags].tags);
     const params = new URLSearchParams(searchParams);
     const key = "filter";
     params.set(key, filter as string);
@@ -104,9 +112,11 @@ export default function Projects(props: PageProps) {
           )}
         </article>
 
-        <p className={styles["results__count"]}>{projects.length} Results</p>
-        {projects.length ? (
-          <ProjectsContainer projects={projects} />
+        <p className={styles["results__count"]}>
+          {displayedProjects.length} Results
+        </p>
+        {displayedProjects.length ? (
+          <ProjectsContainer projects={displayedProjects} />
         ) : (
           <div className={styles["results__placeholder"]}>
             <Logo />

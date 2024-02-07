@@ -1,31 +1,32 @@
-
 import { forwardRef } from "react";
 import styles from "./styles.module.css";
 import NextLink from "next/link";
-import { FOOTER } from "@data";
+import { getFooterData } from "@/services/layout";
+
 export interface Props extends React.HTMLAttributes<HTMLElement> {}
-function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
+async function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
   const { ...other } = props;
+  const footer = await getFooterData();
 
   return (
     <footer {...other} ref={ref} className={styles["footer"]}>
       <div className={styles["footer-inner"]}>
         <section className={styles["profile-section"]}>
-          <h4>{FOOTER.title}</h4>
-          <p>{FOOTER.summary}</p>
+          <h4>{footer?.about?.title}</h4>
+          <p>{footer?.about?.summary}</p>
         </section>
         <section>
           <h4>Contact Info</h4>
           <ul>
-            {FOOTER.contact.map((social) => (
-              <li key={social.href}>
+            {footer?.contact_links?.map((link) => (
+              <li key={link?.url}>
                 <a
-                  href={social.href}
+                  href={link?.url}
                   target="_blank"
                   rel="noreferrer"
                   className="link"
                 >
-                  {social.name}
+                  {link?.name}
                 </a>
               </li>
             ))}
@@ -34,19 +35,23 @@ function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
         <section>
           <h4>Highlighted Projects</h4>
           <ul>
-            {FOOTER.highlightedProjects.map((project) => (
-              <li key={project.slug}>
-                <NextLink href={`/project/${project.slug}`} className="link">
-                  {project.name}
+            {footer?.highlighted_projects.map((project) => (
+              <li key={project?.url}>
+                <NextLink href={project?.url} className="link">
+                  {project?.name}
                 </NextLink>
               </li>
             ))}
           </ul>
         </section>
       </div>
-      <section>
-        <p>{FOOTER.rights}</p>
-      </section>
+      {footer?.rights ? (
+        <section>
+          <p>{footer?.rights}</p>
+        </section>
+      ) : (
+        <></>
+      )}
     </footer>
   );
 }

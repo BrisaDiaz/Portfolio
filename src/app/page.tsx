@@ -1,37 +1,46 @@
 import styles from "./page.module.css";
-import { PROJECTS, TECHS, INTRO, TECH_CATEGORIES } from "@data";
 import Link from "@/components/Link";
 import IconButton from "@/components/IconButton";
 import ProjectsContainer from "@/ui/ProjectsContainer";
 import { Linkedin, Email, Github, Options } from "@/components/SVG";
 import { ButtonLink } from "@/components/Button";
 import NextLink from "next/link";
+import { getProjects } from "@/services/projects";
+import { getTechStack } from "@/services/technologies";
+import { getHeroData } from "@/services/layout";
+import { TechStack } from "@types";
 
-export default function Home() {
+async function Home() {
+  const projects = await getProjects();
+  const hero = await getHeroData();
+  const technologies = await getTechStack();
+  const techStack = technologies ?? ({} as TechStack);
 
+  type TechCategory = keyof typeof techStack;
+  const techCategories = Object.keys(techStack) as TechCategory[];
   return (
     <main>
       <section className={styles["hero-section"]} id="contact">
         <article className={styles["introduction"]}>
           <h1 className={styles["introduction__title"]}>
             <span className={styles["introduction__subtitle"]}>
-              {INTRO.subtitle}
+              {hero?.subtitle}
             </span>
             <br />
-            {INTRO.title}
+            {hero?.title}
           </h1>
-          <p className={styles["introduction__text"]}>{INTRO.text}</p>
+          <p className={styles["introduction__text"]}>{hero?.text}</p>
           <div className={styles["contact-links"]}>
-            {INTRO.socials.map((social, i) => (
+            {hero?.contact_links.map((link, i) => (
               <ButtonLink
-                key={social.href}
+                key={link?.url}
                 color={i > 0 ? "default" : "primary"}
                 variant={i > 0 ? "outline" : "solid"}
-                href={social.href}
+                href={link?.url}
                 target="_blank"
                 rel="noreferrer"
               >
-                {social.name} <SocialIcon name={social.name} />
+                {link?.name} <SocialIcon name={link?.name} />
               </ButtonLink>
             ))}
           </div>
@@ -54,7 +63,7 @@ export default function Home() {
           </IconButton>
         </NextLink>
         <ProjectsContainer
-          projects={PROJECTS}
+          projects={projects}
           className={styles["projects__container"]}
         />
       </section>
@@ -66,28 +75,30 @@ export default function Home() {
           Technologies
         </h2>
         <div className={styles["techs__container"]}>
-          {TECH_CATEGORIES.map((category) => (
-            <article key={category}>
-              <h3 className={styles["tech-category__name"]}>{category}</h3>
-              <ul>
-                {TECHS.map(
-                  (tech) =>
-                    tech.category === category && (
-                      <li key={tech.name} className="link">
-                        <Link external={true} href={tech.resource_url}>
-                          {tech.name}
-                        </Link>
-                      </li>
-                    ),
-                )}
-              </ul>
-            </article>
-          ))}
+          {techCategories.length ? (
+            techCategories.map((category) => (
+              <article key={category}>
+                <h3 className={styles["tech-category__name"]}>{category}</h3>
+                <ul>
+                  {techStack[category].map((tech) => (
+                    <li key={tech.name} className="link">
+                      <Link external={true} href={tech.doc_url}>
+                        {tech.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
       </section>
     </main>
   );
 }
+export default Home;
 
 function SocialIcon({ name }: { name: string }) {
   if (name == "linkedin") return <Linkedin />;
