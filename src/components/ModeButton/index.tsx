@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import IconButton from "@/components/IconButton";
+import {IconButton} from "@/components/IconButton";
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: "dark" | "light";
 }

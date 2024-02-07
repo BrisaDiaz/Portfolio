@@ -1,5 +1,5 @@
 .icon-btn{
-  padding: 0.35em 0.35em;
+  padding: 0.35em 0.45em;
   outline: none;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
@@ -11,6 +11,7 @@
   align-items: center;
   justify-content: center;
   line-height: 1em;
+  display: inline-block;
 }
 
 .icon-btn:hover,.icon-btn:focus-visible{

@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Link from "@/components/Link";
-import IconButton from "@/components/IconButton";
+import { IconButtonLink } from "@/components/IconButton";
 import ProjectsContainer from "@/ui/ProjectsContainer";
 import { Linkedin, Email, Github, Options } from "@/components/SVG";
 import { ButtonLink } from "@/components/Button";
@@ -54,13 +54,13 @@ async function Home() {
           Projects
         </h2>
         <NextLink href="/projects" passHref={true} legacyBehavior>
-          <IconButton
+          <IconButtonLink
             className="tooltip tooltip--right"
             data-tooltip="Advance search"
             aria-label="advance projects search"
           >
             <Options />
-          </IconButton>
+          </IconButtonLink>
         </NextLink>
         <ProjectsContainer
           projects={projects}
