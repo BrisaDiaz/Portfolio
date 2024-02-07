@@ -101,6 +101,7 @@ export interface AboutInfo {
   resume: string;
   experience: Experience[];
   education: Education[];
+  certifications: Education[];
   languages: Language[];
   achievements: string[];
 }

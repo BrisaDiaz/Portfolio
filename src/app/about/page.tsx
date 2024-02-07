@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import { School, Work, Language, Star } from "@/components/SVG";
+import { School, Work, Language, Star, Ribbon } from "@/components/SVG";
 import { ButtonLink } from "@/components/Button";
 import { getAboutInfo } from "@/services/about";
 import { notFound } from "next/navigation";
@@ -52,52 +52,40 @@ const About = async () => {
               <h2>Experience</h2>
             </div>
             <ul className={styles["timeline"]}>
-              {about.experience.map(
-                (work: {
-                  role: string;
-                  company: string;
-                  location: string;
-                  time_frame: string;
-                  responsibilities: string[];
-                }) => (
-                  <li
-                    className={styles["timeline__item"]}
-                    key={work.time_frame + work.company}
-                  >
-                    <p className={`h4-font ${styles["timeline__item-title"]}`}>
-                      {work.role}
-                    </p>
-                    <div className={styles["item__meta"]}>
-                      <p>{`${work.company} - ${work.location}`}</p>
-                      <p>{work.time_frame}</p>
-                    </div>
-                    <ul className={styles["list"]}>
-                      {work.responsibilities.map((task: string) => (
-                        <li key={task}>
-                          <p>{task}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ),
-              )}
+              {about.experience.map((work) => (
+                <li
+                  className={styles["timeline__item"]}
+                  key={work.time_frame + work.company}
+                >
+                  <p className={`h4-font ${styles["timeline__item-title"]}`}>
+                    {work.role}
+                  </p>
+                  <div className={styles["item__meta"]}>
+                    <p>{`${work.company} - ${work.location}`}</p>
+                    <p>{work.time_frame}</p>
+                  </div>
+                  <ul className={styles["list"]}>
+                    {work.responsibilities.map((task: string) => (
+                      <li key={task}>
+                        <p>{task}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
             </ul>
           </article>
         ) : (
           <></>
         )}
-        <article>
-          <div className={styles["section__title"]}>
-            <School className={styles["section__svg"]} />
-            <h2>Education</h2>
-          </div>
-          <ul className={styles["timeline"]}>
-            {about.education.map(
-              (edu: {
-                institution: string;
-                studies: string;
-                time_frame: string;
-              }) => (
+        {about.education.length ? (
+          <article>
+            <div className={styles["section__title"]}>
+              <School className={styles["section__svg"]} />
+              <h2>Education</h2>
+            </div>
+            <ul className={styles["timeline"]}>
+              {about.education.map((edu) => (
                 <li key={edu.studies} className={styles["timeline__item"]}>
                   <p className={`h4-font ${styles["timeline__item-title"]}`}>
                     {edu.institution}
@@ -107,10 +95,35 @@ const About = async () => {
                     <p>{edu.time_frame}</p>
                   </div>
                 </li>
-              ),
-            )}
-          </ul>
-        </article>
+              ))}
+            </ul>
+          </article>
+        ) : (
+          <></>
+        )}
+        {about?.certifications?.length ? (
+          <article>
+            <div className={styles["section__title"]}>
+              <Ribbon className={styles["section__svg"]} />
+              <h2>Certifications</h2>
+            </div>
+            <ul className={styles["timeline"]}>
+              {about.certifications.map((cer) => (
+                <li key={cer.studies} className={styles["timeline__item"]}>
+                  <p className={`h4-font ${styles["timeline__item-title"]}`}>
+                    {cer.institution}
+                  </p>
+                  <div className={styles["item__meta"]}>
+                    <p>{cer.studies}</p>
+                    <p>{cer.time_frame}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ) : (
+          <></>
+        )}
         <article>
           <div className={styles["section__title"]}>
             <Language className={styles["section__svg"]} />

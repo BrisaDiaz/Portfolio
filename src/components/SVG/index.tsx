@@ -11,3 +11,4 @@ export { default as Delete } from "./delete";
 export { default as Clear } from "./clear";
 export { default as DropDown } from "./dropDown";
 export { default as Options } from "./options";
+export { default as Ribbon } from "./ribbon";
