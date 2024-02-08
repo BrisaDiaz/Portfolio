@@ -30,10 +30,13 @@
 .button--lg{
   font-size: 1.15rem;
 }
+.button--solid{
+    font-weight: 600;
+}
 .button--solid.button--primary{
     background-color:var(--primary-color);
     border-color: var(--primary-color);
-    color:#fff;
+    color:var(--foreground);
 }
 .button--solid.button--secondary {
     background-color:var(--secondary-color);
