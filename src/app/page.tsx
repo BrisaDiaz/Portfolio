@@ -9,6 +9,7 @@ import { getProjects } from "@/services/projects";
 import { getTechStack } from "@/services/technologies";
 import { getHeroData } from "@/services/layout";
 import { TechStack } from "@types";
+import ResizeBox from "@/components/ResizeBox";
 
 async function Home() {
   const projects = await getProjects();
@@ -47,12 +48,14 @@ async function Home() {
         </article>
       </section>
       <section>
-        <h2
-          id="projects"
-          className={`poster-font poster-font--down ${styles["page__section-title"]}`}
+        <ResizeBox
+          content="text"
+          tilt="down"
+          color="secondary"
+          className={styles["page__section-title"]}
         >
-          Projects
-        </h2>
+          <h2>Projects</h2>
+        </ResizeBox>
         <NextLink href="/projects" passHref={true} legacyBehavior>
           <IconButtonLink
             className="tooltip tooltip--right"
@@ -68,12 +71,14 @@ async function Home() {
         />
       </section>
       <section>
-        <h2
-          id="technologies"
-          className={`poster-font poster-font--up ${styles["page__section-title"]}`}
+        <ResizeBox
+          content="text"
+          color="secondary"
+          tilt="up"
+          className={styles["page__section-title"]}
         >
-          Technologies
-        </h2>
+          <h2>Technologies</h2>
+        </ResizeBox>
         <div className={styles["techs__container"]}>
           {techCategories.length ? (
             techCategories.map((category) => (

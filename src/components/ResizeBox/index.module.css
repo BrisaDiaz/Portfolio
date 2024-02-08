@@ -1,0 +1,74 @@
+.resize-box{
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  border: 1px dashed currentColor;
+  z-index: 0;
+}
+.resize-box__inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.resize-box::before, .resize-box::after,
+ .resize-box__inner::before, .resize-box__inner::after{
+  content: " ";
+  position: absolute;
+  border: 1px solid currentColor;
+  width: 0.4em;
+  height: 0.4em;
+  z-index: 1;
+  background-color: var(--foreground);
+}
+.resize-box::before{
+  left: 0;
+  top: 0;
+  margin-left: -0.25em;
+  margin-top: -0.25em;
+}
+.resize-box::after{
+  right: 0;
+  top: 0;
+  margin-right: -0.25em;
+  margin-top: -0.25em;
+}
+.resize-box__inner::before{
+  left: 0;
+  bottom: 0;
+  margin-left: -0.25em;
+  margin-bottom: -0.25em;
+}
+.resize-box__inner::after{
+  right: 0;
+  bottom: 0;
+  margin-right: -0.25em;
+  margin-bottom: -0.25em;
+}
+.resize-box--block .resize-box__inner{
+padding: 1em;
+}
+.resize-box--text .resize-box__inner{
+padding: 0.5em 1em;
+}
+.resize-box--text .resize-box__inner > *{
+margin: 0;
+}
+.resize-box--tilt-up{
+  transform: rotate(-3deg);
+}
+.resize-box--tilt-down{
+  transform: rotate(3deg);
+}
+.resize-box--tilt-none{
+  transform: rotate(0);
+}
+.resize-box--color-default{
+  color: var(--text-color);
+}
+.resize-box--color-primary{
+  color: var(--primary-color-light);
+}
+.resize-box--color-secondary{
+  color: var(--secondary-color-light);
+}
