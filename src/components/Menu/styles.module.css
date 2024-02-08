@@ -40,7 +40,6 @@
 }
 
 .menu-link:hover, .menu-link:focus-visible {
-  font-weight: 500;
   color: var(--text-color-secondary);
 }
  .menu-link:focus-visible {
