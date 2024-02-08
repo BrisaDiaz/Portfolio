@@ -15,16 +15,16 @@ async function Home() {
   const projects = await getProjects();
   const hero = await getHeroData();
   const technologies = await getTechStack();
-  const techStack = technologies ?? ({} as TechStack);
-
-  type TechCategory = keyof typeof techStack;
-  const techCategories = Object.keys(techStack) as TechCategory[];
   return (
     <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: getTechnologiesSchema(techStack) }}
-      />
+      {technologies && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: getTechnologiesSchema(technologies),
+          }}
+        />
+      )}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: getProjectListSchema(projects) }}
@@ -88,12 +88,12 @@ async function Home() {
           <h2>Technologies</h2>
         </ResizeBox>
         <div className={styles["techs__container"]}>
-          {techCategories.length ? (
-            techCategories.map((category) => (
-              <article key={category}>
-                <h3 className={styles["tech-category__name"]}>{category}</h3>
+          {technologies ? (
+            Object.entries(technologies).map((entry) => (
+              <article key={entry[0]}>
+                <h3 className={styles["tech-category__name"]}>{entry[0]}</h3>
                 <ul>
-                  {techStack[category].map((tech) => (
+                  {entry[1].map((tech) => (
                     <li key={tech.name} className="link">
                       <Link external={true} href={tech.doc_url}>
                         {tech.name}
