@@ -1,5 +1,6 @@
 
 import styles from "./page.module.css";
+import type { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import { NextPage } from "next";
 import { notFound } from "next/navigation";
@@ -13,11 +14,60 @@ import Table, {
   TableRow,
 } from "@/components/Table";
 import { fetchProjectById } from "@/services/projects";
+import { BASE_META, getProjectSchema } from "@/utils/metadata";
 
-const Project: NextPage<{
+export interface Props {
   params: { slug: string };
   searchParams: { id: string };
-}> = async (pageProps) => {
+}
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const id = searchParams.id;
+
+  const project = await fetchProjectById(parseInt(id));
+
+  const orgImages = (await parent).openGraph?.images || [];
+  const twitterImages = (await parent).twitter?.images || [];
+  const articleUrl = `${BASE_META.siteUrl}/projects/${project?.slug || ""}?id=${
+    project?.id || ""
+  }`;
+  const title = project?.title || "";
+  const description = project?.summary || "";
+
+  if (project) {
+    orgImages.unshift({
+      url: project?.captions[0]?.src,
+      width: 1200,
+      height: 630,
+    });
+    twitterImages.unshift({
+      url: project?.captions[0]?.src,
+      alt: `${project.title} capture`,
+    });
+  }
+  return {
+    title,
+    description,
+    openGraph: {
+      type: "article",
+      images: orgImages,
+      title,
+      description,
+      url: articleUrl,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      site: BASE_META.siteUrl,
+      creator: BASE_META.twitterUser,
+      images: twitterImages,
+    },
+  };
+}
+const Project: NextPage<Props> = async (pageProps) => {
   const {
     searchParams: { id },
   } = pageProps;
@@ -30,6 +80,10 @@ const Project: NextPage<{
   const categories = Object.keys(techs) as Category[];
   return (
     <main className={styles["page"]}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: getProjectSchema(project) }}
+      />
       <section>
         <div className={styles["heading"]}>
           <Image

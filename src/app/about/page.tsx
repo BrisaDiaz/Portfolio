@@ -1,8 +1,13 @@
 import styles from "./page.module.css";
+import { Metadata } from "next";
 import { School, Work, Language, Star, Ribbon } from "@/components/SVG";
 import { ButtonLink } from "@/components/Button";
 import { getAboutInfo } from "@/services/about";
 import { notFound } from "next/navigation";
+
+export const metadata: Metadata = {
+  title: "About",
+};
 
 const About = async () => {
   const about = await getAboutInfo();

@@ -4,6 +4,12 @@ import { type ProjectsFilterTags, type ProjectsTagType } from "@types";
 import { getProjectsByTags, getTagProjectCounts } from "@/utils/projects";
 import { notFound } from "next/navigation";
 import { getTags } from "@/services/tags";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects search",
+};
+
 interface PageProps {
   params: {};
   searchParams: { tags: string; filter: string };
@@ -14,7 +20,8 @@ async function ProjectsSearch(props: PageProps) {
   const projects = await getProjects();
   if (!projects) return notFound();
 
-  const urlTags = props.searchParams?.tags?.split(",") || [];
+  const urlTagsString = props.searchParams?.tags?.trim();
+  const urlTags = urlTagsString?.length ? urlTagsString.split(",") : [];
   const urlFilter = props.searchParams?.filter;
   const resultProjects = getProjectsByTags(projects, urlTags);
   const resultsByTag = getTagProjectCounts(projects, [

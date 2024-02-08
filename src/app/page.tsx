@@ -10,7 +10,7 @@ import { getTechStack } from "@/services/technologies";
 import { getHeroData } from "@/services/layout";
 import { TechStack } from "@types";
 import ResizeBox from "@/components/ResizeBox";
-
+import { getProjectListSchema, getTechnologiesSchema  } from "@/utils/metadata";
 async function Home() {
   const projects = await getProjects();
   const hero = await getHeroData();
@@ -21,6 +21,14 @@ async function Home() {
   const techCategories = Object.keys(techStack) as TechCategory[];
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: getTechnologiesSchema(techStack) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: getProjectListSchema(projects) }}
+      />
       <section className={styles["hero-section"]} id="contact">
         <article className={styles["introduction"]}>
           <h1 className={styles["introduction__title"]}>
