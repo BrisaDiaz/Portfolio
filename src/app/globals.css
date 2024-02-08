@@ -6,23 +6,23 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --font-sm: 0.85rem;
-  --border-color: #EAE1D3;
-  --contrast-color: #EEE8DD;
-  --contrast-color-dark: #EBE5D9;
-  --foreground: #F2EDE3; 
+  --border-color: #f6f1e7;
+  --contrast-color: rgb(252 246 236);
+  --contrast-color-dark: rgb(245 240 229);
+  --foreground: #fffaf0;
   --heading-color: #0f172a;
   --text-color:#334155 ;
   --caption-color:#696969;
-  --primary-color: #345A5E;
-  --primary-color-light: #59787B;
-  --primary-color-dark: #254043;
-  --text-color-primary: #254043;
-  --contrast-color-primary: #345a5e1a;
-  --secondary-color: #5A6D88;
-   --secondary-color-light: #5A6D88;
-  --secondary-color-dark: #2E415E;
-  --text-color-secondary: #2E415E;
-  --contrast-color-secondary: #5a6c871a;
+  --primary-color: #7D5F13;
+  --primary-color-light: #947C3D;
+  --primary-color-dark: #6A5110;
+  --text-color-primary: #59430D;
+  --contrast-color-primary: #7d5f131a;
+  --secondary-color: var(--primary-color);
+  --secondary-color-light: var(--primary-color-light);
+  --secondary-color-dark: var(--primary-color-dark);
+  --text-color-secondary: var(--text-color-primary);
+  --contrast-color-secondary: var(--contrast-color-primary);
   --alert-color: #BC3E31;
     --transition-property-common: background-color, border-color, color, fill,
     stroke, --opacity, box-shadow, transform;
@@ -54,16 +54,16 @@
   --heading-color: #F3F4F6;
   --text-color:#D1D5DB ;
   --caption-color:#9CA3AF;
-  --primary-color: #3D8E91;
-  --primary-color-light: #60A2A5;
-  --primary-color-dark: #34797B;
-  --text-color-primary: #85B8BA;
-  --contrast-color-primary: #3d8e911a;
-  --secondary-color: #F7A21B;
-   --secondary-color-light: #F8B344;
-  --secondary-color-dark: #D28A17;
-  --text-color-secondary: #F8B344;
-  --contrast-color-secondary: #f7a31d1a;
+  --primary-color: #F7A21B;
+  --primary-color-light: #F8B344;
+  --primary-color-dark: #D28A17;
+  --text-color-primary: #F8B344;
+  --contrast-color-primary: #f7a31d1a;
+  --secondary-color: var(--primary-color);
+  --secondary-color-light: var(--primary-color-light);
+  --secondary-color-dark: var(--primary-color-dark);
+  --text-color-secondary: var(--text-color-primary);
+  --contrast-color-secondary: var(--contrast-color-primary);
   --alert-color: #F64747;
 }
 
@@ -202,44 +202,6 @@ button:focus-visible{
   background-color: var(--contrast-color);
 }
 
-.poster-font{
-  padding: 0.2em 0.75em;
-  border-radius:0.1em;
-  background-color: var(--secondary-color);
-  color: var(--foreground);
-  position: relative;
-  border: 1px solid currentColor;
-}
-.poster-font--down{
-    transform: rotate(2deg);
-}
-.poster-font--up{
-    transform: rotate(358deg);
-}
-.poster-font::before {
-    content: " ";
-    width: 5px;
-    height: 5px;
-    border-radius: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: currentColor;
-    margin-top: 0.2em;
-    margin-left: 0.2em;
-}
-.poster-font::after {
-    content: " ";
-    width: 5px;
-    height: 5px;
-    border-radius: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    background-color: currentColor;
-    margin-top: 0.2em;
-    margin-right: 0.2em;
-}
 .tooltip{
   position: relative;
   z-index: 10;
