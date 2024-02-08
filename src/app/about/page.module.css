@@ -17,9 +17,6 @@
   color:var(--text-color-secondary);
   margin-bottom: 0.5rem;
 }
-.summary__section{
-  margin-bottom: 1rem;
-}
 .summary__text{
   margin: 1em 0 ;
 }
