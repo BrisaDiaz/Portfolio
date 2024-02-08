@@ -11,7 +11,12 @@ border-radius: var(--border-radius);
 .project, .project__link{
   height: 100%;
 }
-
+.project__link{
+  outline: 2px solid transparent;
+}
+.project__link:hover{
+  outline-color: var(--contrast-color-primary);
+}
 @media (min-width:768px){
 .projects__container{
 grid-template-columns:  1fr 1fr;
