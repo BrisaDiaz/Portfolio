@@ -54,7 +54,7 @@ async function Home() {
           </div>
         </article>
       </section>
-      <section>
+      <section id="projects">
         <ResizeBox
           content="text"
           tilt="down"
@@ -77,7 +77,7 @@ async function Home() {
           className={styles['projects__container']}
         />
       </section>
-      <section>
+      <section id="technologies">
         <ResizeBox
           content="text"
           color="secondary"
