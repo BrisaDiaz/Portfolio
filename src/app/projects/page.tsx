@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 }
 
 interface PageProps {
-  params: {}
   searchParams: { tags: string; filter: string }
 }
 async function ProjectsSearch(props: PageProps) {

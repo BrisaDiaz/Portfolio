@@ -16,7 +16,10 @@ const SelectContext = createContext<{
   selectedValue: '',
   displayedValue: '',
   triggerRef: { current: null },
-  onSelect: (value: Value, label?: Value) => {},
+  onSelect: (value: Value, label?: Value) => {
+    value
+    label
+  },
   toggleOptions: () => {},
   openOptions: () => {},
   closeOptions: () => {},

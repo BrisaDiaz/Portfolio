@@ -4,14 +4,13 @@ import styles from './styles.module.css'
 type DivDataBoxProps = React.HTMLAttributes<HTMLDivElement> &
   React.HTMLAttributes<HTMLDataListElement>
 export interface ListBoxProps extends Omit<DivDataBoxProps, 'autoFocus'> {
-  isVisible?: Boolean
+  isVisible?: boolean
   children?: React.ReactNode
-  multiple?: Boolean
-  autoFocus?: Boolean
+  multiple?: boolean
+  autoFocus?: boolean
   onClickOutside?: () => void
   size?: 'sm' | 'md' | 'lg'
   id: string
-  controlId?: string
 }
 const ListBox = forwardRef(
   (props: ListBoxProps, ref?: React.LegacyRef<HTMLDivElement>) => {
@@ -23,7 +22,6 @@ const ListBox = forwardRef(
       id = '',
       className = '',
       autoFocus = true,
-      controlId = '',
       onClickOutside = () => {},
       ...other
     } = props
@@ -41,6 +39,7 @@ const ListBox = forwardRef(
     return (
       <>
         <div
+          ref={ref}
           onClick={onClickOutside}
           className={`${styles['datalist__backdrop']} `}
           data-visible={isVisible}
@@ -68,7 +67,7 @@ export default ListBox
 export interface OptionProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   children?: React.ReactNode
-  isVisible?: Boolean
+  isVisible?: boolean
   onChange?: (value: string | number) => void
   onFocusLeaves?: (e: React.KeyboardEvent<HTMLInputElement>) => void
   value: string | number

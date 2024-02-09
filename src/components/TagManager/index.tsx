@@ -166,13 +166,13 @@ const TagManager = forwardRef(
         closeListbox()
       }
     }
-    const handleFocusLeaves = (e: KeyboardEvent) => {
-      closeListbox()
-      if (e.key == 'Escape') {
-        e.preventDefault()
-        textInputRef.current?.focus()
-      }
-    }
+    // const handleFocusLeaves = (e: KeyboardEvent) => {
+    //   closeListbox()
+    //   if (e.key == 'Escape') {
+    //     e.preventDefault()
+    //     textInputRef.current?.focus()
+    //   }
+    // }
     return (
       <form
         {...other}

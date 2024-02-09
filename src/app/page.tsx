@@ -8,7 +8,6 @@ import NextLink from 'next/link'
 import { getProjects } from '@/services/projects'
 import { getTechStack } from '@/services/technologies'
 import { getHeroData } from '@/services/layout'
-import { TechStack } from '@types'
 import ResizeBox from '@/components/ResizeBox'
 import { getProjectListSchema, getTechnologiesSchema } from '@/utils/metadata'
 async function Home() {

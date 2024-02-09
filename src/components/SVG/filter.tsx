@@ -27,7 +27,7 @@ function Filter(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     >
       <path
         fill="none"
-        stroke="currentColor"
+        stroke={stroke}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="32"

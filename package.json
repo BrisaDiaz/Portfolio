@@ -45,8 +45,9 @@
   },
   "lint-staged": {
     "**/*.ts?(x)": [
-      "prettier --write",
-      "eslint"
+      "eslint --fix",
+      "eslint",
+      "prettier --write"
     ],
     "**/*.(ts)?(x)": "npm run type-check",
     "./*.md": [

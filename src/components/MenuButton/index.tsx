@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { IconButton } from '@/components/IconButton'
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  isOpen: Boolean
+  isOpen: boolean
 }
 function MenuButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
   const { isOpen, ...other } = props

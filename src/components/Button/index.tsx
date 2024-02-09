@@ -29,7 +29,7 @@ export const Button = forwardRef(
         className={`${styles['button']} ${styles[`button--${variant}`]} ${
           styles[`button--${color}`]
         } ${styles[`button--${size}`]} ${
-          isIconButton ? styles[`icon-button`] : ''
+          isIconButton ? styles['icon-button'] : ''
         }  ${className}`}
       >
         <>{children}</>
@@ -60,7 +60,7 @@ export const ButtonLink = forwardRef(
         className={`${styles['button']} ${styles[`button--${variant}`]} ${
           styles[`button--${color}`]
         } ${styles[`button--${size}`]} ${
-          isIconButton ? styles[`icon-button`] : ''
+          isIconButton ? styles['icon-button'] : ''
         } ${className}`}
       >
         <>{children}</>

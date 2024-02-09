@@ -20,7 +20,7 @@ export interface Props {
   searchParams: { id: string }
 }
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = searchParams.id

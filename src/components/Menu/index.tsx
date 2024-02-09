@@ -17,7 +17,7 @@ export interface Props extends React.MenuHTMLAttributes<HTMLElement> {
 }
 
 function Menu(props: Props, ref?: React.LegacyRef<HTMLElement>) {
-  const { links = [], isOpen = false, className, ...other } = props
+  const { links = [], className, ...other } = props
 
   return (
     <menu

@@ -2,9 +2,9 @@ import { forwardRef } from 'react'
 import styles from './styles.module.css'
 
 interface Props extends React.TableHTMLAttributes<HTMLTableElement> {
-  bordered?: Boolean
-  doubleEntry?: Boolean
-  fullWidth: Boolean
+  bordered?: boolean
+  doubleEntry?: boolean
+  fullWidth: boolean
   size?: 'sm' | 'md' | 'lg'
 }
 const defaultProps = {

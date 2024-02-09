@@ -39,7 +39,6 @@ const Select = forwardRef(
       onChange,
       children,
       label,
-      displayedValue: noUsed,
       placeholder = '-- Select option --',
       ...other
     } = props
@@ -54,6 +53,7 @@ const Select = forwardRef(
       displayedValue,
       triggerRef,
     } = useSelect()
+    delete props['displayedValue']
 
     useEffect(() => {
       onChange && onChange(selectedValue)
@@ -74,7 +74,7 @@ const Select = forwardRef(
         {...other}
         className={`${styles['select__container']} ${
           styles[`select--${size}`]
-        } ${label ? styles[`select--labeled`] : ''} ${className} `}
+        } ${label ? styles['select--labeled'] : ''} ${className} `}
         ref={ref}
       >
         {label ? (
