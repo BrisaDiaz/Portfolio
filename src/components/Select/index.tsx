@@ -2,7 +2,7 @@
 import { forwardRef, useId, useEffect } from 'react'
 import styles from './styles.module.css'
 import ListBox, { Option, OptionProps } from '@/components/ListBox'
-import { DropDown } from '../SVG'
+import { DropDown } from '@/components/SVG'
 import { SelectProvider, useSelect } from './provider'
 
 type Value = string | number
@@ -18,13 +18,13 @@ export interface Props
 }
 const SelectContainer = forwardRef(
   (props: Props, ref?: React.Ref<HTMLDivElement>) => {
-    const { defaultValue = '', displayedValue = '' } = props
+    const { defaultValue = '', displayedValue = '', ...other } = props
     return (
       <SelectProvider
         defaultValue={defaultValue}
         displayedValue={displayedValue}
       >
-        <Select {...props} ref={ref} />
+        <Select {...other} ref={ref} />
       </SelectProvider>
     )
   }
@@ -53,7 +53,6 @@ const Select = forwardRef(
       displayedValue,
       triggerRef,
     } = useSelect()
-    delete props['displayedValue']
 
     useEffect(() => {
       onChange && onChange(selectedValue)
