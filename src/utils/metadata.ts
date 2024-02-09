@@ -7,7 +7,7 @@ export const BASE_META = {
   role: 'full-stack developer',
   knowledge: 'web development',
   description:
-    'I\'m enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.',
+    "I'm enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
   twitterUser: '@Brisa_A_Diaz',
   email: 'brisaabigaildiaz2000@gmail.com',
@@ -41,29 +41,33 @@ export function getWebsiteSchema() {
       target: `${BASE_META.siteUrl}/projects?tags={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
-    breadcrumb: {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: BASE_META.siteUrl,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'About',
-          item: `${BASE_META.siteUrl}/about`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Search Projects',
-          item: `${BASE_META.siteUrl}/projects`,
-        },
-      ],
-    },
+  }
+  return JSON.stringify(schema)
+}
+export function getNavigationSchema() {
+  const schema = {
+    '@context': 'http://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_META.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'About',
+        item: `${BASE_META.siteUrl}/about`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Search Projects',
+        item: `${BASE_META.siteUrl}/projects`,
+      },
+    ],
   }
   return JSON.stringify(schema)
 }

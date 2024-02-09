@@ -6,7 +6,11 @@ import Header from '@/ui/Header'
 import Footer from '@/ui/Footer'
 import { Inter } from 'next/font/google'
 import { cookies } from 'next/headers'
-import { BASE_META, getWebsiteSchema } from '@/utils/metadata'
+import {
+  BASE_META,
+  getWebsiteSchema,
+  getNavigationSchema,
+} from '@/utils/metadata'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -35,9 +39,7 @@ export const metadata: Metadata = {
     description: BASE_META.description,
     site: BASE_META.siteUrl,
     creator: BASE_META.twitterUser,
-    images: [
-      { url: `${BASE_META.siteUrl}/icons/org.png`, alt: BASE_META.title },
-    ],
+    images: [{ url: '/icons/org.png', alt: BASE_META.title }],
   },
 }
 
@@ -139,6 +141,10 @@ const Layout = memo(function RootLayout({
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: getWebsiteSchema() }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: getNavigationSchema() }}
           />
           <Header colorMode={colorMode} />
           {children}
