@@ -12,7 +12,8 @@
     "format:fix": "prettier -w .",
     "lint-staged": "lint-staged",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit && echo ",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.1.0",
@@ -42,9 +43,27 @@
     "prettier": "^3.2.5",
     "typescript": "^5"
   },
+  "lint-staged": {
+    "**/*.ts?(x)": [
+      "prettier --write",
+      "eslint"
+    ],
+    "**/*.(ts)?(x)": "npm run type-check",
+    "./*.md": [
+      "prettier --write"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   }
 }
