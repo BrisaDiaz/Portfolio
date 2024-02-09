@@ -1,17 +1,17 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "currentColor",
-  width: "100",
-  height: "100",
-};
+  fill: 'currentColor',
+  width: '100',
+  height: '100',
+}
 function Logo(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
     fill = defaultProps.fill,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -59,6 +59,6 @@ function Logo(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         mask="url(#a)"
       ></path>
     </svg>
-  );
+  )
 }
-export default forwardRef(Logo);
+export default forwardRef(Logo)

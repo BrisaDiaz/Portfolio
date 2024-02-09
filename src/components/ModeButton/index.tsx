@@ -1,22 +1,22 @@
-import { forwardRef } from "react";
-import {IconButton} from "@/components/IconButton";
+import { forwardRef } from 'react'
+import { IconButton } from '@/components/IconButton'
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  mode?: "dark" | "light";
+  mode?: 'dark' | 'light'
 }
 function ModeButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
-  const { mode = "light", ...other } = props;
-  const isLight = mode === "light";
+  const { mode = 'light', ...other } = props
+  const isLight = mode === 'light'
   return (
     <IconButton
       ref={ref}
-      aria-label={`toggle ${isLight ? "dark" : "light"} mode`}
+      aria-label={`toggle ${isLight ? 'dark' : 'light'} mode`}
       {...other}
     >
       {isLight ? <Moon /> : <Sun />}
     </IconButton>
-  );
+  )
 }
-export default forwardRef(ModeButton);
+export default forwardRef(ModeButton)
 
 function Sun() {
   return (
@@ -32,7 +32,7 @@ function Sun() {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
 function Moon() {
   return (
@@ -45,5 +45,5 @@ function Moon() {
     >
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
     </svg>
-  );
+  )
 }

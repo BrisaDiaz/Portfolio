@@ -1,24 +1,24 @@
-"use client";
-import { forwardRef, useId, useEffect } from "react";
-import styles from "./styles.module.css";
-import ListBox, { Option, OptionProps } from "@/components/ListBox";
-import { DropDown } from "../SVG";
-import { SelectProvider, useSelect } from "./provider";
+'use client'
+import { forwardRef, useId, useEffect } from 'react'
+import styles from './styles.module.css'
+import ListBox, { Option, OptionProps } from '@/components/ListBox'
+import { DropDown } from '../SVG'
+import { SelectProvider, useSelect } from './provider'
 
-type Value = string | number;
-type OnChange = <Type>(selectedValue: Value | Type) => void;
+type Value = string | number
+type OnChange = <Type>(selectedValue: Value | Type) => void
 export interface Props
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
-  defaultValue?: Value;
-  displayedValue?: Value;
-  placeholder?: string;
-  label?: string;
-  size?: "sm" | "md" | "lg";
-  onChange?: OnChange;
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  defaultValue?: Value
+  displayedValue?: Value
+  placeholder?: string
+  label?: string
+  size?: 'sm' | 'md' | 'lg'
+  onChange?: OnChange
 }
 const SelectContainer = forwardRef(
   (props: Props, ref?: React.Ref<HTMLDivElement>) => {
-    const { defaultValue = "", displayedValue = "" } = props;
+    const { defaultValue = '', displayedValue = '' } = props
     return (
       <SelectProvider
         defaultValue={defaultValue}
@@ -26,25 +26,25 @@ const SelectContainer = forwardRef(
       >
         <Select {...props} ref={ref} />
       </SelectProvider>
-    );
-  },
-);
-SelectContainer.displayName = "SelectContainer";
+    )
+  }
+)
+SelectContainer.displayName = 'SelectContainer'
 
 const Select = forwardRef(
   (props: Props, ref?: React.LegacyRef<HTMLDivElement>) => {
     const {
-      className = "",
-      size = "md",
+      className = '',
+      size = 'md',
       onChange,
       children,
       label,
       displayedValue: noUsed,
-      placeholder = "-- Select option --",
+      placeholder = '-- Select option --',
       ...other
-    } = props;
-    const dataListId = useId();
-    const inputId = useId();
+    } = props
+    const dataListId = useId()
+    const inputId = useId()
     const {
       selectedValue,
       isOpen,
@@ -53,39 +53,39 @@ const Select = forwardRef(
       openOptions,
       displayedValue,
       triggerRef,
-    } = useSelect();
+    } = useSelect()
 
     useEffect(() => {
-      onChange && onChange(selectedValue);
-    }, [selectedValue]);
+      onChange && onChange(selectedValue)
+    }, [selectedValue])
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
-      if (e.key == "Tab") {
-        return closeOptions();
+      if (e.key == 'Tab') {
+        return closeOptions()
       }
-      if (e.key == "ArrowDown") {
-        e.preventDefault();
-        openOptions();
+      if (e.key == 'ArrowDown') {
+        e.preventDefault()
+        openOptions()
       }
-    };
+    }
 
     return (
       <div
         {...other}
-        className={`${styles["select__container"]} ${
+        className={`${styles['select__container']} ${
           styles[`select--${size}`]
-        } ${label ? styles[`select--labeled`] : ""} ${className} `}
+        } ${label ? styles[`select--labeled`] : ''} ${className} `}
         ref={ref}
       >
         {label ? (
-          <label htmlFor={inputId} className={styles["select__label"]}>
+          <label htmlFor={inputId} className={styles['select__label']}>
             {label}
           </label>
         ) : (
           <></>
         )}
         <button
-          className={`${styles["select"]}  `}
+          className={`${styles['select']}  `}
           role="combobox"
           ref={triggerRef}
           onKeyDown={handleKeyDown}
@@ -96,7 +96,7 @@ const Select = forwardRef(
           <span>{displayedValue || selectedValue || placeholder}</span>
           <DropDown />
           <input
-            className={styles["select__hidden-input"]}
+            className={styles['select__hidden-input']}
             aria-invalid="false"
             aria-hidden="true"
             tabIndex={-1}
@@ -114,32 +114,32 @@ const Select = forwardRef(
           <>{children}</>
         </ListBox>
       </div>
-    );
-  },
-);
-Select.displayName = "Select";
+    )
+  }
+)
+Select.displayName = 'Select'
 
-interface SelectOption extends Omit<OptionProps, "selected"> {
-  children: string;
+interface SelectOption extends Omit<OptionProps, 'selected'> {
+  children: string
 }
 
 export const SelectOption = forwardRef(
   (props: SelectOption, ref?: React.Ref<HTMLInputElement>) => {
     const { selectedValue, isOpen, closeOptions, onSelect, triggerRef } =
-      useSelect();
-    const { children } = props;
+      useSelect()
+    const { children } = props
 
-    const handleChange = (value: OptionProps["value"]) => {
-      onSelect(value, children);
-      closeOptions();
-    };
+    const handleChange = (value: OptionProps['value']) => {
+      onSelect(value, children)
+      closeOptions()
+    }
     const handleFocusLeaves = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      closeOptions();
-      if (e.key == "Escape") {
-        e.preventDefault();
-        triggerRef.current?.focus();
+      closeOptions()
+      if (e.key == 'Escape') {
+        e.preventDefault()
+        triggerRef.current?.focus()
       }
-    };
+    }
     return (
       <Option
         {...props}
@@ -151,9 +151,9 @@ export const SelectOption = forwardRef(
       >
         {children}
       </Option>
-    );
-  },
-);
-SelectOption.displayName = "SelectOption";
+    )
+  }
+)
+SelectOption.displayName = 'SelectOption'
 
-export default SelectContainer;
+export default SelectContainer

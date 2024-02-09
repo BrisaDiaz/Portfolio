@@ -1,17 +1,17 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "currentColor",
-  width: "154",
-  height: "142",
-};
+  fill: 'currentColor',
+  width: '154',
+  height: '142',
+}
 function Ortex(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
     fill = defaultProps.fill,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +36,6 @@ function Ortex(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         clipRule="evenodd"
       ></path>
     </svg>
-  );
+  )
 }
-export default forwardRef(Ortex);
+export default forwardRef(Ortex)

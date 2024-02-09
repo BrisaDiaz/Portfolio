@@ -1,11 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "none",
-  stroke: "currentColor",
-  width: "1em",
-  height: "1em",
-};
+  fill: 'none',
+  stroke: 'currentColor',
+  width: '1em',
+  height: '1em',
+}
 function Work(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
@@ -13,7 +13,7 @@ function Work(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     fill = defaultProps.fill,
     stroke = defaultProps.stroke,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       ref={ref}
@@ -41,7 +41,7 @@ function Work(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         d="M14 13v1.02c0 1.09-.01 1.98-2 1.98-1.98 0-2-.88-2-1.97V13c0-1 0-1 1-1h2c1 0 1 0 1 1zM21.65 11A16.484 16.484 0 0114 14.02M2.62 11.27c2.25 1.54 4.79 2.47 7.38 2.76"
       ></path>
     </svg>
-  );
+  )
 }
 
-export default forwardRef(Work);
+export default forwardRef(Work)

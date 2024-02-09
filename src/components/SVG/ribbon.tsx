@@ -1,11 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "none",
-  stroke: "currentColor",
-  width: "1em",
-  height: "1em",
-};
+  fill: 'none',
+  stroke: 'currentColor',
+  width: '1em',
+  height: '1em',
+}
 function Ribbon(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
@@ -13,7 +13,7 @@ function Ribbon(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     fill = defaultProps.fill,
     stroke = defaultProps.stroke,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       ref={ref}
@@ -60,7 +60,7 @@ function Ribbon(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         strokeWidth="32"
       ></circle>
     </svg>
-  );
+  )
 }
 
-export default forwardRef(Ribbon);
+export default forwardRef(Ribbon)

@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { memo } from "react";
-import "./normalize.css";
-import "./globals.css";
-import Header from "@/ui/Header";
-import Footer from "@/ui/Footer";
-import { Inter } from "next/font/google";
-import { cookies } from "next/headers";
-import { BASE_META, getWebsiteSchema } from "@/utils/metadata";
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next'
+import { memo } from 'react'
+import './normalize.css'
+import './globals.css'
+import Header from '@/ui/Header'
+import Footer from '@/ui/Footer'
+import { Inter } from 'next/font/google'
+import { cookies } from 'next/headers'
+import { BASE_META, getWebsiteSchema } from '@/utils/metadata'
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -16,21 +16,21 @@ export const metadata: Metadata = {
   },
   description: BASE_META.description,
   openGraph: {
-    type: "website",
+    type: 'website',
     url: BASE_META.siteUrl,
     siteName: BASE_META.siteName,
     title: BASE_META.title,
     description: BASE_META.description,
     images: [
       {
-        url: "/icons/org.png",
+        url: '/icons/org.png',
         height: 630,
         width: 1200,
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: BASE_META.title,
     description: BASE_META.description,
     site: BASE_META.siteUrl,
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
       { url: `${BASE_META.siteUrl}/icons/org.png`, alt: BASE_META.title },
     ],
   },
-};
+}
 
 const Layout = memo(function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
-  const nextCookies = cookies();
+  const nextCookies = cookies()
 
   const colorMode =
-    (nextCookies.get("theme")?.value as undefined | "light" | "dark") || "dark";
+    (nextCookies.get('theme')?.value as undefined | 'light' | 'dark') || 'dark'
 
   return (
     <html lang="en" data-theme={colorMode}>
@@ -146,6 +146,6 @@ const Layout = memo(function RootLayout({
         </body>
       </>
     </html>
-  );
-});
-export default Layout;
+  )
+})
+export default Layout

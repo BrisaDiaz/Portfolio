@@ -1,17 +1,17 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "currentColor",
-  width: "154",
-  height: "142",
-};
+  fill: 'currentColor',
+  width: '154',
+  height: '142',
+}
 function DeliveryApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
     height = defaultProps.height,
     fill = defaultProps.fill,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -94,6 +94,6 @@ function DeliveryApp(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
         d="M123.984 111.085c0 .23.507.876.692.876.215 0 .031-.446-.308-.769-.323-.292-.384-.323-.384-.107zm-2.245 1.199c-.108.185.722 1.061.999 1.061.262 0 .2-.384-.154-.83-.338-.415-.661-.508-.845-.231zm4.813 3.214c.046.169.231.462.431.677.83.907.661 1.584-.6 2.384-.508.322-1.077.738-1.23.922-.17.169-.37.323-.462.323-.6.016-3.337 2.507-3.06 2.784.215.215.815-.046 2.168-.985.662-.461 1.523-1.061 1.953-1.353.416-.292.846-.615.969-.707.108-.108.585-.446 1.046-.754.953-.63 1.153-.953.784-1.169-.154-.076-.261-.199-.261-.292 0-.077-.2-.353-.462-.599-.246-.247-.461-.493-.461-.539 0-.154-.661-.999-.784-.999-.062 0-.077.138-.031.307zm-5.413.262c-.323.492-.154.892.399.892.4 0 .539-.323.385-.938-.123-.493-.446-.477-.784.046zm-1.723 2.46c-.63.077-.646.277-.046.492.262.077.477.246.492.354 0 .108.016.308.031.431.031.415.477.323.769-.154.246-.446.261-.508.031-.846-.139-.215-.369-.369-.523-.354-.139 0-.492.046-.754.077z"
       ></path>
     </svg>
-  );
+  )
 }
-export default forwardRef(DeliveryApp);
+export default forwardRef(DeliveryApp)

@@ -1,4 +1,4 @@
-.icon-btn{
+.icon-btn {
   padding: 0.35em 0.45em;
   outline: none;
   border-radius: var(--border-radius);
@@ -14,12 +14,13 @@
   display: inline-block;
 }
 
-.icon-btn:hover,.icon-btn:focus-visible{
+.icon-btn:hover,
+.icon-btn:focus-visible {
   background: var(--contrast-color);
 }
 
-.icon-btn svg{
-width: 1em;
-height: auto;
-font-size: inherit;
+.icon-btn svg {
+  width: 1em;
+  height: auto;
+  font-size: inherit;
 }

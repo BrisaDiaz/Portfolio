@@ -1,45 +1,45 @@
 .project {
-position: relative;
-padding: 1rem;
-border-radius: 6px;
-border: 1px solid var(--border-color);
-display: flex;
-flex: 1;
-display: flex;
-flex-direction: column;
-z-index: 1;
+  position: relative;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
 }
 .project__header {
-display: flex;
-width: 100%;
-gap: 1em;
-border-bottom: 1px solid var(--border-color);
+  display: flex;
+  width: 100%;
+  gap: 1em;
+  border-bottom: 1px solid var(--border-color);
 }
 .project__subtitle {
-text-transform: uppercase;
-font-size: 0.8em;
-color: var(--caption-color);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: var(--caption-color);
 }
 .project__title {
-color: var(--heading-color);
-text-transform: capitalize;
+  color: var(--heading-color);
+  text-transform: capitalize;
 }
 .project__summary {
-color: var(--text-color);
-font-size: 0.85rem;
-margin: 1em;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  margin: 1em;
 }
 .project__summary::first-letter {
-text-transform: uppercase;
+  text-transform: uppercase;
 }
 .project__logo {
-border-radius: var(--border-radius);
-overflow: hidden;
-display: flex;
-justify-content: center;
-height: fit-content;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
 }
-.project__logo svg{
-height: 50px;
-width: auto;
+.project__logo svg {
+  height: 50px;
+  width: auto;
 }

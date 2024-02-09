@@ -1,28 +1,26 @@
-.footer{
-width: 100%;
-border-top: 1px solid var(--border-color);
- position: relative;
-font-family: inherit;
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  position: relative;
+  font-family: inherit;
 }
-.footer-inner{
+.footer-inner {
   display: flex;
- flex-wrap: wrap;
-
+  flex-wrap: wrap;
 }
-.footer-inner ul{
+.footer-inner ul {
   display: flex;
   flex-direction: column;
   line-height: 1.5rem;
   list-style: none;
-  margin-top: 1em ;
+  margin-top: 1em;
   text-transform: capitalize;
-
 }
-.profile-section{ 
+.profile-section {
   max-width: 400px;
 }
-.profile-section p{ 
-   margin-top: 1em ;
-    margin: 1em 0;
-      line-height: 1.5rem;
+.profile-section p {
+  margin-top: 1em;
+  margin: 1em 0;
+  line-height: 1.5rem;
 }

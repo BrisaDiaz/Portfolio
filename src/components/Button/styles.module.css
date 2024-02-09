@@ -1,12 +1,12 @@
-.button{
-  padding:  0.5em 1em;
-  background-color:transparent;
+.button {
+  padding: 0.5em 1em;
+  background-color: transparent;
   border-radius: var(--border-radius);
   border: 1px solid transparent;
   font-size: 1em;
   display: flex;
   align-items: center;
-  gap:0.3rem;
+  gap: 0.3rem;
   font-weight: 500;
   width: max-content;
   text-transform: capitalize;
@@ -16,88 +16,95 @@
   z-index: 0;
 }
 
-.button:focus-visible{
+.button:focus-visible {
   outline: 1px solid var(--primary-color);
   outline-offset: 1px;
   border-radius: var(--border-radius);
 }
-.button--sm{
+.button--sm {
   font-size: 0.85rem;
 }
-.button--md{
+.button--md {
   font-size: 1rem;
 }
-.button--lg{
+.button--lg {
   font-size: 1.15rem;
 }
-.button--solid{
-    font-weight: 600;
+.button--solid {
+  font-weight: 600;
 }
-.button--solid.button--primary{
-    background-color:var(--primary-color);
-    border-color: var(--primary-color);
-    color:var(--foreground);
+.button--solid.button--primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--foreground);
 }
 .button--solid.button--secondary {
-    background-color:var(--secondary-color);
-    border-color: var(--secondary-color);
-    color:#0f172a;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #0f172a;
 }
 .button--solid.button--default {
-    background-color:var(--contrast-color);
-    border-color: var(--contrast-color);
-    color: var(--text-color);
+  background-color: var(--contrast-color);
+  border-color: var(--contrast-color);
+  color: var(--text-color);
 }
-.button--solid.button--primary:hover, .button--solid.button--primary:focus-visible{
-background-color: var(--primary-color-light);
-border-color: var(--primary-color-light);
+.button--solid.button--primary:hover,
+.button--solid.button--primary:focus-visible {
+  background-color: var(--primary-color-light);
+  border-color: var(--primary-color-light);
 }
-.button--solid.button--secondary:hover, .button--solid.button--secondary:focus-visible{
-background-color: var(--secondary-color-light);
-border-color: var(--secondary-color-light);
+.button--solid.button--secondary:hover,
+.button--solid.button--secondary:focus-visible {
+  background-color: var(--secondary-color-light);
+  border-color: var(--secondary-color-light);
 }
-.button--solid.button--default:hover, .button--solid.button--default:focus-visible{
-background-color: var(--contrast-color-dark);
-border-color: var(--contrast-color-dark);
+.button--solid.button--default:hover,
+.button--solid.button--default:focus-visible {
+  background-color: var(--contrast-color-dark);
+  border-color: var(--contrast-color-dark);
 }
-.button--outline{
-    background-color: transparent;
-    border: 1px solid currentColor;
+.button--outline {
+  background-color: transparent;
+  border: 1px solid currentColor;
 }
-.button--outline.button--default:focus-visible, .button--outline.button--default:hover{
+.button--outline.button--default:focus-visible,
+.button--outline.button--default:hover {
   color: var(--heading-color);
 }
-.button--outline.button--primary, .button--subtle.button--primary{
+.button--outline.button--primary,
+.button--subtle.button--primary {
   color: var(--primary-color);
 }
-.button--outline.button--primary:focus-visible, .button--outline.button--primary:hover{
+.button--outline.button--primary:focus-visible,
+.button--outline.button--primary:hover {
   color: var(--primary-color-light);
 }
-.button--outline.button--secondary, .button--subtle.button--secondary{
+.button--outline.button--secondary,
+.button--subtle.button--secondary {
   color: var(--secondary-color-dark);
 }
-.button--outline.button--secondary:focus-visible, .button--outline.button--secondary:hover{
+.button--outline.button--secondary:focus-visible,
+.button--outline.button--secondary:hover {
   color: var(--secondary-color);
 }
-.button.button--subtle:hover::before, .button.button--subtle:focus-visible::before {
-    position: absolute;
-    content: " ";
-    top: 0;
-    left: 0;
-    border-radius: inherit;
-    width: 100%;
-    height: 100%;
-    background-color: currentColor;
-    z-index: -1;
-    opacity: 0.1;
+.button.button--subtle:hover::before,
+.button.button--subtle:focus-visible::before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  z-index: -1;
+  opacity: 0.1;
 }
-.icon-button{ 
+.icon-button {
   padding: 0.35em 0.35em;
 }
-.button svg{
+.button svg {
   width: 1em;
   height: auto;
   font-size: inherit;
 }
-
-

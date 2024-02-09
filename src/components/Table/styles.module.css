@@ -1,65 +1,69 @@
-
-.table__container{
-max-width: fit-content;
- border-radius: var(--border-radius);
+.table__container {
+  max-width: fit-content;
+  border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   border-bottom: transparent;
   overflow: hidden;
 }
 
-.table__container--inner{
-  max-width:inherit;
+.table__container--inner {
+  max-width: inherit;
   overflow-x: auto;
 }
 .table {
   border-collapse: collapse;
 }
-.table__head{
+.table__head {
   border-top-right-radius: var(--border-radius);
   border-top-left-radius: var(--border-radius);
   background-color: var(--contrast-color);
 }
-.table__head .table__row-item, .table--double-entry .table__body .table__row-item:first-child {
-   font-weight: 500;
-   text-transform: capitalize;
-   color: var(--heading-color);
+.table__head .table__row-item,
+.table--double-entry .table__body .table__row-item:first-child {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: var(--heading-color);
 }
-.table__row-item{
-  border-bottom:  1px solid var(--border-color);
+.table__row-item {
+  border-bottom: 1px solid var(--border-color);
   font-size: inherit;
 }
-.table__title, .table--double-entry .table__head .table__row-item:first-child {
+.table__title,
+.table--double-entry .table__head .table__row-item:first-child {
   border-right: 1px solid transparent;
 }
 .table--double-entry .table__body .table__row-item:first-child {
   border-right: 1px solid var(--border-color);
 }
-.table--bordered .table__row-item:not(:last-child){
+.table--bordered .table__row-item:not(:last-child) {
   border-right: 1px solid var(--border-color);
 }
 
 .table--sm .table__row-item {
   font-size: 0.9rem;
 }
-.table--sm .table__head .table__row-item, .table--sm .table__row-item {
+.table--sm .table__head .table__row-item,
+.table--sm .table__row-item {
   padding: 0.75em 1em;
 }
 .table--md .table__row-item {
-    font-size: 1rem;
+  font-size: 1rem;
 }
-.table--md .table__head .table__row-item, .table--md .table__row-item{
+.table--md .table__head .table__row-item,
+.table--md .table__row-item {
   padding: 1em 1.5em;
 }
 
 .table--lg .table__row-item {
   font-size: 1.1rem;
 }
-.table--lg .table__head .table__row-item, .table--lg .table__row-item {
+.table--lg .table__head .table__row-item,
+.table--lg .table__row-item {
   padding: 1.25em;
 }
-.table--full-width .table{
+.table--full-width .table {
   width: 100%;
 }
 .table--full-width {
-max-width: initial;
+  max-width: initial;
 }

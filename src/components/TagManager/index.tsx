@@ -1,11 +1,11 @@
-"use client";
-import styles from "./styles.module.css";
+'use client'
+import styles from './styles.module.css'
 
 import TextInput, {
   InputButton,
   Props as TexInputProps,
-} from "@/components/TextInput";
-import { Add, Clear } from "@/components/SVG";
+} from '@/components/TextInput'
+import { Add, Clear } from '@/components/SVG'
 import {
   useState,
   useId,
@@ -13,28 +13,28 @@ import {
   forwardRef,
   useEffect,
   useImperativeHandle,
-} from "react";
-import ListBox, { Option } from "@/components/ListBox";
+} from 'react'
+import ListBox, { Option } from '@/components/ListBox'
 import {
   keyInsensitiveCoincidence,
   keyInsensitiveSearch,
-} from "@/utils/strings";
+} from '@/utils/strings'
 
 export interface TagManagerProps extends React.HTMLAttributes<HTMLFormElement> {
-  suggestedTags?: string[];
-  defaultTags?: string[];
-  inputProps?: TexInputProps;
-  size?: "sm" | "md" | "lg";
-  label?: string;
-  onTagsChange?: (tags: string[]) => void;
+  suggestedTags?: string[]
+  defaultTags?: string[]
+  inputProps?: TexInputProps
+  size?: 'sm' | 'md' | 'lg'
+  label?: string
+  onTagsChange?: (tags: string[]) => void
 }
 export interface TagManagerRefType {
-  clearAllTags: () => void;
-  addTag: (tagToAdd: string) => void;
-  addTags: (tagsToAdd: string[]) => void;
-  removeTag: (tagToRemove: string) => void;
-  tags: string[];
-  element: HTMLFormElement | null;
+  clearAllTags: () => void
+  addTag: (tagToAdd: string) => void
+  addTags: (tagsToAdd: string[]) => void
+  removeTag: (tagToRemove: string) => void
+  tags: string[]
+  element: HTMLFormElement | null
 }
 const TagManager = forwardRef(
   (props: TagManagerProps, ref?: React.Ref<TagManagerRefType>) => {
@@ -43,103 +43,103 @@ const TagManager = forwardRef(
       defaultTags = [],
       inputProps = {},
       onTagsChange,
-      size = "md",
+      size = 'md',
       label,
       ...other
-    } = props;
-    const [inputValue, setInputValue] = useState<string>("");
-    const [isFocused, setIsFocused] = useState<boolean>(false);
+    } = props
+    const [inputValue, setInputValue] = useState<string>('')
+    const [isFocused, setIsFocused] = useState<boolean>(false)
 
-    const [suggestions, setSuggestions] = useState<string[]>(suggestedTags);
-    const [tags, setTags] = useState<string[]>(defaultTags);
-
-    useEffect(() => {
-      onTagsChange && onTagsChange(tags);
-    }, [tags]);
+    const [suggestions, setSuggestions] = useState<string[]>(suggestedTags)
+    const [tags, setTags] = useState<string[]>(defaultTags)
 
     useEffect(() => {
-      setSuggestions(suggestedTags);
-    }, [suggestedTags]);
+      onTagsChange && onTagsChange(tags)
+    }, [tags])
+
+    useEffect(() => {
+      setSuggestions(suggestedTags)
+    }, [suggestedTags])
 
     useEffect(() => {
       if (!inputValue && suggestedTags.length != suggestions.length) {
-        setSuggestions(suggestedTags);
+        setSuggestions(suggestedTags)
       }
-    }, [inputValue]);
+    }, [inputValue])
 
-    const formId = useId();
+    const formId = useId()
 
-    const formRef = useRef<HTMLFormElement>(null);
-    const textInputRef = useRef<HTMLInputElement>(null);
-    const firstOptionRef = useRef<HTMLInputElement>(null);
+    const formRef = useRef<HTMLFormElement>(null)
+    const textInputRef = useRef<HTMLInputElement>(null)
+    const firstOptionRef = useRef<HTMLInputElement>(null)
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-      const value = e.currentTarget.value;
-      setInputValue(value);
+      const value = e.currentTarget.value
+      setInputValue(value)
 
-      handleSuggestionFiltering(value);
-    };
+      handleSuggestionFiltering(value)
+    }
     const handleSuggestionFiltering = (search: string) => {
       if (search.trim()) {
         setSuggestions(
           suggestedTags.filter((suggestion) =>
-            keyInsensitiveCoincidence(suggestion, search),
-          ),
-        );
-        return;
+            keyInsensitiveCoincidence(suggestion, search)
+          )
+        )
+        return
       }
-    };
+    }
     const closeListbox = () => {
-      setIsFocused(false);
-    };
+      setIsFocused(false)
+    }
     const openListbox = () => {
-      setIsFocused(true);
-    };
+      setIsFocused(true)
+    }
 
     const handleSubmit = (e: React.FormEvent) => {
-      e.stopPropagation();
-      e.preventDefault();
+      e.stopPropagation()
+      e.preventDefault()
 
-      handleAddTag(inputValue.trim());
-      setInputValue("");
-    };
+      handleAddTag(inputValue.trim())
+      setInputValue('')
+    }
     const handleAddTag = (tagToAdd: string) => {
       if (inputValue) {
-        setInputValue("");
+        setInputValue('')
       }
       if (tagToAdd && !keyInsensitiveSearch(tags, tagToAdd)) {
-        setTags((tags) => [...tags, tagToAdd]);
+        setTags((tags) => [...tags, tagToAdd])
       }
-    };
+    }
     const handleToggleTag = (tagToToggle: string | number) => {
-      if (!tagToToggle || typeof tagToToggle !== "string") return;
+      if (!tagToToggle || typeof tagToToggle !== 'string') return
       if (keyInsensitiveSearch(tags, tagToToggle)) {
-        return handleRemoveTag(tagToToggle);
+        return handleRemoveTag(tagToToggle)
       }
       if (inputValue) {
-        setInputValue("");
+        setInputValue('')
       }
-      setTags((tags) => [...tags, tagToToggle]);
-    };
+      setTags((tags) => [...tags, tagToToggle])
+    }
     const handleRemoveTag = (tagToRemove: string) => {
       setTags((tags) =>
         tags.filter(
-          (currentTag) => !keyInsensitiveCoincidence(currentTag, tagToRemove),
-        ),
-      );
-    };
+          (currentTag) => !keyInsensitiveCoincidence(currentTag, tagToRemove)
+        )
+      )
+    }
     const handleClearAllTags = () => {
-      if (tags.length == 0) return;
-      setTags([]);
-    };
+      if (tags.length == 0) return
+      setTags([])
+    }
     const handleAddTags = (tagsToAdd: string[]) => {
       const uniques = tagsToAdd.filter(
-        (tag) => !keyInsensitiveSearch(tags, tag),
-      );
-      setTags(uniques);
-    };
-    const suggestionListId = useId();
-    const isSuggestionListVisible = isFocused && suggestions.length > 0;
+        (tag) => !keyInsensitiveSearch(tags, tag)
+      )
+      setTags(uniques)
+    }
+    const suggestionListId = useId()
+    const isSuggestionListVisible = isFocused && suggestions.length > 0
 
     useImperativeHandle(
       ref,
@@ -151,35 +151,35 @@ const TagManager = forwardRef(
           addTags: handleAddTags,
           tags,
           element: formRef.current,
-        };
+        }
       },
-      [tags],
-    );
+      [tags]
+    )
     const handleKeyDown = (e: React.KeyboardEvent) => {
-      if (e.key == "ArrowDown") {
-        e.preventDefault();
-        openListbox();
-        firstOptionRef.current?.focus();
-        return;
+      if (e.key == 'ArrowDown') {
+        e.preventDefault()
+        openListbox()
+        firstOptionRef.current?.focus()
+        return
       }
-      if (e.key == "Tab") {
-        closeListbox();
+      if (e.key == 'Tab') {
+        closeListbox()
       }
-    };
+    }
     const handleFocusLeaves = (e: KeyboardEvent) => {
-      closeListbox();
-      if (e.key == "Escape") {
-        e.preventDefault();
-        textInputRef.current?.focus();
+      closeListbox()
+      if (e.key == 'Escape') {
+        e.preventDefault()
+        textInputRef.current?.focus()
       }
-    };
+    }
     return (
       <form
         {...other}
         ref={formRef}
         id={formId}
         onSubmit={handleSubmit}
-        className={styles["tag__form"]}
+        className={styles['tag__form']}
       >
         <TextInput
           size={size}
@@ -222,7 +222,7 @@ const TagManager = forwardRef(
           spellCheck="false"
           list={suggestionListId}
           addonRight={
-            <div className={styles["text-input__buttons-container"]}>
+            <div className={styles['text-input__buttons-container']}>
               <InputButton
                 className="tooltip tooltip--bottom-to-left"
                 data-tooltip="Add tag"
@@ -243,8 +243,8 @@ const TagManager = forwardRef(
           {...inputProps}
         />
       </form>
-    );
-  },
-);
-TagManager.displayName = "TagManager";
-export default TagManager;
+    )
+  }
+)
+TagManager.displayName = 'TagManager'
+export default TagManager

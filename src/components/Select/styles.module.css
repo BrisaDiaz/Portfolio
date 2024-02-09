@@ -38,14 +38,15 @@
   outline: none;
   color: inherit;
 }
-.select__container:hover, .select__container:focus-within{
+.select__container:hover,
+.select__container:focus-within {
   background-color: var(--contrast-color);
   border-color: var(--primary-color);
 }
-.select:focus-visible{
-   outline: none;
+.select:focus-visible {
+  outline: none;
 }
-.select__hidden-input{
+.select__hidden-input {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,7 +56,7 @@
   cursor: pointer;
 }
 
-.select--labeled .select{
+.select--labeled .select {
   padding: 1em;
 }
 .select__label {
@@ -66,7 +67,7 @@
   top: -0.5em;
   color: var(--caption-color);
   background: var(--foreground);
-  left:  1em;
+  left: 1em;
   padding: 0 0.3em;
 }
 .select__container:focus-within .select__label {

@@ -1,71 +1,71 @@
-import { forwardRef } from "react";
-import styles from "./styles.module.css";
+import { forwardRef } from 'react'
+import styles from './styles.module.css'
 
 interface Props {
-  variant?: "solid" | "outline" | "subtle";
-  color?: "default" | "primary" | "secondary";
-  size?: "sm" | "md" | "lg";
-  isIconButton?: boolean;
+  variant?: 'solid' | 'outline' | 'subtle'
+  color?: 'default' | 'primary' | 'secondary'
+  size?: 'sm' | 'md' | 'lg'
+  isIconButton?: boolean
 }
 
 export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
     Props {}
 export const Button = forwardRef(
   (props: ButtonProps, ref?: React.LegacyRef<HTMLButtonElement>) => {
     const {
-      className = "",
+      className = '',
       children,
-      variant = "solid",
-      color = "default",
-      size = "md",
+      variant = 'solid',
+      color = 'default',
+      size = 'md',
       isIconButton = false,
       ...other
-    } = props;
+    } = props
     return (
       <button
         {...other}
         ref={ref}
-        className={`${styles["button"]} ${styles[`button--${variant}`]} ${
+        className={`${styles['button']} ${styles[`button--${variant}`]} ${
           styles[`button--${color}`]
         } ${styles[`button--${size}`]} ${
-          isIconButton ? styles[`icon-button`] : ""
+          isIconButton ? styles[`icon-button`] : ''
         }  ${className}`}
       >
         <>{children}</>
       </button>
-    );
-  },
-);
-Button.displayName = "Button";
+    )
+  }
+)
+Button.displayName = 'Button'
 
 export interface ButtonLink
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "color">,
+  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'>,
     Props {}
 export const ButtonLink = forwardRef(
   (props: ButtonLink, ref?: React.LegacyRef<HTMLAnchorElement>) => {
     const {
-      className = "",
+      className = '',
       children,
-      variant = "solid",
-      color = "default",
-      size = "md",
+      variant = 'solid',
+      color = 'default',
+      size = 'md',
       isIconButton = false,
       ...other
-    } = props;
+    } = props
     return (
       <a
         {...other}
         ref={ref}
-        className={`${styles["button"]} ${styles[`button--${variant}`]} ${
+        className={`${styles['button']} ${styles[`button--${variant}`]} ${
           styles[`button--${color}`]
         } ${styles[`button--${size}`]} ${
-          isIconButton ? styles[`icon-button`] : ""
+          isIconButton ? styles[`icon-button`] : ''
         } ${className}`}
       >
         <>{children}</>
       </a>
-    );
-  },
-);
-ButtonLink.displayName = "ButtonLink";
+    )
+  }
+)
+ButtonLink.displayName = 'ButtonLink'

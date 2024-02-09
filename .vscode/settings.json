@@ -1,3 +1,8 @@
 {
-  "cSpell.words": ["Díaz", "knwolage"]
+  "cSpell.words": ["Díaz"],
+  "editor": {
+    "codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  }
 }

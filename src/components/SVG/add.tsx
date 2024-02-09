@@ -1,11 +1,11 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef } from 'react'
 interface Props extends React.SVGAttributes<SVGSVGElement> {}
 const defaultProps = {
-  fill: "currentColor",
-  stroke: "currentColor",
-  width: "1em",
-  height: "1em",
-};
+  fill: 'currentColor',
+  stroke: 'currentColor',
+  width: '1em',
+  height: '1em',
+}
 function Add(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
   const {
     width = defaultProps.width,
@@ -13,7 +13,7 @@ function Add(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     fill = defaultProps.fill,
     stroke = defaultProps.stroke,
     ...other
-  } = props;
+  } = props
   return (
     <svg
       ref={ref}
@@ -28,7 +28,7 @@ function Add(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
     >
       <path fill="none" strokeWidth="2" d="M12 22V2M2 12h20"></path>
     </svg>
-  );
+  )
 }
 
-export default forwardRef(Add);
+export default forwardRef(Add)

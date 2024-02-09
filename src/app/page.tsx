@@ -1,20 +1,20 @@
-import styles from "./page.module.css";
-import Link from "@/components/Link";
-import { IconButtonLink } from "@/components/IconButton";
-import ProjectsContainer from "@/ui/ProjectsContainer";
-import { Linkedin, Email, Github, Options } from "@/components/SVG";
-import { ButtonLink } from "@/components/Button";
-import NextLink from "next/link";
-import { getProjects } from "@/services/projects";
-import { getTechStack } from "@/services/technologies";
-import { getHeroData } from "@/services/layout";
-import { TechStack } from "@types";
-import ResizeBox from "@/components/ResizeBox";
-import { getProjectListSchema, getTechnologiesSchema  } from "@/utils/metadata";
+import styles from './page.module.css'
+import Link from '@/components/Link'
+import { IconButtonLink } from '@/components/IconButton'
+import ProjectsContainer from '@/ui/ProjectsContainer'
+import { Linkedin, Email, Github, Options } from '@/components/SVG'
+import { ButtonLink } from '@/components/Button'
+import NextLink from 'next/link'
+import { getProjects } from '@/services/projects'
+import { getTechStack } from '@/services/technologies'
+import { getHeroData } from '@/services/layout'
+import { TechStack } from '@types'
+import ResizeBox from '@/components/ResizeBox'
+import { getProjectListSchema, getTechnologiesSchema } from '@/utils/metadata'
 async function Home() {
-  const projects = await getProjects();
-  const hero = await getHeroData();
-  const technologies = await getTechStack();
+  const projects = await getProjects()
+  const hero = await getHeroData()
+  const technologies = await getTechStack()
   return (
     <main>
       {technologies && (
@@ -29,22 +29,22 @@ async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: getProjectListSchema(projects) }}
       />
-      <section className={styles["hero-section"]} id="contact">
-        <article className={styles["introduction"]}>
-          <h1 className={styles["introduction__title"]}>
-            <span className={styles["introduction__subtitle"]}>
+      <section className={styles['hero-section']} id="contact">
+        <article className={styles['introduction']}>
+          <h1 className={styles['introduction__title']}>
+            <span className={styles['introduction__subtitle']}>
               {hero?.subtitle}
             </span>
             <br />
             {hero?.title}
           </h1>
-          <p className={styles["introduction__text"]}>{hero?.text}</p>
-          <div className={styles["contact-links"]}>
+          <p className={styles['introduction__text']}>{hero?.text}</p>
+          <div className={styles['contact-links']}>
             {hero?.contact_links.map((link, i) => (
               <ButtonLink
                 key={link?.url}
-                color={i > 0 ? "default" : "primary"}
-                variant={i > 0 ? "outline" : "solid"}
+                color={i > 0 ? 'default' : 'primary'}
+                variant={i > 0 ? 'outline' : 'solid'}
                 href={link?.url}
                 target="_blank"
                 rel="noreferrer"
@@ -60,7 +60,7 @@ async function Home() {
           content="text"
           tilt="down"
           color="secondary"
-          className={styles["page__section-title"]}
+          className={styles['page__section-title']}
         >
           <h2>Projects</h2>
         </ResizeBox>
@@ -75,7 +75,7 @@ async function Home() {
         </NextLink>
         <ProjectsContainer
           projects={projects}
-          className={styles["projects__container"]}
+          className={styles['projects__container']}
         />
       </section>
       <section>
@@ -83,15 +83,15 @@ async function Home() {
           content="text"
           color="secondary"
           tilt="up"
-          className={styles["page__section-title"]}
+          className={styles['page__section-title']}
         >
           <h2>Technologies</h2>
         </ResizeBox>
-        <div className={styles["techs__container"]}>
+        <div className={styles['techs__container']}>
           {technologies ? (
             Object.entries(technologies).map((entry) => (
               <article key={entry[0]}>
-                <h3 className={styles["tech-category__name"]}>{entry[0]}</h3>
+                <h3 className={styles['tech-category__name']}>{entry[0]}</h3>
                 <ul>
                   {entry[1].map((tech) => (
                     <li key={tech.name} className="link">
@@ -109,13 +109,13 @@ async function Home() {
         </div>
       </section>
     </main>
-  );
+  )
 }
-export default Home;
+export default Home
 
 function SocialIcon({ name }: { name: string }) {
-  if (name == "linkedin") return <Linkedin />;
-  if (name == "github") return <Github />;
-  if (name == "email") return <Email />;
-  return <></>;
+  if (name == 'linkedin') return <Linkedin />
+  if (name == 'github') return <Github />
+  if (name == 'email') return <Email />
+  return <></>
 }

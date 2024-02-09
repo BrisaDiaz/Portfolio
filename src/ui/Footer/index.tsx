@@ -1,17 +1,17 @@
-import { forwardRef } from "react";
-import styles from "./styles.module.css";
-import NextLink from "next/link";
-import { getFooterData } from "@/services/layout";
+import { forwardRef } from 'react'
+import styles from './styles.module.css'
+import NextLink from 'next/link'
+import { getFooterData } from '@/services/layout'
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {}
 async function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
-  const { ...other } = props;
-  const footer = await getFooterData();
+  const { ...other } = props
+  const footer = await getFooterData()
 
   return (
-    <footer {...other} ref={ref} className={styles["footer"]}>
-      <div className={styles["footer-inner"]}>
-        <section className={styles["profile-section"]}>
+    <footer {...other} ref={ref} className={styles['footer']}>
+      <div className={styles['footer-inner']}>
+        <section className={styles['profile-section']}>
           <h4>{footer?.about?.title}</h4>
           <p>{footer?.about?.summary}</p>
         </section>
@@ -53,7 +53,7 @@ async function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
         <></>
       )}
     </footer>
-  );
+  )
 }
 
-export default forwardRef(footer);
+export default forwardRef(footer)
