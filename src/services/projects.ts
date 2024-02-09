@@ -5,7 +5,7 @@ async function getProjects(): Promise<Project[]> {
   try {
     const res = await fetch(BASE_URL)
     const data = await res.json()
-    return data
+    return data.reverse()
   } catch (error) {
     console.error(error)
     return []
