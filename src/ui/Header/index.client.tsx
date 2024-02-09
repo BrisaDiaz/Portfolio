@@ -70,7 +70,6 @@ function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
         )}
         <Menu
           onClose={closeMenu}
-          isOpen={isMdScreen ? false : isMenuOpen}
           className={styles['menu']}
           id={menuID}
           links={data?.menu_links || []}
