@@ -19,6 +19,7 @@
 .introduction__title {
   font-weight: 800;
   font-size: 1.75rem;
+  margin: 0;
 }
 .introduction__subtitle {
   font-size: 0.6em;
