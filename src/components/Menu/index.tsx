@@ -3,7 +3,6 @@ import { forwardRef } from 'react'
 import NextLink from 'next/link'
 
 export interface Props extends React.MenuHTMLAttributes<HTMLElement> {
-  isOpen?: boolean
   links?: {
     name: string
     url:
