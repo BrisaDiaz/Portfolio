@@ -116,7 +116,7 @@ export const Option = forwardRef(
       <label className={`${styles['option']} ${className}`} htmlFor={inputId}>
         <input
           ref={ref}
-          tabIndex={isVisible ? 0 : -1}
+          {...(!isVisible && { tabIndex: -1 })}
           value={value}
           data-value={value}
           type="radio"
