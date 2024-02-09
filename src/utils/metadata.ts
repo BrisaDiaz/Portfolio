@@ -7,7 +7,7 @@ export const BASE_META = {
   role: 'full-stack developer',
   knowledge: 'web development',
   description:
-    "I'm enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.",
+    'I\'m enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
   twitterUser: '@Brisa_A_Diaz',
   email: 'brisaabigaildiaz2000@gmail.com',
