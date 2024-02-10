@@ -30,7 +30,7 @@
   border-radius: 5em;
   border: 1px solid;
   padding: 0 1em;
-  border-left: 2px solid;
+  border-right: 2px solid;
   border-bottom: 2px solid;
   position: relative;
   line-height: 2.25em;
@@ -92,6 +92,9 @@
   .introduction__title {
     font-size: 2.5rem;
   }
+  .introduction__subtitle {
+    font-size: 0.4em;
+  }
 }
 @media (min-width: 768px) {
   .hero-section {
@@ -103,13 +106,14 @@
   .introduction__title {
     font-size: 3.2rem;
   }
-  .introduction__subtitle {
-    font-size: 0.4em;
-  }
+  
 }
 @media (min-width: 1024px) {
   .introduction__title {
     font-size: 5.5rem;
+  }
+  .introduction__subtitle {
+    font-size: 0.3em;
   }
   .introduction__text {
     max-width: 80%;
