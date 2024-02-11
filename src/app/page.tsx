@@ -66,7 +66,7 @@ async function Home() {
           color="secondary"
           className={styles['page__section-title']}
         >
-          <h2>{'My collection of projects'}</h2>
+          <h2>My collection of projects</h2>
         </ResizeBox>
         <NextLink href="/projects" passHref={true} legacyBehavior>
           <ButtonLink
@@ -95,7 +95,7 @@ async function Home() {
           color="secondary"
           className={styles['page__section-title']}
         >
-          <h2>{"Technologies I've worked with"}</h2>
+          <h2>Technologies I&#39;ve worked with</h2>
         </ResizeBox>
         <div className={styles['techs__container']}>
           {technologies ? (
