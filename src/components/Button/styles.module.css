@@ -66,9 +66,12 @@
 .button--outline {
   background-color: transparent;
   border: 1px solid currentColor;
+  color: var(--text-color);
 }
 .button--outline.button--default:focus-visible,
-.button--outline.button--default:hover {
+.button--outline.button--default:hover , 
+.button--outline.button--default.icon-button:focus-visible,
+.button--outline.button--default.icon-button:hover {
   color: var(--heading-color);
 }
 .button--outline.button--primary,
@@ -100,11 +103,21 @@
   z-index: -1;
   opacity: 0.1;
 }
-.icon-button {
-  padding: 0.35em 0.35em;
-}
 .button svg {
   width: 1em;
   height: auto;
   font-size: inherit;
+}
+.icon-button {
+  padding: 0.45em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button.icon-button svg {
+   font-size: 1.2em;
+}
+
+.button--outline.icon-button {
+  border: 1px solid var(--border-color);
 }

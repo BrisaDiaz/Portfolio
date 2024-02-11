@@ -12,6 +12,8 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   align-items: flex-end;
+  border-bottom: 1px dashed var(--contrast-color-primary);
+  padding-bottom: 1.5rem;
 }
 .project-logo {
   border-radius: var(--border-radius);
@@ -60,9 +62,6 @@
   background-color: var(--contrast-color);
   overflow: hidden;
 }
-.project-logo,
 .screenshots {
-  box-shadow: var(--box-shadow-sm);
-  font-style: italic;
-  color: var(--caption-color);
+  box-shadow: var(--box-shadow-sm)
 }

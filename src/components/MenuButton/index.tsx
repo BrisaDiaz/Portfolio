@@ -1,14 +1,20 @@
 import { forwardRef } from 'react'
-import { IconButton } from '@/components/IconButton'
-export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { Button, ButtonProps } from '@/components/Button'
+export interface Props extends ButtonProps {
   isOpen: boolean
 }
 function MenuButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
   const { isOpen, ...other } = props
   return (
-    <IconButton {...other} ref={ref} aria-label="menu button">
+    <Button
+      {...other}
+      ref={ref}
+      aria-label="menu button"
+      isIconButton={true}
+      variant="outline"
+    >
       {isOpen ? <CloseIcon /> : <OpenIcon />}
-    </IconButton>
+    </Button>
   )
 }
 

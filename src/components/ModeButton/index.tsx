@@ -1,19 +1,22 @@
 import { forwardRef } from 'react'
-import { IconButton } from '@/components/IconButton'
-export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+import { Button, ButtonProps } from '@/components/Button'
+export interface Props extends ButtonProps {
   mode?: 'dark' | 'light'
 }
 function ModeButton(props: Props, ref?: React.Ref<HTMLButtonElement>) {
   const { mode = 'light', ...other } = props
   const isLight = mode === 'light'
   return (
-    <IconButton
+    <Button
       ref={ref}
+      variant="outline"
+      color="default"
       aria-label={`toggle ${isLight ? 'dark' : 'light'} mode`}
+      isIconButton={true}
       {...other}
     >
       {isLight ? <Moon /> : <Sun />}
-    </IconButton>
+    </Button>
   )
 }
 export default forwardRef(ModeButton)

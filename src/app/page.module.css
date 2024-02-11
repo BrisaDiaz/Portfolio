@@ -4,8 +4,8 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  padding-top: 5rem;
   min-height: calc(100vh - 68px);
+  padding-top: 3rem;
 }
 
 .introduction {
@@ -72,8 +72,12 @@
   width: 100%;
   justify-content: center;
 }
+.logo__container--outer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .logo__container{
-    margin-top: 2rem;
     color: var(--contrast-color-primary);
     position: relative;
     padding: 0.5rem;
@@ -97,7 +101,7 @@
   left: 100%;
 }
 .page__section-title {
-  margin: 2rem auto;
+  margin: 0 auto 2rem;
 }
 .projects__container {
   margin-top: 1rem;

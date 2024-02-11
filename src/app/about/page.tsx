@@ -1,10 +1,16 @@
 import styles from './page.module.css'
 import { Metadata } from 'next'
-import { School, Work, Language, Star, Ribbon } from '@/components/SVG'
-import { ButtonLink } from '@/components/Button'
+import {
+  School,
+  Work,
+  Language,
+  Rocket,
+  Ribbon,
+  Archive,
+} from '@/components/SVG'
 import { getAboutInfo } from '@/services/about'
 import { notFound } from 'next/navigation'
-
+import { ButtonLink } from '@/components/Button'
 export const metadata: Metadata = {
   title: 'About',
 }
@@ -15,8 +21,24 @@ const About = async () => {
   return (
     <main>
       <section className={styles['page']}>
+        <div className={styles['heading__container']}>
+          <h1 className={styles['summary__title']}>{'Get to know me'}</h1>
+          <ButtonLink
+            target="_blank"
+            data-tooltip="Download CV"
+            rel="noreferrer"
+            aria-label="download cv"
+            href={about?.resume}
+            className={`tooltip tooltip--left ${styles['download-button']}`}
+            download
+            isIconButton={true}
+            color="primary"
+          >
+            <Archive />
+          </ButtonLink>
+        </div>
+
         <article className={styles['summary__section']}>
-          <h1>About Me</h1>
           {about?.summary?.length ? (
             <div className={styles['summary__text']}>
               {about?.summary?.map((paragraph) => (
@@ -26,20 +48,11 @@ const About = async () => {
           ) : (
             <></>
           )}
-          <ButtonLink
-            color="primary"
-            target="_blank"
-            rel="noreferrer"
-            href={about?.resume}
-            download
-          >
-            Download CV
-          </ButtonLink>
         </article>
 
         <article>
           <div className={styles['section__title']}>
-            <Star className={styles['section__svg']} />
+            <Rocket className={styles['section__svg']} />
             <h2>Achievements</h2>
           </div>
           <ul className={`list ${styles['achievements__list']}`}>

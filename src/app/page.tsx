@@ -1,6 +1,5 @@
 import styles from './page.module.css'
 import Link from '@/components/Link'
-import { IconButtonLink } from '@/components/IconButton'
 import ProjectsContainer from '@/ui/ProjectsContainer'
 import { Linkedin, Email, Github, Options } from '@/components/SVG'
 import { Logo } from '@/components/Illustrations'
@@ -11,6 +10,7 @@ import { getTechStack } from '@/services/technologies'
 import { getHeroData } from '@/services/layout'
 import ResizeBox from '@/components/ResizeBox'
 import { getProjectListSchema, getTechnologiesSchema } from '@/utils/metadata'
+
 async function Home() {
   const projects = await getProjects()
   const hero = await getHeroData()
@@ -53,11 +53,12 @@ async function Home() {
               </ButtonLink>
             ))}
           </div>
-
-          <div className={styles['logo__container']}>
-            <Logo />
-          </div>
         </article>
+      </section>
+      <section className={styles['logo__container--outer']}>
+        <div className={styles['logo__container']}>
+          <Logo />
+        </div>
       </section>
       <section id="projects">
         <ResizeBox
@@ -68,18 +69,25 @@ async function Home() {
           <h2>{'My collection of projects'}</h2>
         </ResizeBox>
         <NextLink href="/projects" passHref={true} legacyBehavior>
-          <IconButtonLink
+          <ButtonLink
             className="tooltip tooltip--right"
             data-tooltip="Advance search"
             aria-label="advance projects search"
+            color="primary"
+            isIconButton={true}
           >
             <Options />
-          </IconButtonLink>
+          </ButtonLink>
         </NextLink>
         <ProjectsContainer
           projects={projects}
           className={styles['projects__container']}
         />
+      </section>
+      <section className={styles['logo__container--outer']}>
+        <div className={styles['logo__container']}>
+          <Logo />
+        </div>
       </section>
       <section id="technologies">
         <ResizeBox

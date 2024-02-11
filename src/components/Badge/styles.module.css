@@ -10,6 +10,9 @@
   gap: 0.5em;
   align-items: center;
 }
+.badge--rounded{
+  border-radius: 1em;
+}
 .badge--deletable {
   padding: 0.18rem 0.5rem;
 }

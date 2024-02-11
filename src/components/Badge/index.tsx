@@ -6,6 +6,7 @@ interface Props extends React.BaseHTMLAttributes<HTMLParagraphElement> {
   variant?: 'solid' | 'outline' | 'subtle'
   size?: 'sm' | 'md' | 'lg'
   color?: 'default' | 'primary' | 'secondary'
+  rounded?: boolean
   deletable?: boolean
   onDelete?: React.MouseEventHandler<HTMLButtonElement>
   transformText?: 'none' | 'uppercase' | 'capitalize' | 'uppercase' | 'title'
@@ -15,6 +16,7 @@ const defaultProps = {
   variant: 'solid',
   size: 'md',
   color: 'default',
+  rounded: false,
   transformText: 'none',
   deletable: false,
   onDelete: () => {},
@@ -25,6 +27,7 @@ const Badge = (props: Props, ref?: React.LegacyRef<HTMLParagraphElement>) => {
     className = '',
     children,
     count = 0,
+    rounded = defaultProps.rounded,
     variant = defaultProps.variant,
     size = defaultProps.size,
     color = defaultProps.color,
@@ -41,7 +44,7 @@ const Badge = (props: Props, ref?: React.LegacyRef<HTMLParagraphElement>) => {
         styles[`badge--${color}`]
       } ${styles[`badge--${variant}`]} ${styles[`badge--${size}`]} ${
         styles[`badge--transform-${transformText}`]
-      } ${deletable ? styles['badge--deletable'] : ''} `}
+      } ${deletable ? styles['badge--deletable'] : ''} ${rounded ? styles['badge--rounded'] : ''} `}
     >
       <>
         {count ? (

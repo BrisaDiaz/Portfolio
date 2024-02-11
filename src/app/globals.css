@@ -99,7 +99,7 @@ body {
   background-color: transparent;
 }
 main {
-  padding: 50px 0;
+  padding: 3.5rem  0;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -151,7 +151,7 @@ h4,
   font-weight: 500;
   font-size: 1rem;
 }
-ul {
+ul, ol {
   list-style: none;
   display: flex;
   flex-direction: column;
@@ -167,13 +167,13 @@ image {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
-  margin-left: 0.5rem;
+  margin-left: 0.75rem;
 }
 .list__item {
   padding-left: 1.5ch;
 }
 .list__item::marker {
-  color: var(--secondary-color);
+  color: var(--secondary-color-light);
   font-weight: 700;
 }
 li::first-letter {
@@ -323,7 +323,7 @@ button:focus-visible {
     font-weight: 500;
   }
   section {
-    padding: 2em 3em;
+    padding: 3em;
   }
 }
 @media (min-width: 1024px) {
