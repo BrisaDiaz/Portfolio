@@ -3,6 +3,7 @@ import Link from '@/components/Link'
 import { IconButtonLink } from '@/components/IconButton'
 import ProjectsContainer from '@/ui/ProjectsContainer'
 import { Linkedin, Email, Github, Options } from '@/components/SVG'
+import { Logo } from '@/components/Illustrations'
 import { ButtonLink } from '@/components/Button'
 import NextLink from 'next/link'
 import { getProjects } from '@/services/projects'
@@ -52,16 +53,19 @@ async function Home() {
               </ButtonLink>
             ))}
           </div>
+
+          <div className={styles['logo__container']}>
+            <Logo />
+          </div>
         </article>
       </section>
       <section id="projects">
         <ResizeBox
           content="text"
-          tilt="down"
           color="secondary"
           className={styles['page__section-title']}
         >
-          <h2>Projects</h2>
+          <h2>{'My collection of projects'}</h2>
         </ResizeBox>
         <NextLink href="/projects" passHref={true} legacyBehavior>
           <IconButtonLink
@@ -81,10 +85,9 @@ async function Home() {
         <ResizeBox
           content="text"
           color="secondary"
-          tilt="up"
           className={styles['page__section-title']}
         >
-          <h2>Technologies</h2>
+          <h2>{"Technologies I've worked with"}</h2>
         </ResizeBox>
         <div className={styles['techs__container']}>
           {technologies ? (

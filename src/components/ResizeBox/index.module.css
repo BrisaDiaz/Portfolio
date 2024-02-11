@@ -55,6 +55,7 @@
 }
 .resize-box--text .resize-box__inner > * {
   margin: 0;
+  text-align: center;
 }
 .resize-box--tilt-up {
   transform: rotate(-3deg);
@@ -66,11 +67,11 @@
   transform: rotate(0);
 }
 .resize-box--color-default {
-  color: var(--text-color);
+  color: var(--contrast-color);
 }
 .resize-box--color-primary {
-  color: var(--primary-color-light);
+  color: var(--contrast-color-primary);
 }
 .resize-box--color-secondary {
-  color: var(--secondary-color-light);
+  color: var(--contrast-color-secondary);
 }
