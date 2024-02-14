@@ -221,6 +221,7 @@ button:focus-visible {
   position: absolute;
   width: fit-content;
   color: var(--text-color);
+  font-weight: 400;
   content: attr(data-tooltip);
   font-size: 0.8rem;
   white-space: nowrap;

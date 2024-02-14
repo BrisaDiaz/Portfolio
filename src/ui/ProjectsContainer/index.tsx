@@ -43,6 +43,7 @@ const ProjectsContainer = forwardRef(
                 logo: <ProjectLogo name={project.slug} />,
                 slug: project.slug,
                 summary: project.summary,
+                status: project.status,
               }}
             />
           </NextLink>

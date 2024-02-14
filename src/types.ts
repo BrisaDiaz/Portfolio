@@ -20,7 +20,7 @@ export type TechStack = {
     doc_url: string
   }[]
 }
-
+export type ProjectStatus = 'Active' | 'Archived' | 'Paused' | 'Abandoned'
 export interface Project {
   id: number
   slug: string
@@ -28,6 +28,7 @@ export interface Project {
   background?: string
   title: string
   subtitle: string
+  status: ProjectStatus
   summary: string
   icon: Caption
   captions: Caption[]
