@@ -38,19 +38,4 @@
   .backdrop {
     display: none;
   }
-  .menu {
-    display: flex;
-    flex-direction: row;
-    opacity: 1;
-    position: relative;
-    top: 0;
-    right: 0;
-    border: none;
-    background-color: transparent;
-    justify-content: flex-end;
-    padding: 0;
-  }
-  .menu::after {
-    display: none;
-  }
 }
