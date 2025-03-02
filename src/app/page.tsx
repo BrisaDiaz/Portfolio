@@ -2,7 +2,6 @@ import styles from './page.module.css'
 import Link from '@/components/Link'
 import ProjectsContainer from '@/ui/ProjectsContainer'
 import { Linkedin, Email, Github, Options } from '@/components/SVG'
-import { Logo } from '@/components/Illustrations'
 import { ButtonLink } from '@/components/Button'
 import NextLink from 'next/link'
 import { getProjects } from '@/services/projects'
@@ -55,11 +54,7 @@ async function Home() {
           </div>
         </article>
       </section>
-      <section className={styles['logo__container--outer']}>
-        <div className={styles['logo__container']}>
-          <Logo />
-        </div>
-      </section>
+
       <section id="projects">
         <ResizeBox
           content="text"
@@ -84,11 +79,7 @@ async function Home() {
           className={styles['projects__container']}
         />
       </section>
-      <section className={styles['logo__container--outer']}>
-        <div className={styles['logo__container']}>
-          <Logo />
-        </div>
-      </section>
+
       <section id="technologies">
         <ResizeBox
           content="text"

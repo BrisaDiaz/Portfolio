@@ -72,34 +72,6 @@
   width: 100%;
   justify-content: center;
 }
-.logo__container--outer{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-.logo__container{
-    color: var(--contrast-color-primary);
-    position: relative;
-    padding: 0.5rem;
-}
-.logo__container svg {
-  width: 4rem;
-  height: auto;
-}
-.logo__container::before, .logo__container::after{
-     content: " ";
-    position: absolute;
-    top: 50%;
-    width: calc(50vw - 70%);
-    border-bottom: 1px dashed;
-    max-width: calc(var(--max-width)  / 2 );
-}
-.logo__container::before{
-    right: 100%;
-}
-.logo__container::after{
-  left: 100%;
-}
 .page__section-title {
   margin: 0 auto 2rem;
 }
