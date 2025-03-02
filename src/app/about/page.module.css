@@ -8,7 +8,7 @@
 .section__svg {
     font-size: 1.15em;
     color: var(--primary-color-light);
-    padding: 0.2em;
+    padding: 0.5rem;
     box-sizing: content-box;
     background-color: var(--contrast-color-primary);
     border-radius: var(--border-radius);
@@ -22,7 +22,7 @@
 .section__title {
   display: flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 1rem;
   text-align: start;
   color: var(--heading-color);
   margin-bottom: 0.5rem;
