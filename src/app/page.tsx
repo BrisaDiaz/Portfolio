@@ -1,6 +1,6 @@
 import styles from './page.module.css'
 import ProjectsContainer from '@/ui/ProjectsContainer'
-import { Linkedin, Email, Github, Options } from '@/components/SVG'
+import { Options } from '@/components/SVG'
 import { ButtonLink } from '@/components/Button'
 import TechCard from '@/components/TechCard'
 import NextLink from 'next/link'
@@ -48,7 +48,7 @@ async function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {link?.name} <SocialIcon name={link?.name} />
+                {link?.name} 
               </ButtonLink>
             ))}
           </div>
@@ -94,10 +94,3 @@ async function Home() {
   )
 }
 export default Home
-
-function SocialIcon({ name }: { name: string }) {
-  if (name == 'linkedin') return <Linkedin />
-  if (name == 'github') return <Github />
-  if (name == 'email') return <Email />
-  return <></>
-}
