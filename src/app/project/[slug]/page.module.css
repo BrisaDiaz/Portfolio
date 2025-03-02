@@ -25,6 +25,7 @@
   object-position: center;
   height: 5rem;
   width: auto;
+  background-color: var(--contrast-color);
 }
 .title {
   color: var(--text-color-secondary);
@@ -63,5 +64,6 @@
   overflow: hidden;
 }
 .screenshots {
-  box-shadow: var(--box-shadow-sm)
+  box-shadow: var(--box-shadow-sm);
+  background-color: var(--contrast-color);
 }
