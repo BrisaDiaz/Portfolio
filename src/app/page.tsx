@@ -1,8 +1,8 @@
 import styles from './page.module.css'
-import Link from '@/components/Link'
 import ProjectsContainer from '@/ui/ProjectsContainer'
 import { Linkedin, Email, Github, Options } from '@/components/SVG'
 import { ButtonLink } from '@/components/Button'
+import TechCard from '@/components/TechCard'
 import NextLink from 'next/link'
 import { getProjects } from '@/services/projects'
 import { getTechStack } from '@/services/technologies'
@@ -13,6 +13,7 @@ async function Home() {
   const projects = await getProjects()
   const hero = await getHeroData()
   const technologies = await getTechStack()
+  const techs =technologies ? Object.entries(technologies).map( current => ({category: current[0], technologies: current[1]})) : []
   return (
     <main>
       {technologies && (
@@ -78,32 +79,17 @@ async function Home() {
       </section>
 
       <section id="technologies">
-        <div
+      <div
           className={styles['page__section-title']}
         >
           <h2>Tech Stack</h2>
         </div>
-        <div className={styles['techs__container']}>
-          {technologies ? (
-            Object.entries(technologies).map((entry) => (
-              <article key={entry[0]}>
-                <h3 className={styles['tech-category__name']}>{entry[0]}</h3>
-                <ul>
-                  {entry[1].map((tech) => (
-                    <li key={tech.name} className="link">
-                      <Link external={true} href={tech.doc_url}>
-                        {tech.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))
-          ) : (
-            <></>
-          )}
+        <div className={styles['techs__grid']}>
+          {techs.map(cat => <TechCard key={cat.category} data={cat}/>)}
         </div>
       </section>
+
+     
     </main>
   )
 }

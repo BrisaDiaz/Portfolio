@@ -82,16 +82,9 @@
 .projects__container {
   margin-top: 1rem;
 }
-.techs__container {
+.techs__grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
-  padding-top: 2rem;
-}
-.tech-category__name {
-  text-transform: capitalize;
-  margin-bottom: 1em;
-  color: var(--text-color-primary);
+  gap: 1.5rem;
 }
 
 @media (min-width: 425px) {
@@ -113,8 +106,8 @@
   .hero-section {
     min-height: unset;
   }
-  .techs__container {
-    grid-template-columns: 1fr 1fr 1fr;
+  .techs__grid {
+    grid-template-columns: 1fr 1fr;
   }
   .introduction__title {
     font-size: 3.2rem;
@@ -134,7 +127,4 @@
  .contact-links a{
   font-size: 1.15rem;
  }
-  .techs__container {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
