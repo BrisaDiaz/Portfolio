@@ -14,7 +14,9 @@ export type TechCategory =
   | 'other'
 
 export type TechStack = {
-  [key in TechCategory]: {
+  id: number
+  category: string
+  technologies: {
     name: string
     logo_name: string
     doc_url: string

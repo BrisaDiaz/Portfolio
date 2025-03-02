@@ -108,7 +108,7 @@ export interface TechListItem {
     sameAs: string[]
   }
 }
-export function getTechnologiesSchema(technologies: TechStack) {
+export function getTechnologiesSchema(technologies: TechStack[]) {
   let techList: TechListItem[] = []
   const schema = {
     '@context': 'https://schema.org',
@@ -120,25 +120,26 @@ export function getTechnologiesSchema(technologies: TechStack) {
     itemListElement: techList,
   }
 
-  for (const category in technologies) {
-    const partial = technologies[category as keyof typeof technologies].map(
+ 
+  technologies.forEach((group) => {
+    const partial = group.technologies.map(
       (tech, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         item: {
-          name: tech.name,
+          name: group.category,
           description:
-            category === 'language'
+          group.category === 'language'
               ? 'programming language'
               : `${
-                  category === 'other' ? 'service/development' : category
+                group.category === 'other' ? 'service/development' : group.category
                 } tool`,
           sameAs: [tech.doc_url],
         },
       })
     )
     techList = [...techList, ...partial]
-  }
+  })
   return JSON.stringify(schema)
 }
 

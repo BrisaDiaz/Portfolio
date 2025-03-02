@@ -1,15 +1,9 @@
 import styles from './styles.module.css'
 import Badge from '@/components/Badge'
-export interface TechCategory {
-  category: string
-  technologies: {
-    name: string;
-    logo_name: string;
-    doc_url: string;
-}[]
-}
+import { TechStack } from '@types'
+
 interface Props extends React.HTMLAttributes<HTMLElement> {
-  data: TechCategory
+  data: TechStack
 }
 export default function TechCard(props: Props) {
   const { data, className, ...other } = props

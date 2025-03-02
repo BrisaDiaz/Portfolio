@@ -13,7 +13,6 @@ async function Home() {
   const projects = await getProjects()
   const hero = await getHeroData()
   const technologies = await getTechStack()
-  const techs =technologies ? Object.entries(technologies).map( current => ({category: current[0], technologies: current[1]})) : []
   return (
     <main>
       {technologies && (
@@ -85,7 +84,7 @@ async function Home() {
           <h2>Tech Stack</h2>
         </div>
         <div className={styles['techs__grid']}>
-          {techs.map(cat => <TechCard key={cat.category} data={cat}/>)}
+          {technologies?.map(cat => <TechCard key={cat.category} data={cat}/>)}
         </div>
       </section>
 
