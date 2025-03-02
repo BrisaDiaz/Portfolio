@@ -7,7 +7,6 @@ import NextLink from 'next/link'
 import { getProjects } from '@/services/projects'
 import { getTechStack } from '@/services/technologies'
 import { getHeroData } from '@/services/layout'
-import ResizeBox from '@/components/ResizeBox'
 import { getProjectListSchema, getTechnologiesSchema } from '@/utils/metadata'
 
 async function Home() {
@@ -56,13 +55,11 @@ async function Home() {
       </section>
 
       <section id="projects">
-        <ResizeBox
-          content="text"
-          color="secondary"
+        <div
           className={styles['page__section-title']}
         >
-          <h2>My collection of projects</h2>
-        </ResizeBox>
+          <h2>Projects</h2>
+        </div>
         <NextLink href="/projects" passHref={true} legacyBehavior>
           <ButtonLink
             className="tooltip tooltip--right"
@@ -81,13 +78,11 @@ async function Home() {
       </section>
 
       <section id="technologies">
-        <ResizeBox
-          content="text"
-          color="secondary"
+        <div
           className={styles['page__section-title']}
         >
-          <h2>Technologies I&#39;ve worked with</h2>
-        </ResizeBox>
+          <h2>Tech Stack</h2>
+        </div>
         <div className={styles['techs__container']}>
           {technologies ? (
             Object.entries(technologies).map((entry) => (
