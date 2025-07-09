@@ -1,0 +1,71 @@
+{
+  "id": 1,
+  "demo": "https://randgen-jgy5.onrender.com/",
+  "icon": {
+    "alt": "icono de análisis estadístico",
+    "src": "https://placehold.co/64x64/0056b3/ffffff?text=Stats",
+    "placeholder": "https://placehold.co/64x64/e0e0e0/ffffff?text=Stats"
+  },
+  "slug": "generador-numeros-aleatorios-pruebas-estadisticas",
+  "tags": [
+    "Python",
+    "Flask",
+    "Matplotlib",
+    "SciPy",
+    "NumPy",
+    "Pandas",
+    "HTML",
+    "CSS",
+    "Bootstrap",
+    "Pruebas Estadísticas",
+    "Generación de Números Aleatorios",
+    "Visualización de Datos",
+    "Aplicación Web",
+    "Desarrollo Backend",
+    "Desarrollo Frontend",
+    "Diseño Responsivo",
+    "Simulación",
+    "Análisis de Datos"
+  ],
+  "color": "#0056b3",
+  "title": "Generador de Números Aleatorios y Pruebas Estadísticas",
+  "status": "Activo",
+  "summary": "Esta aplicación web, construida con Python y Flask, es una herramienta integral para la simulación y el análisis estadístico. Permite a los usuarios generar series de números pseudoaleatorios que siguen diversas distribuciones de probabilidad (Uniforme, Exponencial, Normal y Poisson). Más allá de la generación, la herramienta valida la calidad y el ajuste de estos números a las distribuciones propuestas mediante la implementación de pruebas de bondad de ajuste de Chi-Cuadrado y Kolmogorov-Smirnov. Esto facilita la experimentación con modelos computarizados, la comprensión del comportamiento de sistemas complejos y la evaluación de estrategias basadas en datos simulados, apoyando la toma de decisiones informadas.",
+  "captions": [
+    {
+      "alt": "captura de pantalla del formulario de entrada principal",
+      "src": "https://placehold.co/800x450/0056b3/ffffff?text=Formulario+Principal",
+      "placeholder": "https://placehold.co/800x450/e0e0e0/ffffff?text=Formulario+Principal"
+    },
+    {
+      "alt": "captura de pantalla de la página de resultados con histograma y tablas",
+      "src": "https://placehold.co/800x450/0056b3/ffffff?text=Página+de+Resultados",
+      "placeholder": "https://placehold.co/800x450/e0e0e0/ffffff?text=Página+de+Resultados"
+    },
+    {
+      "alt": "captura de pantalla de la tabla de la prueba de Kolmogorov-Smirnov",
+      "src": "https://placehold.co/800x450/0056b3/ffffff?text=Tabla+KS",
+      "placeholder": "https://placehold.co/800x450/e0e0e0/ffffff?text=Tabla+KS"
+    },
+    {
+      "alt": "captura de pantalla de la tabla de la prueba de Chi-Cuadrado",
+      "src": "https://placehold.co/800x450/0056b3/ffffff?text=Tabla+Chi2",
+      "placeholder": "https://placehold.co/800x450/e0e0e0/ffffff?text=Tabla+Chi2"
+    }
+  ],
+  "features": [
+    "Generación de números pseudoaleatorios robustos para distribuciones Uniforme, Exponencial, Normal y Poisson, fundamentales para modelos de simulación que incluyen variabilidad.",
+    "Configuración detallada de parámetros para cada tipo de distribución, permitiendo una simulación precisa de escenarios específicos.",
+    "Implementación de la Prueba de Bondad de Ajuste Chi-Cuadrado, adecuada para muestras grandes (N>=30) y con agrupación automática de intervalos para cumplir con el requisito de frecuencia esperada mínima (>=5).",
+    "Integración de la Prueba de Bondad de Ajuste de Kolmogorov-Smirnov, diseñada para validar el ajuste de datos a distribuciones continuas, proporcionando el estadístico D y el valor p.",
+    "Capacidad para definir un nivel de confianza personalizado para ambas pruebas estadísticas, lo que permite al usuario controlar la probabilidad de error tipo I.",
+    "Visualización interactiva de la distribución de frecuencias a través de histogramas dinámicos, facilitando la comprensión visual de los datos generados.",
+    "Funcionalidad de exportación de los números generados a formatos comunes como CSV, Excel y TXT, para su posterior análisis o integración en otras herramientas.",
+    "Interfaz de usuario intuitiva y adaptable (responsive design) desarrollada con Flask y Bootstrap, asegurando una experiencia de usuario fluida en diferentes dispositivos."
+  ],
+  "subtitle": "Herramienta de Simulación y Análisis Estadístico",
+  "background": "#1f54de",
+  "credentials": null,
+  "source_code": "https://github.com/BrisaDiaz/TP2_SIM",
+  "value_proposition": "Esta herramienta es invaluable para estudiantes, investigadores y profesionales en campos como la ingeniería, la economía, la ciencia de datos y la investigación operativa. Permite: \n* **Validar la aleatoriedad:** Asegura que los números generados cumplen con las propiedades estadísticas necesarias para una simulación confiable (uniformidad, independencia, etc.).\n* **Apoyar la toma de decisiones:** Al simular el comportamiento de sistemas bajo diferentes escenarios y validar las distribuciones, se pueden evaluar estrategias y predecir resultados futuros sin experimentar con el sistema real.\n* **Facilitar el aprendizaje:** Proporciona una plataforma práctica para comprender los conceptos de generación de números aleatorios, distribuciones de probabilidad y pruebas de hipótesis estadísticas.\n* **Reducir riesgos:** Permite identificar y mitigar posibles problemas en modelos que dependen de la variabilidad, al asegurar que los datos de entrada simulados se ajustan a las distribuciones teóricas esperadas.\n* **Versatilidad:** Al ofrecer múltiples distribuciones y pruebas, se adapta a una amplia gama de problemas de simulación y análisis de datos."
+}
