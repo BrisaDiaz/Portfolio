@@ -19,45 +19,45 @@ function Ribbon(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
       ref={ref}
       width={width}
       height={height}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 512 512'
       {...other}
     >
       <circle
-        cx="256"
-        cy="160"
-        r="128"
+        cx='256'
+        cy='160'
+        r='128'
         fill={fill}
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='32'
       ></circle>
       <path
         fill={fill}
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
-        d="M143.65 227.82L48 400l86.86-.42a16 16 0 0113.82 7.8L192 480l88.33-194.32"
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='32'
+        d='M143.65 227.82L48 400l86.86-.42a16 16 0 0113.82 7.8L192 480l88.33-194.32'
       ></path>
       <path
         fill={fill}
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
-        d="M366.54 224L464 400l-86.86-.42a16 16 0 00-13.82 7.8L320 480l-64-140.8"
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='32'
+        d='M366.54 224L464 400l-86.86-.42a16 16 0 00-13.82 7.8L320 480l-64-140.8'
       ></path>
       <circle
-        cx="256"
-        cy="160"
-        r="64"
+        cx='256'
+        cy='160'
+        r='64'
         fill={fill}
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='32'
       ></circle>
     </svg>
   )

@@ -82,7 +82,7 @@ export const TableHeadCell = forwardRef(
       <th
         {...other}
         className={`${styles['table__title']} ${styles['table__row-item']}`}
-        scope="col"
+        scope='col'
         ref={ref}
       >
         {children}

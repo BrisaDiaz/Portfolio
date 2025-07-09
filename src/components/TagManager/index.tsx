@@ -204,30 +204,30 @@ const TagManager = forwardRef(
               ))}
             </ListBox>
           }
-          type="text"
-          name="autocomplete"
+          type='text'
+          name='autocomplete'
           data-autocomplete={formId}
-          autoComplete="off"
+          autoComplete='off'
           value={inputValue}
           onFocus={openListbox}
           onChange={handleChange}
           hasButtonRight={true}
-          spellCheck="false"
+          spellCheck='false'
           list={suggestionListId}
           addonRight={
             <div className={styles['text-input__buttons-container']}>
               <InputButton
-                className="tooltip tooltip--bottom-to-left"
-                data-tooltip="Add tag"
-                aria-label="Add tag"
+                className='tooltip tooltip--bottom-to-left'
+                data-tooltip='Add tag'
+                aria-label='Add tag'
               >
                 <Add />
               </InputButton>
               <InputButton
                 onClick={handleClearAllTags}
-                className="tooltip tooltip--bottom-to-left"
-                data-tooltip="Clear all"
-                aria-label="Clear all"
+                className='tooltip tooltip--bottom-to-left'
+                data-tooltip='Clear all'
+                aria-label='Clear all'
               >
                 <Clear />
               </InputButton>

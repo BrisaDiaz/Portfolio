@@ -21,12 +21,12 @@ function Filter(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
       height={height}
       fill={fill}
       stroke={stroke}
-      xmlns="http://www.w3.org/2000/svg"
+      xmlns='http://www.w3.org/2000/svg'
       {...other}
-      strokeWidth="0"
-      viewBox="0 0 512 512"
+      strokeWidth='0'
+      viewBox='0 0 512 512'
     >
-      <path stroke="none" d="M128 192l128 128 128-128z"></path>
+      <path stroke='none' d='M128 192l128 128 128-128z'></path>
     </svg>
   )
 }

@@ -45,7 +45,7 @@ const ListBox = forwardRef(
           data-visible={isVisible}
         />
         <div
-          role="listbox"
+          role='listbox'
           id={id}
           ref={listboxRef}
           className={`link-box ${styles['datalist']} ${
@@ -119,8 +119,8 @@ export const Option = forwardRef(
           {...(!isVisible && { tabIndex: -1 })}
           value={value}
           data-value={value}
-          type="radio"
-          role="option"
+          type='radio'
+          role='option'
           aria-selected={selected}
           {...other}
           id={inputId}

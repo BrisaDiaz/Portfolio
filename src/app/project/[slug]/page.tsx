@@ -80,7 +80,7 @@ const Project: NextPage<Props> = async (pageProps) => {
   return (
     <main className={styles['page']}>
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: getProjectSchema(project) }}
       />
       <section>
@@ -90,8 +90,8 @@ const Project: NextPage<Props> = async (pageProps) => {
             src={project?.icon?.src}
             width={150}
             height={100}
-            loading="eager"
-            placeholder="blur"
+            loading='eager'
+            placeholder='blur'
             blurDataURL={project?.icon?.placeholder || project?.icon?.src}
             quality={100}
             alt={project?.icon?.alt}
@@ -115,7 +115,7 @@ const Project: NextPage<Props> = async (pageProps) => {
                   href={project?.demo}
                   primary={true}
                   btn={true}
-                  className="link"
+                  className='link'
                 >
                   Live Demo
                 </Link>
@@ -125,7 +125,7 @@ const Project: NextPage<Props> = async (pageProps) => {
               <li>
                 <Link
                   external={true}
-                  className="link"
+                  className='link'
                   href={project?.source_code}
                   primary={true}
                   btn={true}
@@ -138,7 +138,7 @@ const Project: NextPage<Props> = async (pageProps) => {
         </div>
         <div>
           <h3 className={`${styles['section__title']}`}>Tech Stack</h3>
-          <Table doubleEntry={true} size="sm" fullWidth={true}>
+          <Table doubleEntry={true} size='sm' fullWidth={true}>
             <TableHead>
               {['', 'technologies'].map((title) => (
                 <TableHeadCell key={title}>{title}</TableHeadCell>
@@ -154,9 +154,9 @@ const Project: NextPage<Props> = async (pageProps) => {
                         techs[category]?.map((tech: string) => (
                           <Badge
                             key={tech}
-                            variant="subtle"
-                            size="sm"
-                            color="secondary"
+                            variant='subtle'
+                            size='sm'
+                            color='secondary'
                           >
                             {tech}
                           </Badge>
@@ -174,9 +174,9 @@ const Project: NextPage<Props> = async (pageProps) => {
         <div className={styles['features']}>
           <h3 className={`${styles['section__title']}`}>Features</h3>
           <div>
-            <ul className="list">
+            <ul className='list'>
               {project?.features.map((feature) => (
-                <li key={feature} className="list__item">
+                <li key={feature} className='list__item'>
                   {feature}
                 </li>
               ))}
@@ -193,8 +193,8 @@ const Project: NextPage<Props> = async (pageProps) => {
               alt={img.src}
               width={900}
               height={1200}
-              placeholder="blur"
-              loading="lazy"
+              placeholder='blur'
+              loading='lazy'
               blurDataURL={img?.placeholder || img.src}
               key={img.src}
             />

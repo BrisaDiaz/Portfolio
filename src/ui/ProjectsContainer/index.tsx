@@ -59,16 +59,16 @@ export default ProjectsContainer
 
 function ProjectLogo({ name }: { name: string }) {
   if (name == 'pinterest-clone')
-    return <PinterestClone fill="var(--primary-color)" />
-  if (name == 'randgen') return <RandGen fill="var(--primary-color)" />
-  if (name == 'mocasa') return <Mocasa fill="var(--primary-color)" />
-  if (name == 'smart-buy') return <SmartBuy fill="var(--primary-color)" />
-  if (name == 'tecno-rev') return <TecnoRev fill="var(--primary-color)" />
-  if (name == 'ORTEX-login') return <Ortex fill="var(--primary-color)" />
-  if (name == 'hotel-booker') return <BookingApp fill="var(--primary-color)" />
-  if (name == 'wikifit') return <Wikifit fill="var(--primary-color)" />
-  if (name == 'delivery-app') return <DeliveryApp fill="var(--primary-color)" />
+    return <PinterestClone fill='var(--primary-color)' />
+  if (name == 'randgen') return <RandGen fill='var(--primary-color)' />
+  if (name == 'mocasa') return <Mocasa fill='var(--primary-color)' />
+  if (name == 'smart-buy') return <SmartBuy fill='var(--primary-color)' />
+  if (name == 'tecno-rev') return <TecnoRev fill='var(--primary-color)' />
+  if (name == 'ORTEX-login') return <Ortex fill='var(--primary-color)' />
+  if (name == 'hotel-booker') return <BookingApp fill='var(--primary-color)' />
+  if (name == 'wikifit') return <Wikifit fill='var(--primary-color)' />
+  if (name == 'delivery-app') return <DeliveryApp fill='var(--primary-color)' />
   if (name == 'photographer-portfolio')
-    return <PhotographerPage fill="var(--primary-color)" />
-  return <Portfolio fill="var(--primary-color)" />
+    return <PhotographerPage fill='var(--primary-color)' />
+  return <Portfolio fill='var(--primary-color)' />
 }

@@ -17,17 +17,17 @@ async function Home() {
     <main>
       {technologies && (
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: getTechnologiesSchema(technologies),
           }}
         />
       )}
       <script
-        type="application/ld+json"
+        type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: getProjectListSchema(projects) }}
       />
-      <section className={styles['hero-section']} id="contact">
+      <section className={styles['hero-section']} id='contact'>
         <article className={styles['introduction']}>
           <h1 className={styles['introduction__title']}>
             <span className={styles['introduction__subtitle']}>
@@ -44,8 +44,8 @@ async function Home() {
                 color={i > 0 ? 'default' : 'primary'}
                 variant={i > 0 ? 'outline' : 'solid'}
                 href={link?.url}
-                target="_blank"
-                rel="noreferrer"
+                target='_blank'
+                rel='noreferrer'
               >
                 {link?.name}
               </ButtonLink>
@@ -54,16 +54,16 @@ async function Home() {
         </article>
       </section>
 
-      <section id="projects">
+      <section id='projects'>
         <div className={styles['page__section-title']}>
           <h2>Projects</h2>
         </div>
-        <NextLink href="/projects" passHref={true} legacyBehavior>
+        <NextLink href='/projects' passHref={true} legacyBehavior>
           <ButtonLink
-            className="tooltip tooltip--right"
-            data-tooltip="Advance search"
-            aria-label="advance projects search"
-            color="primary"
+            className='tooltip tooltip--right'
+            data-tooltip='Advance search'
+            aria-label='advance projects search'
+            color='primary'
             isIconButton={true}
           >
             <Options />
@@ -75,7 +75,7 @@ async function Home() {
         />
       </section>
 
-      <section id="technologies">
+      <section id='technologies'>
         <div className={styles['page__section-title']}>
           <h2>Tech Stack</h2>
         </div>

@@ -20,18 +20,18 @@ function Filter(props: Props, ref?: React.LegacyRef<SVGSVGElement>) {
       width={width}
       height={height}
       fill={fill}
-      xmlns="http://www.w3.org/2000/svg"
-      strokeWidth="32"
-      viewBox="0 0 512 512"
+      xmlns='http://www.w3.org/2000/svg'
+      strokeWidth='32'
+      viewBox='0 0 512 512'
       {...other}
     >
       <path
-        fill="none"
+        fill='none'
         stroke={stroke}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="32"
-        d="M32 144h448M112 256h288M208 368h96"
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='32'
+        d='M32 144h448M112 256h288M208 368h96'
       ></path>
     </svg>
   )

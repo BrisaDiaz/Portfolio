@@ -13,8 +13,8 @@ export default function TechCard(props: Props) {
       <h3 className={`${styles['card__title']}`}>{data?.category}</h3>
       <div className={`${styles['card__body']}`}>
         {data?.technologies?.map((tech) => (
-          <a key={tech.name} href={tech.doc_url} target="_blank">
-            <Badge variant="subtle" size="sm" color="secondary">
+          <a key={tech.name} href={tech.doc_url} target='_blank'>
+            <Badge variant='subtle' size='sm' color='secondary'>
               {tech.name}
             </Badge>
           </a>

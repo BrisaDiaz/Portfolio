@@ -22,9 +22,9 @@ async function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
               <li key={link?.url}>
                 <a
                   href={link?.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="link"
+                  target='_blank'
+                  rel='noreferrer'
+                  className='link'
                 >
                   {link?.name}
                 </a>
@@ -37,7 +37,7 @@ async function footer(props: Props, ref?: React.LegacyRef<HTMLElement>) {
           <ul>
             {footer?.highlighted_projects.map((project) => (
               <li key={project?.url}>
-                <NextLink href={project?.url} className="link">
+                <NextLink href={project?.url} className='link'>
                   {project?.name}
                 </NextLink>
               </li>

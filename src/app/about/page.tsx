@@ -24,15 +24,15 @@ const About = async () => {
         <div className={styles['heading__container']}>
           <h1 className={styles['summary__title']}>{'Get to know me'}</h1>
           <ButtonLink
-            target="_blank"
-            data-tooltip="Download CV"
-            rel="noreferrer"
-            aria-label="download cv"
+            target='_blank'
+            data-tooltip='Download CV'
+            rel='noreferrer'
+            aria-label='download cv'
             href={about?.resume}
             className={`tooltip tooltip--left ${styles['download-button']}`}
             download
             isIconButton={true}
-            color="primary"
+            color='primary'
           >
             <Archive />
           </ButtonLink>
@@ -57,7 +57,7 @@ const About = async () => {
           </div>
           <ul className={`list ${styles['achievements__list']}`}>
             {about.achievements.map((achievement: string) => (
-              <li key={achievement} className="list__item">
+              <li key={achievement} className='list__item'>
                 {achievement}
               </li>
             ))}

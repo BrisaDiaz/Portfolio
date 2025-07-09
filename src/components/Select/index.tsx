@@ -85,7 +85,7 @@ const Select = forwardRef(
         )}
         <button
           className={`${styles['select']}  `}
-          role="combobox"
+          role='combobox'
           ref={triggerRef}
           onKeyDown={handleKeyDown}
           aria-controls={dataListId}
@@ -96,8 +96,8 @@ const Select = forwardRef(
           <DropDown />
           <input
             className={styles['select__hidden-input']}
-            aria-invalid="false"
-            aria-hidden="true"
+            aria-invalid='false'
+            aria-hidden='true'
             tabIndex={-1}
             value={selectedValue}
             readOnly={true}
@@ -106,7 +106,7 @@ const Select = forwardRef(
         </button>
         <ListBox
           id={dataListId}
-          role="listbox"
+          role='listbox'
           isVisible={isOpen}
           onClickOutside={closeOptions}
         >

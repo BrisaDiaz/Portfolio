@@ -72,7 +72,7 @@ export default function Projects(props: PageProps) {
         <article>
           <div className={styles['tags__controls']}>
             <Select
-              label="Select type of filter"
+              label='Select type of filter'
               displayedValue={filters[defaultFilter].label}
               defaultValue={defaultFilter}
               onChange={handleFilterChange}
@@ -87,7 +87,7 @@ export default function Projects(props: PageProps) {
               suggestedTags={suggestions}
               onTagsChange={handleSearch}
               defaultTags={defaultTags}
-              label="Select search tags"
+              label='Select search tags'
               ref={tagManagerRef}
             />
           </div>
@@ -96,9 +96,9 @@ export default function Projects(props: PageProps) {
               {tags.map((tag) => (
                 <Badge
                   key={tag}
-                  variant="subtle"
-                  transformText="title"
-                  size="sm"
+                  variant='subtle'
+                  transformText='title'
+                  size='sm'
                   count={tag in resultsByTag ? resultsByTag[tag] : 0}
                   deletable={true}
                   onDelete={() => onDeleteTag(tag)}

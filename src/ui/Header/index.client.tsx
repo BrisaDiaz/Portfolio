@@ -72,8 +72,8 @@ function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
     <header {...other} ref={ref} className={`${styles['header']}`}>
       <div className={styles['header-inner']}>
         <ModeButton
-          className="tooltip tooltip--right"
-          data-tooltip="Switch theme"
+          className='tooltip tooltip--right'
+          data-tooltip='Switch theme'
           onClick={handleToggle}
           mode={currentTheme}
         />
@@ -89,9 +89,9 @@ function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
           <MenuButton
             onClick={toggleMenu}
             isOpen={isMenuOpen}
-            aria-haspopup="menu"
-            aria-label="navigation menu"
-            role="button"
+            aria-haspopup='menu'
+            aria-label='navigation menu'
+            role='button'
             aria-expanded={isMenuOpen}
             className={styles['menu-button']}
             aria-controls={menuID}

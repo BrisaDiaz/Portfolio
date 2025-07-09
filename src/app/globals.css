@@ -2,7 +2,8 @@
   --max-width: 1100px;
   --max-width-blog: 900px;
   --border-radius: 6px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+  --font-mono:
+    ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
   --font-sm: 0.85rem;
@@ -24,14 +25,15 @@
   --text-color-secondary: var(--text-color-primary);
   --contrast-color-secondary: var(--contrast-color-primary);
   --alert-color: #bc3e31;
-  --transition-property-common: background-color, border-color, color, fill,
-    stroke, --opacity, box-shadow, transform;
-  --transition-property-colors: background-color, border-color, color, fill,
-    stroke;
+  --transition-property-common:
+    background-color, border-color, color, fill, stroke, --opacity, box-shadow,
+    transform;
+  --transition-property-colors:
+    background-color, border-color, color, fill, stroke;
   --transition-property-dimensions: width, height;
   --transition-property-position: left, right, top, bottom;
-  --transition-property-background: background-color, background-image,
-    background-position;
+  --transition-property-background:
+    background-color, background-image, background-position;
   --transition-easing-ease-in: cubic-bezier(0.4, 0, 1, 1);
   --transition-easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
   --transition-easing-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
