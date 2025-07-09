@@ -1,23 +1,41 @@
-'use client'
+// ui/Header/index.tsx
+'use client' // Asegúrate de que este componente sea un Client Component
 
 import { forwardRef, useEffect, useState, useId } from 'react'
 import styles from './styles.module.css'
 import ModeButton from '@/components/ModeButton'
 import MenuButton from '@/components/MenuButton'
 import Menu from '@/components/Menu'
-import { useParams, useRouter } from 'next/navigation'
-import Cookies from 'js-cookie'
+import { useParams } from 'next/navigation'
+import Cookies from 'js-cookie' // Sigue siendo útil para setear la cookie
 import { useWindowSize } from '@hooks'
 import { HeaderData } from '@types'
 
 export interface HeaderProps extends React.HTMLAttributes<HTMLElement> {
-  colorMode: 'dark' | 'light'
+  colorMode: 'dark' | 'light' // Esto se convierte más en un valor inicial/default
   data: HeaderData | null
 }
+
 function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
-  const { colorMode = 'dark', data, ...other } = props
+  const { data, ...other } = props
   const params = useParams()
-  const router = useRouter()
+
+  // El estado interno para el tema ahora maneja la UI del Header
+  // y refleja el estado actual del tema.
+  const [currentTheme, setCurrentTheme] = useState<'dark' | 'light'>(() => {
+    // Inicializar el estado desde localStorage o la preferencia del sistema
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme')
+      if (storedTheme === 'light' || storedTheme === 'dark') {
+        return storedTheme
+      }
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
+    }
+    return props.colorMode // Fallback para SSR inicial
+  })
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   const toggleMenu = () => setIsMenuOpen((state) => !state)
   const closeMenu = () => setIsMenuOpen(false)
@@ -34,8 +52,20 @@ function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
     windowSize?.width == undefined ? true : windowSize?.width >= 768
 
   function handleToggle() {
-    Cookies.set('theme', colorMode === 'dark' ? 'light' : 'dark')
-    router.refresh()
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+
+    // 1. Actualiza el atributo data-theme en el <html> inmediatamente
+    document.documentElement.setAttribute('data-theme', newTheme)
+
+    // 2. Guarda la preferencia en localStorage para persistencia rápida
+    localStorage.setItem('theme', newTheme)
+
+    // 3. Opcional: Guarda la preferencia en una cookie para que el SSR la recoja
+    //    Esto es redundante para el *flicker* en sí, pero útil para SEO/SSR.
+    Cookies.set('theme', newTheme)
+
+    // 4. Actualiza el estado local del componente
+    setCurrentTheme(newTheme)
   }
 
   return (
@@ -45,7 +75,7 @@ function Header(props: HeaderProps, ref?: React.LegacyRef<HTMLElement>) {
           className="tooltip tooltip--right"
           data-tooltip="Switch theme"
           onClick={handleToggle}
-          mode={colorMode}
+          mode={currentTheme}
         />
 
         {isMenuOpen ? (

@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from 'next'
 import { memo } from 'react'
 import './normalize.css'
@@ -5,12 +6,14 @@ import './globals.css'
 import Header from '@/ui/Header'
 import Footer from '@/ui/Footer'
 import { Inter } from 'next/font/google'
-import { cookies } from 'next/headers'
+import { cookies } from 'next/headers' // Todavía útil para el SSR inicial
+
 import {
   BASE_META,
   getWebsiteSchema,
   getNavigationSchema,
 } from '@/utils/metadata'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -50,16 +53,61 @@ const Layout = memo(function RootLayout({
 }) {
   const nextCookies = cookies()
 
+  // Esta línea es importante para la primera carga en el servidor.
+  // Asegura que el HTML inicial tenga el data-theme correcto,
+  // antes de que el script del cliente tome el control.
   const colorMode =
     (nextCookies.get('theme')?.value as undefined | 'light' | 'dark') || 'dark'
 
   return (
     <html lang="en" data-theme={colorMode}>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const themeKey = 'theme';
+                const html = document.documentElement;
+
+                function setTheme(theme) {
+                  html.setAttribute('data-theme', theme);
+                }
+
+                try {
+                  const storedTheme = localStorage.getItem(themeKey);
+                  if (storedTheme) {
+                    setTheme(storedTheme);
+                    return;
+                  }
+
+                  const cookieString = document.cookie;
+                  const cookies = cookieString.split('; ').reduce((acc, cookie) => {
+                    const [name, value] = cookie.split('=');
+                    acc[name] = value;
+                    return acc;
+                  }, {});
+
+                  const cookieTheme = cookies[themeKey];
+                  if (cookieTheme) {
+                    setTheme(cookieTheme);
+                    localStorage.setItem(themeKey, cookieTheme);
+                    return;
+                  }
+
+                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  const initialTheme = prefersDark ? 'dark' : 'light';
+                  setTheme(initialTheme);
+                  localStorage.setItem(themeKey, initialTheme);
+                } catch (e) {
+                  console.warn("Failed to set theme based on preferences", e);
+                  html.setAttribute('data-theme', 'dark'); // Default fallback
+                }
+              })();
+            `,
+          }}
+        />
+
+        {/* Tus otros enlaces de iconos y meta tags van después */}
         <link rel="icon" href="/icons/favicon.ico" sizes="any" />
         <link
           rel="apple-touch-icon"
@@ -135,23 +183,21 @@ const Layout = memo(function RootLayout({
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-
-      <>
-        <body className={inter.className} suppressHydrationWarning={true}>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: getWebsiteSchema() }}
-          />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: getNavigationSchema() }}
-          />
-          <Header colorMode={colorMode} />
-          {children}
-          <Footer />
-        </body>
-      </>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: getWebsiteSchema() }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: getNavigationSchema() }}
+        />
+        <Header colorMode={colorMode} />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 })
+
 export default Layout
