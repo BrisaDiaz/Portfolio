@@ -7,7 +7,7 @@ export const BASE_META = {
   role: 'full-stack developer',
   knowledge: 'web development',
   description:
-    'I\'m enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.',
+    "I'm enthusiastic full-stack web developer, specialized in frontend performance, accessibility and SEO.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
   twitterUser: '@Brisa_A_Diaz',
   email: 'brisaabigaildiaz2000@gmail.com',
@@ -120,24 +120,23 @@ export function getTechnologiesSchema(technologies: TechStack[]) {
     itemListElement: techList,
   }
 
- 
   technologies.forEach((group) => {
-    const partial = group.technologies.map(
-      (tech, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          name: group.category,
-          description:
+    const partial = group.technologies.map((tech, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        name: group.category,
+        description:
           group.category === 'language'
-              ? 'programming language'
-              : `${
-                group.category === 'other' ? 'service/development' : group.category
-                } tool`,
-          sameAs: [tech.doc_url],
-        },
-      })
-    )
+            ? 'programming language'
+            : `${
+                group.category === 'other'
+                  ? 'service/development'
+                  : group.category
+              } tool`,
+        sameAs: [tech.doc_url],
+      },
+    }))
     techList = [...techList, ...partial]
   })
   return JSON.stringify(schema)

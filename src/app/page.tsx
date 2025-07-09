@@ -47,7 +47,7 @@ async function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {link?.name} 
+                {link?.name}
               </ButtonLink>
             ))}
           </div>
@@ -55,9 +55,7 @@ async function Home() {
       </section>
 
       <section id="projects">
-        <div
-          className={styles['page__section-title']}
-        >
+        <div className={styles['page__section-title']}>
           <h2>Projects</h2>
         </div>
         <NextLink href="/projects" passHref={true} legacyBehavior>
@@ -78,17 +76,15 @@ async function Home() {
       </section>
 
       <section id="technologies">
-      <div
-          className={styles['page__section-title']}
-        >
+        <div className={styles['page__section-title']}>
           <h2>Tech Stack</h2>
         </div>
         <div className={styles['techs__grid']}>
-          {technologies?.map(cat => <TechCard key={cat.category} data={cat}/>)}
+          {technologies?.map((cat) => (
+            <TechCard key={cat.category} data={cat} />
+          ))}
         </div>
       </section>
-
-     
     </main>
   )
 }

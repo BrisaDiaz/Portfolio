@@ -5,7 +5,7 @@ async function getTechStack(): Promise<TechStack[] | null> {
   try {
     const res = await fetch(BASE_URL)
     const data = await res.json()
-    return data.sort((a:TechStack,b:TechStack) => a.id < b.id)
+    return data.sort((a: TechStack, b: TechStack) => a.id < b.id)
   } catch (error) {
     console.error(error)
     return null

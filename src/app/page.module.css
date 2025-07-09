@@ -68,7 +68,7 @@
   margin: 1.5rem 0;
   flex-wrap: wrap;
 }
-.contact-links a{
+.contact-links a {
   width: 100%;
   justify-content: center;
 }
@@ -97,10 +97,9 @@
   .introduction__subtitle {
     font-size: 0.4em;
   }
-  .contact-links a{
-  width: unset;
- }
-
+  .contact-links a {
+    width: unset;
+  }
 }
 @media (min-width: 768px) {
   .hero-section {
@@ -124,7 +123,7 @@
     max-width: 80%;
     font-size: 1.2rem;
   }
- .contact-links a{
-  font-size: 1.15rem;
- }
+  .contact-links a {
+    font-size: 1.15rem;
+  }
 }
