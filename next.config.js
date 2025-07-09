@@ -12,7 +12,7 @@ const nextConfig = {
       'drive.google.com',
       'res.cloudinary.com',
       'www.w3.org',
-      'i.ibb.com',
+      'i.ibb.co',
     ],
   },
 }
