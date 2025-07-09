@@ -11,6 +11,8 @@ import {
   PinterestClone,
   SmartBuy,
   TecnoRev,
+  RandGen,
+  Mocasa,
   Wikifit,
   Portfolio,
 } from '@/components/Illustrations'
@@ -58,6 +60,8 @@ export default ProjectsContainer
 function ProjectLogo({ name }: { name: string }) {
   if (name == 'pinterest-clone')
     return <PinterestClone fill="var(--primary-color)" />
+  if (name == 'randgen') return <RandGen fill="var(--primary-color)" />
+  if (name == 'mocasa') return <Mocasa fill="var(--primary-color)" />
   if (name == 'smart-buy') return <SmartBuy fill="var(--primary-color)" />
   if (name == 'tecno-rev') return <TecnoRev fill="var(--primary-color)" />
   if (name == 'ORTEX-login') return <Ortex fill="var(--primary-color)" />
